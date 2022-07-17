@@ -61,19 +61,6 @@
   display: initial;
   padding: 1px 4px;
 }
-</style><style>
-#needsharebutton-float {
-  bottom: 88px;
-  cursor: pointer;
-  left: -8px;
-  position: fixed;
-  z-index: 9999;
-}
-#needsharebutton-float .btn {
-  border: 1px solid $btn-default-border-color;
-  border-radius: 4px;
-  padding: 0 10px 0 14px;
-}
 </style>
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
@@ -363,11 +350,7 @@ setInterval("createtime()",250);
 
 
 
-<div id="needsharebutton-float">
-      <span class="btn">
-        <i class="fa fa-share-alt" aria-hidden="true"></i>
-      </span>
-    </div>
+
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
   <script>
       pbOptions = {};
@@ -376,12 +359,6 @@ setInterval("createtime()",250);
         pbOptions.position = "bottomRight";
         pbOptions.networks = "Weibo,Wechat,QQZone,Twitter,Facebook";
       new needShareButton('#needsharebutton-postbottom', pbOptions);
-      flOptions = {};
-        flOptions.iconStyle = "box";
-        flOptions.boxForm = "horizontal";
-        flOptions.position = "middleCenter";
-        flOptions.networks = "Weibo,Wechat,QQZone,Twitter,Facebook";
-      new needShareButton('#needsharebutton-float', flOptions);
   </script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
 <script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Aurora2HL","repo":"Aurora2HL.github.io","client_id":"5d3f9fe2f1f3e55b5775","client_secret":"69dac81763a2c26a7ce05e632c038fa56088a421","admin_user":"Aurora2HL","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"a676607444a8bc8b150c9a3aff884e61"}</script>
