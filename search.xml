@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>基于Hexo和Github搭建博客</title>
+    <url>/post/bf8017ed.html</url>
+    <content><![CDATA[<h1 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h1><p>本科软件工程专业出身的我，自上大学以来就一直想花点时间和精力学习一下搭建博客。无奈的是</p>
+]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>差分隐私综述</title>
     <url>/post/46d864ff.html</url>
     <content><![CDATA[<h3 id="1-差分隐私的两个目标"><a href="#1-差分隐私的两个目标" class="headerlink" title="1.差分隐私的两个目标"></a>1.差分隐私的两个目标</h3><p>（1）隐私保护中, 如何在分享数据时定义隐私</p>
@@ -44,18 +56,6 @@
       </categories>
       <tags>
         <tag>差分隐私</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基于Hexo和Github搭建博客</title>
-    <url>/post/bf8017ed.html</url>
-    <content><![CDATA[<h1 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h1><p>本科软件工程专业出身的我，自上大学以来就一直想花点时间和精力学习一下搭建博客。无奈的是</p>
-]]></content>
-      <categories>
-        <category>搭建博客</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -148,6 +148,7 @@
       </categories>
       <tags>
         <tag>差分隐私</tag>
+        <tag>Base-2指数机制</tag>
       </tags>
   </entry>
 </search>
