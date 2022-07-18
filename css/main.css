@@ -1842,6 +1842,9 @@ header.header {
 .post-body {
   font-family: Noto Serif SC, Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   overflow-wrap: break-word;
+  padding: 25px;
+  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
+  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
 @media (min-width: 1200px) {
   .post-body {
@@ -1940,6 +1943,8 @@ header.header {
 .post-body video,
 .post-body embed {
   margin-bottom: 20px;
+  -webkit-box-shadow: 0 0 50px rgba(202,203,203,0.9);
+  -moz-box-shadow: 0 0 50px rgba(202,203,204,0.9);
 }
 .post-body .video-container {
   height: 0;
@@ -2747,7 +2752,7 @@ mark.search-keyword {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #ff8be9;
+  background: #ff52b5;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
