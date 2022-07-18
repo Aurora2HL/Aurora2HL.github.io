@@ -6,7 +6,7 @@
   <link href="https://aurora2hl.github.io/atom.xml" rel="self"/>
   
   <link href="https://aurora2hl.github.io/"/>
-  <updated>2022-07-17T08:50:15.000Z</updated>
+  <updated>2022-07-18T02:28:39.000Z</updated>
   <id>https://aurora2hl.github.io/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Implementing the Exponential Mechanism with Base-2 Differential Privacy</title>
+    <link href="https://aurora2hl.github.io/post/b63ba420.html"/>
+    <id>https://aurora2hl.github.io/post/b63ba420.html</id>
+    <published>2022-07-18T02:28:39.000Z</published>
+    <updated>2022-07-18T02:28:39.000Z</updated>
+    
+    
+    <summary type="html">&lt;h4 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h4&gt;</summary>
+    
+    
+    
+    <category term="差分隐私" scheme="https://aurora2hl.github.io/categories/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/"/>
+    
+    
+    <category term="差分隐私" scheme="https://aurora2hl.github.io/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于Hexo和Github搭建博客</title>
+    <link href="https://aurora2hl.github.io/post/bf8017ed.html"/>
+    <id>https://aurora2hl.github.io/post/bf8017ed.html</id>
+    <published>2022-07-18T02:19:44.000Z</published>
+    <updated>2022-07-18T02:19:44.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot; title=&quot;1.&quot;&gt;&lt;/a&gt;1.&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="搭建博客" scheme="https://aurora2hl.github.io/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="Hexo" scheme="https://aurora2hl.github.io/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>差分隐私综述</title>

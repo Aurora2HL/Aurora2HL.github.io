@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>基于Hexo和Github搭建博客</title>
+    <url>/post/bf8017ed.html</url>
+    <content><![CDATA[<h1 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h1><p>本科软件工程专业出身的我，自上大学以来就一直想花点时间和精力学习一下搭建博客。无奈的是</p>
+]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>差分隐私综述</title>
     <url>/post/46d864ff.html</url>
     <content><![CDATA[<h3 id="1-差分隐私的两个目标"><a href="#1-差分隐私的两个目标" class="headerlink" title="1.差分隐私的两个目标"></a>1.差分隐私的两个目标</h3><p>（1）隐私保护中, 如何在分享数据时定义隐私</p>
@@ -38,6 +50,98 @@
 <p>​			（b）医疗数据集中, 很多体征数据只是暂时的，而且对于数据的扰动很有可能使数据失去重要的信息, 因此需要有应对这种类型数据的差分隐私模型</p>
 <p>​			（c）隐私是否能在不牺牲机器学习模型可用性的条件下实现</p>
 <p>​			（d）在正则化的机器学习模型中, 差分隐私是否可以与正则化的想法兼容</p>
+]]></content>
+      <categories>
+        <category>差分隐私</category>
+      </categories>
+      <tags>
+        <tag>差分隐私</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Implementing the Exponential Mechanism with Base-2 Differential Privacy</title>
+    <url>/post/b63ba420.html</url>
+    <content><![CDATA[<h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><p>现如今差分隐私有很好的理论支持，但是实现却仍是一个挑战，因为差分隐私的理论机制是任意或无限精度的，而在差分隐私具体的实现过程中采用的却是浮点或者固定精度。显然，差分隐私从理论到实际的这一转换过程肯定会存在一些问题，而这一点可能会成为攻击者实施攻击的一种手段。本文提出的方法将差分隐私定义中的基数e转换成基数2，而因为计算机是二进制的，这样转换之后就可以精确地执行算法，且时空复杂度较低。</p>
+<h4 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h4><p>首先介绍了差分隐私理论（一个理论上十分严格的隐私框架，要求同一查询对邻近数据库的结果不可区分）（邻近数据库：两个数据库之间只相差一个条目）的提出背景；</p>
+<p><code>差分隐私的定义源自</code>：KL散度，最大散度，<em>δ</em>-近似最大散度</p>
+<p>差分隐私可以保证数据库中每个个体的隐私，并且对于与其他隐私机制的后处理也是健壮的；但是构建DP系统或机制可能具有挑战性，像拉普拉斯这类的添加噪声的机制容易受到机制规范和有限精度算法之间的转换问题的影响，而且在有限精度值上添加不精确计算产生的噪声可能会泄露原始值的重要信息。</p>
+<p><code>指数机制</code>：不同于拉普拉斯机制，指数机制从一个固定的公共已知结果集中采样，选择每个结果的概率与一个由隐私数据决定的效用值u成比例。人们最初认为该机制不会受到基于浮点的攻击，然而一种基于不精确的浮点算术攻击可能对该机制造成影响。因此本文提出将e作为基数转换到2为基数，然后阐述了本文的核心概念贡献和主要技术贡献。</p>
+<h5 id="1-1差分隐私初步"><a href="#1-1差分隐私初步" class="headerlink" title="1.1差分隐私初步"></a>1.1差分隐私初步</h5><p>引用前人提出的纯差分隐私，敏感度和拉普拉斯机制，指数机制等相关概念；</p>
+<p>Note: 为了实现拉普拉斯机制，必须以任意精度从拉普拉斯分布中取样，而这在实践中肯定是有问题的，因为浮点数不能表示拉普拉斯分布中的每一个可能的值，而这可以被恶意方通过检查结果的最低位进行攻击，即这种攻击得以进行的原因是浮点计算的不精确导致对邻近数据库的查询结果是不同的，幸运的是，这种在拉普拉斯机制上的攻击可以通过细致的计算得到缓解。</p>
+<h4 id="2-推翻指数机制"><a href="#2-推翻指数机制" class="headerlink" title="2.推翻指数机制"></a>2.推翻指数机制</h4><p>根据浮点数的IEEE表示阐明指数机制的简单实现如何被破坏：一种是不为0的两个很小的数相乘的结果下溢为0；另一种是数量级不同的两个数相加，因为较大的数要占据所有的精度位，所以较小的数被截断。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 指数机制的python朴素实现</span></span><br><span class="line"><span class="comment"># Note: weights计算为什么多除了2; c_weights计算括号位置有问题</span></span><br><span class="line"><span class="comment"># The naive exponential mechanism</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># Inputs :</span></span><br><span class="line"><span class="comment"># eps : the privacy parameter ε</span></span><br><span class="line"><span class="comment"># u : the utility function 效用函数</span></span><br><span class="line"><span class="comment"># O : the set of outputs 输出结果集合</span></span><br><span class="line"><span class="comment"># Returns : an element in O 返回O中的一个元素</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">naive_exp_mech</span> (eps, u, O):</span><br><span class="line">	<span class="comment"># compute the weight of each element 计算每个元素的权重</span></span><br><span class="line">	weights = [np.exp(-(eps/<span class="number">2.0</span>) * u(o)) <span class="keyword">for</span> o <span class="keyword">in</span> O]</span><br><span class="line">    <span class="comment"># 计算总权重</span></span><br><span class="line">    T = <span class="built_in">sum</span>(weights)</span><br><span class="line">    <span class="comment"># cumulative weights 计算累积权重</span></span><br><span class="line">    c_weights = [<span class="built_in">sum</span>(weights [<span class="number">0</span>: i])/ T <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span> (<span class="number">1</span> , <span class="built_in">len</span> (O) +<span class="number">1</span>)]</span><br><span class="line">    <span class="comment"># uniform sample from [0 ,1) 随机取出index</span></span><br><span class="line">    index = np.random.rand() </span><br><span class="line">    <span class="comment"># return element corresponding to the random index 根据随机取出的index返回元素</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span> (<span class="number">0</span>, <span class="built_in">len</span>(O)):</span><br><span class="line">    	<span class="keyword">if</span> c_weights[i] &gt; index :</span><br><span class="line">    		<span class="keyword">return</span> O[i]</span><br></pre></td></tr></table></figure>
+
+<p><code>上述指数机制被破坏的两种场景转化位以下两种攻击方式</code></p>
+<p><code>Zero-rounding</code></p>
+<p>假设攻击者希望知道Alice是否在数据库中。攻击者选择一个结果空间O&#x3D;[O0, O1]，以及一个效用函数：如果Alice在数据库中，那么𝑢(𝑜0) &#x3D; 𝑥 且 𝑢(𝑜1) &#x3D; 𝑥 + 1；如果Alice不在数据库中，那么𝑢(𝑜0) &#x3D; 𝑥 + 1 且 𝑢(𝑜1) &#x3D; 𝑥。（以上场景中u的敏感度是1）。攻击者然后设置𝑥，使得np.exp(−(eps&#x2F;2) ∗ x) &gt; 0 但是np.exp(−(eps&#x2F;2) ∗ (x + 1)) &#x3D; 0。攻击者这样设置之后，如果Alice在数据库中，那么会得到结果O0的权重大于零，而结果O1的权重等于零，那么唯一可行结果就是O0；反之唯一可行结果就是O1。这样攻击者基本上可以确定Alice是否在数据库中。</p>
+<p>Note：攻击者可以这样设置的原因就在于对x+1的权重进行计算时，计算出来的权重可能特别小以至于只能用0进行表示；而对x的权重进行计算时却正常</p>
+<p>有人会说：只要保证所有元素的权值都大于零，那这种攻击就无效了</p>
+<p><code>Truncated addition</code></p>
+<p>攻击者选择两个值𝑥𝑙 和 𝑥𝑠，以及结果空间O&#x3D;[k]，使得XXX成立。攻击者然后选择一个效用函数使得：如果Alice不在数据库中，那么𝑢(𝑜1) &#x3D; 𝑥𝑙 + 1 且 𝑢(𝑜𝑖&gt;1) &#x3D; 𝑥𝑠；如果Alice在数据库中，那么𝑢(𝑜1) &#x3D; 𝑥𝑙 且 𝑢(𝑜𝑖&gt;1) &#x3D; 𝑥𝑠 +1。攻击者这样设置之后，如果Alice在数据库中，因为结果O1的概率非常的大，甚至等于总权重t，所以唯一可行结果就是O1。</p>
+<p>Note：攻击者可以这样设置的原因就在于对𝑥𝑠 +1进行权重计算时，计算出来的权重比起𝑥𝑙计算出来的权重太小以至于可以忽略</p>
+<p>一个解决办法：可以在机制执行的过程中监视每一次加法，但是这样的监视是非平凡的，因为e^x不能在有限位数内精确表达使得加法不能精确执行</p>
+<p><code>缓解攻击方法一：将允许的效用值限制在一个范围内，使得在最小和最大可能权值内可以安全进行加法计算</code></p>
+<p>但是要怎么把效用值限制在一个范围内？不精确的计算对隐私有什么影响？声明一个安全的范围确定的效用函数集的关键问题在于难以描述由于不精确计算带来的隐私损失，而且我们对实现的隐私损失作出的一般保证都是悲观的。</p>
+<p><code>缓解攻击方法二：将分析限制在一组以前审查过的效用函数或工具上</code></p>
+<p>但是即使是具有容易理解的灵敏度特性的简单小工具，例如标量乘法或加法，也可以用来构造上述攻击。</p>
+<h4 id="3-精确实现指数机制"><a href="#3-精确实现指数机制" class="headerlink" title="3.精确实现指数机制"></a>3.精确实现指数机制</h4><p>针对上述问题，提出一个简单、精确的指数机制实现，并列出结果的四个贡献：</p>
+<p>（1）定义base-2 DP，说明base-2和base-e之间的关系，并且证明当正确实现base-2指数机制时可以给出一个精确的隐私保证</p>
+<p>（2）如何选择隐私参数和处理非整数效用函数（随机舍入），关键点在于随机舍入不会因为不精确的实现带来隐私损失，因为可以证明隐私损失原子最坏情况的舍入行为</p>
+<p>（3）不使用除法从归一化概率中进行采样</p>
+<p>（4）实现（python，Rust）</p>
+<h5 id="3-1Base-2差分隐私"><a href="#3-1Base-2差分隐私" class="headerlink" title="3.1Base-2差分隐私"></a>3.1Base-2差分隐私</h5><p>这一动机源自观察，即计算机非常擅长于精确的二进制计算。本文不计算e^x，反之合适地选择一个y并计算2^y，使得从隐私角度能实现相同的结果，同时仍然能够利用精确的浮点运算。</p>
+<p>根据Base-e差分隐私提出Base-2差分隐私（以及Base-2的指数机制），并阐明两者之间的关系：满足𝜂|2-DP的所有机制一定满足ln(2)𝜂−DP</p>
+<h5 id="3-2非整数隐私参数和有效性（22-x2F-04-x2F-19-page5）"><a href="#3-2非整数隐私参数和有效性（22-x2F-04-x2F-19-page5）" class="headerlink" title="3.2非整数隐私参数和有效性（22&#x2F;04&#x2F;19 page5）"></a>3.2非整数隐私参数和有效性（22&#x2F;04&#x2F;19 page5）</h5><p><code>整数效用值情形下隐私参数的选择</code></p>
+<p>第一，描述一个𝜂的大的集合（2^−𝜂可以精确计算）；第二，在这个集合中表达2^−𝜂的精度位数不会太大</p>
+<p>对于一个二进制q和一个整数n，q^n最多需要max(1, bq<em>n)个精度位；因此对于2^(−𝜂) &#x3D; (x</em>2^(-y))^z，最多需要的精度位数为z*(y+bx)，所以对于(2^(−𝜂))^𝑢，最多需要的位数为max(1, u<em>z</em>(y+bx))</p>
+<p>因为当设置z&#x3D;1且选择小的y时，𝜂的范围还是很大，所以实际上主要关注点就是𝑢的数量级，即控制精度的主要考虑时效用值的范围：自然的想法时直接给一个预规定的𝑢的一个可接受范围，并将观测到的效用值都限制到这个范围中（只要这个范围独立于隐私数据库，那么限制这个范围就不会给隐私保证带来影响）</p>
+<p><code>确定最小精度的两种途径</code><br>（1）以给定的精度运行机制，如果执行的算法不精确，则以更高的精度重复该机制</p>
+<p>（2）在运行机制前，对允许的效用值和结果空间大小使用公共指定边界，从而确定最小精度</p>
+<p><code>第二种途径有两种方法</code><br>（1）最坏情况的理论分析：源自引理3.4，该引理得出最坏情况下计算权重组合所需精度的最坏情况下的边界。这一方法的缺点是它忽略了浮点表示中任何可能的抵消或效率</p>
+<p>（2）最坏情况的经验程序：计算每一种假设的最坏情况并报道其所需精度。这种情况下就可以保证有充足的精度位去计算（a）每一个结果的权重；（b）最大可能结果的权重 + 一个有着最高小数精度位的权重。</p>
+<p>因为尾数需要的最大尾数由最大可能权重和与表示任何单个权重所需的最高小数精度所决定</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 算法一：确定最小精度</span></span><br><span class="line"><span class="comment"># 输入：𝑢𝑚𝑖𝑛：最小效用值, 𝑢𝑚𝑎𝑥：最大效用值,𝑜𝑚𝑎𝑥：最大结果个数, 𝜂：隐私参数</span></span><br><span class="line"><span class="comment"># 输出：p：一个足够的精度，它不超过最小精度大小的两倍且可以成功运行base-2的指数机制</span></span><br><span class="line">procedure ComputePrecision(𝑢𝑚𝑖𝑛, 𝑢𝑚𝑎𝑥, 𝑜𝑚𝑎𝑥, 𝜂)</span><br><span class="line">	<span class="comment"># 初始化为1</span></span><br><span class="line">	𝑝 ← <span class="number">1</span></span><br><span class="line">    <span class="comment"># 如果检测精度失败则p加倍，并再次进行检测</span></span><br><span class="line">	<span class="keyword">while</span> CheckPrecision(𝑢𝑚𝑖𝑛, 𝑢𝑚𝑎𝑥, 𝑜𝑚𝑎𝑥, 𝜂, 𝑝) fails do</span><br><span class="line">		𝑝 ← <span class="number">2</span>𝑝</span><br><span class="line">	<span class="keyword">return</span> 𝑝</span><br><span class="line"><span class="comment"># 一旦程序中存在不精确计算就会返回failure</span></span><br><span class="line">function CheckPrecision(𝑢𝑚𝑖𝑛, 𝑢𝑚𝑎𝑥, 𝑜𝑚𝑎𝑥, 𝑏𝑎𝑠𝑒, 𝑝)</span><br><span class="line">	<span class="type">Set</span> the precision to 𝑝</span><br><span class="line">	<span class="keyword">return</span> failure on inexact arithmetic <span class="keyword">for</span>:</span><br><span class="line">	𝑚𝑎𝑥𝑠𝑢𝑚 ←𝑖∈[𝑜𝑚𝑎𝑥] <span class="number">2</span>^(−𝜂𝑢𝑚𝑖𝑛)</span><br><span class="line">	<span class="keyword">for</span> 𝑢∈[𝑢𝑚𝑖𝑛, 𝑢𝑚𝑎𝑥] do</span><br><span class="line">		𝑐𝑜𝑚𝑏𝑖𝑛𝑒𝑑𝑠𝑢𝑚 ← <span class="number">2</span>^(−𝜂𝑢) + ⌈𝑚𝑎𝑥𝑠𝑢𝑚⌉</span><br></pre></td></tr></table></figure>
+
+<p><code>非整数效用值情形下隐私参数的选择</code></p>
+<p>这种情况下采用的解决方法是：采用随即舍入，即向上或向下四舍五入到最接近的整数，其概率与整数的接近程度成正比。</p>
+<p>基本策略：表明随机舍入不会因为不精确的实现而带来隐私损失</p>
+<p>随机舍入指数机制会先分配一个整数代理效用值，然后再用这个值当作效用值进行之后的运算。</p>
+<p>引理：具有任意精度随机舍入功能的指数机制是满足差分隐私的，这一论点来源于考虑最坏的舍入选择集，并认为隐私损失并不比这种情况更糟。</p>
+<p>虽然随机舍入不会因为低精度的实现带来隐私损失，但是这一机制在多大程度上接近于原始的非整数效用方法还不是很明显。</p>
+<p>命题3.6指出随即舍入不会很大程度地改变概率</p>
+<h5 id="3-3不用除法进行归一化采样"><a href="#3-3不用除法进行归一化采样" class="headerlink" title="3.3不用除法进行归一化采样"></a>3.3不用除法进行归一化采样</h5><p>除法的问题在于：即使被除数和除数都可以用很小的二进制位精确表示，但是它们的商却不能被简单地表示。为此，提出了两种不采用除法的归一化方法</p>
+<p><code>第一种方法</code></p>
+<p>该方法源自观察：从[0, 𝑡)中均匀随机取样等同于从归一化分布中随机取样</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 算法二：不使用除法进行权重归一化采样</span></span><br><span class="line"><span class="comment"># 输入：W：一个权重集合</span></span><br><span class="line"><span class="comment"># 输出：i：根据权重选出的采样下标</span></span><br><span class="line">procedure NormalizedSample(𝑊)</span><br><span class="line">	<span class="comment"># 计算总权重</span></span><br><span class="line">	𝑡 ← ∑𝑤∈𝑊 𝑤</span><br><span class="line">	𝑠 ← GetRandomValue(𝑝, 𝑡)</span><br><span class="line">    <span class="comment"># 计算累积权重</span></span><br><span class="line">	<span class="keyword">for</span> 𝑖 ∈ &#123;<span class="number">1</span>,...,|𝑊|&#125; do</span><br><span class="line">		𝑐𝑖 ← ∑𝑖,𝑗=<span class="number">1</span> 𝑤𝑗</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">min</span>&#123;𝑖|𝑐𝑖 &gt; 𝑠&#125;</span><br><span class="line"><span class="comment"># 输入：p:精度位数，t：范围上限</span></span><br><span class="line"><span class="comment"># 输出：一个从[0, 𝑡)中均匀随机采样取出的数</span></span><br><span class="line">function GetRandomValue(𝑝, 𝑡)</span><br><span class="line">	<span class="comment"># argmax：取最大值函数，求出g</span></span><br><span class="line">	𝑔 ← arg <span class="built_in">max</span> 𝑔&#123;<span class="number">2</span>^𝑔 ≤ 𝑡&#125;</span><br><span class="line">    <span class="comment"># 初始化s</span></span><br><span class="line">	Initialize 𝑠 ← ∞</span><br><span class="line">    <span class="comment"># 如果s不在[0, 𝑡)内则继续循环</span></span><br><span class="line">	<span class="keyword">while</span> 𝑠 ≥ 𝑡 do</span><br><span class="line">		<span class="keyword">for</span> 𝑖 ∈ &#123;<span class="number">1</span>,...,𝑝&#125; do</span><br><span class="line">        	<span class="comment"># 简单均匀随机取样</span></span><br><span class="line">			𝑟𝑖 ∼ Unif(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">		𝑠 ←∑𝑝,𝑖=<span class="number">0</span> 𝑟𝑖*<span class="number">2</span>^(𝑔−𝑖)</span><br><span class="line">	<span class="keyword">return</span> 𝑠</span><br></pre></td></tr></table></figure>
+
+<p><code>第二种方法</code></p>
+<p>在范围[0, 𝑡)中通过在每一步丢弃一半的剩余范围执行随机的二分查找，当只剩余一个有效元素时停止。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 算法三：权重归一化采样算法</span></span><br><span class="line"><span class="comment"># 输入：W：一个权重集合</span></span><br><span class="line"><span class="comment"># 输出：i：根据权重选出的采样下标</span></span><br><span class="line">procedure NormalizedSample(𝑊)</span><br><span class="line">	<span class="comment"># 计算总权重</span></span><br><span class="line">	𝑡 ←∑𝑤∈𝑊 𝑤</span><br><span class="line">    <span class="comment"># 计算累积权重</span></span><br><span class="line">	<span class="keyword">for</span> 𝑖 ∈ &#123;<span class="number">1</span>,...,|𝑊|&#125; do</span><br><span class="line">		𝑐𝑖 ←∑𝑖,𝑗=<span class="number">1</span> 𝑤𝑗</span><br><span class="line">	𝑘 ← arg <span class="built_in">min</span>𝑘&#123;<span class="number">2</span>^𝑘 ≥ 𝑡 &#125; ⊲ The smallest power of two ≥ 𝑡.</span><br><span class="line">	<span class="keyword">if</span> <span class="number">2</span>^𝑘 &gt; 𝑡 then</span><br><span class="line">		𝑊 ← 𝑊 ∪ &#123;⊥&#125; ⊲ Add element ⊥ <span class="keyword">with</span> weight <span class="number">2</span>^𝑘 − 𝑡.</span><br><span class="line">		𝑐|𝑊| ← <span class="number">2</span>^𝑘 − 𝑡 ⊲ Total weight <span class="keyword">is</span> now <span class="number">2</span>^𝑘.</span><br><span class="line">	𝑠 ← <span class="number">0</span></span><br><span class="line">	𝑗 ← 𝑘 − <span class="number">1</span></span><br><span class="line">	𝑅 ← [|𝑊|] ⊲ the remaining elements</span><br><span class="line">	<span class="keyword">while</span> |𝑅| &gt; <span class="number">1</span> do</span><br><span class="line">		𝑟𝑗 ∼ Unif(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">		𝑠 ← 𝑠 + 𝑟𝑗*<span class="number">2</span>^𝑗</span><br><span class="line">		<span class="keyword">for</span> 𝑖 ∈ 𝑅 do</span><br><span class="line">			<span class="keyword">if</span> 𝑐𝑖 ≤ 𝑠 then ⊲ 𝑠 cannot be <span class="keyword">in</span> [𝑐𝑖−<span class="number">1</span>, 𝑐𝑖), even <span class="keyword">if</span> <span class="built_in">all</span> draws are <span class="number">0.</span></span><br><span class="line">				𝑅 ← 𝑅\&#123;𝑖&#125;</span><br><span class="line">			<span class="keyword">if</span> 𝑖 &gt; <span class="number">0</span> <span class="keyword">and</span> 𝑐𝑖−<span class="number">1</span> ≥ 𝑠 + <span class="number">2</span>𝑗 then ⊲ 𝑠 cannot be <span class="keyword">in</span>[𝑐𝑖−<span class="number">1</span>, 𝑐𝑖), even <span class="keyword">if</span> maximum value added.</span><br><span class="line">				𝑅 ← 𝑅\&#123;𝑖&#125;</span><br><span class="line">		𝑗 ← 𝑗 − <span class="number">1</span></span><br><span class="line">		<span class="keyword">if</span> |𝑅| = <span class="number">1</span> <span class="keyword">and</span> ⊥ ∈ 𝑅 then ⊲ Restart <span class="keyword">if</span> dummy value.</span><br><span class="line">			𝑠 ← <span class="number">0</span></span><br><span class="line">			𝑗 ← 𝑘 − <span class="number">1</span></span><br><span class="line">			𝑅 ← [|𝑊|]</span><br><span class="line"><span class="keyword">return</span> 𝑙</span><br></pre></td></tr></table></figure>
+
+<p>引理3.7证明算法二和算法三等同于指数机制采样，且程序有很大概率最多使用O(p)的随机位数</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 算法四：用最小的拒绝次数进行GETRANDOMVALUE操作</span></span><br><span class="line"><span class="comment"># 输入：p:精度位数，t：范围上限</span></span><br><span class="line"><span class="comment"># 输出：一个从[0, 𝑡)中均匀随机采样取出的数</span></span><br><span class="line">function GetRandomValue(𝑝, 𝑡)</span><br><span class="line">	𝑔 ← ⌊log2(𝑡)⌋</span><br><span class="line">	Initialize 𝑠 ← ∞, s∗ ← ∞, c ← <span class="number">0</span></span><br><span class="line">	<span class="keyword">while</span> 𝑠 ≥ 𝑡 <span class="keyword">and</span> c &lt; k do ⊲ Reject 𝑠 <span class="keyword">if</span> it falls outside [<span class="number">0</span>, 𝑡) <span class="keyword">or</span> fewer than 𝑘 iterations.</span><br><span class="line">		<span class="keyword">for</span> 𝑖 ∈ &#123;<span class="number">1</span>, . . . , 𝑝&#125; do</span><br><span class="line">			𝑟𝑖 ∼ Unif(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">		𝑠 ← ∑𝑝,𝑖=<span class="number">1</span>𝑟𝑖<span class="number">2</span>^(𝑔−𝑖)</span><br><span class="line">		<span class="keyword">if</span> 𝑠∗ = ∞ <span class="keyword">and</span> 𝑠 &lt; 𝑡 then</span><br><span class="line">			𝑠∗ ← 𝑠 ⊲ update 𝑠∗<span class="keyword">if</span> 𝑠 <span class="keyword">is</span> <span class="keyword">in</span> <span class="built_in">range</span>.</span><br><span class="line">		𝑐 ← 𝑐 + <span class="number">1</span></span><br><span class="line">	<span class="keyword">return</span> 𝑠∗</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-实现"><a href="#4-实现" class="headerlink" title="4.实现"></a>4.实现</h4><p><code>精确计算</code></p>
+<p>采用GNU多重精度算法(GMP)和GNU MPFR库来实现高精度整数和浮点运算，通过python和rust语言访问这些库。这些库也提供了在运行时确定在给定系统上可实现的最大精度，避免由于超过任何系统特定的阈值而引发的错误的产生，且使得代码更容易进行审查。</p>
+<p>MPFR提供了一组有用的标识符来指示操作不精确，结果溢出，下溢等问题</p>
+<p><code>分离数据独立和数据依赖的逻辑</code></p>
+<p><code>确定隐私参数</code></p>
+<p><code>随机性来源</code></p>
+<p><code>逻辑</code></p>
+<p>实现的逻辑基本与朴素的指数机制相同，但是包括了效用函数的随机舍入，效用值夹紧，以及精确计算的额外监测</p>
+<p><code>特定语言细节</code></p>
+<p>python和rust语言实现上的区别</p>
+<h5 id="4-1性能和应用"><a href="#4-1性能和应用" class="headerlink" title="4.1性能和应用"></a>4.1性能和应用</h5><p>所有的测试在拥有2核2GB内存的Linux虚拟机上，总体来说，Rust性能远远高于python，但是，由于基准测试的差异，呈现的实践不具有严格的可比性。</p>
+<p><code>结果空间大小</code></p>
+<p>选择了一个结果集𝑂 &#x3D; [𝑛]，且效用函数𝑢(𝑜) &#x3D; 𝑜。随着n的增大， 效用值范围和结果空间大小都增加。该测试证明：特别是在Rust语言中，即使是在低端配置情况下，当n&#x3D;75k时也能在大约10s内完成。</p>
+<p>Note：base-2指数机制效率没有原始的指数机制效率高</p>
+<p><code>精度确定方法</code></p>
+<p>通过改变结果空间大小来展示经验精度确定的计算开销与精度降低之间的相对权衡导致的性能差异。该测试表明：随着n的增加，PythonEmp的性能远好于PythonTher的性能，即性能的改善效果要由于开销成本的增加；相反，RustEmp的性能却不如RustTher的性能</p>
+<p><code>效用值范围</code></p>
+<p>结果空间集固定为O&#x3D;1000，测试效用值范围增加时会怎样影响性能。设置𝑂 &#x3D; {0} ∪ {𝑖 +𝑛|𝑖 ∈ [𝑘]} 且𝑢(𝑜) &#x3D; 𝑜. 增长曲线是线性的，因为随着n的增加，成本增加的唯一原因是计算过程带来了更多的时间开销。</p>
+<p><code>拉普拉斯</code></p>
+<p>从拉普拉斯机制中采样的标准方法是使用逆变换采样，即在[0,1]中采样出一个均匀值U，然后求解CDF(t)&#x3D;U（CDF代表拉普拉斯分布的累积密度函数：对概率密度函数从−∞ 到t进行积分）。通过标准的ln函数实现该机制存在危险，但是通过[6]中提出的方法可以解决。</p>
+<p>然后，拉普拉斯机制也可以通过将效用函数设置为𝑢(𝑑, 𝑜) &#x3D; |𝑓 (𝑑) −𝑜|进行实现。该测试表明：Python的性能由于PythonNaive，</p>
 ]]></content>
       <categories>
         <category>差分隐私</category>
