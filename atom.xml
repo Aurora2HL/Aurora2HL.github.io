@@ -25,12 +25,7 @@
     
     
     <summary type="html">&lt;h4 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h4&gt;&lt;p&gt;现如今差分隐私有很好的理论支持，但是实现却仍是一个挑战，因为差分隐私的理论机制是任意或无限精度的，而在差分隐私具体的实现过程中采用的却是浮点或者固定精度。显然，差分隐私从理论到实际的这一转换过程肯定会存在一些问题，而这一点可能会成为攻击者实施攻击的一种手段。本文提出的方法将差分隐私定义中的基数e转换成基数2，而因为计算机是二进制的，这样转换之后就可以精确地执行算法，且时空复杂度较低。&lt;/p&gt;
-&lt;h4 id=&quot;1-介绍&quot;&gt;&lt;a href=&quot;#1-介绍&quot; class=&quot;headerlink&quot; title=&quot;1.介绍&quot;&gt;&lt;/a&gt;1.介绍&lt;/h4&gt;&lt;p&gt;首先介绍了差分隐私理论（一个理论上十分严格的隐私框架，要求同一查询对邻近数据库的结果不可区分）（邻近数据库：两个数据库之间只相差一个条目）的提出背景；&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;差分隐私的定义源自&lt;/code&gt;：KL散度，最大散度，&lt;em&gt;δ&lt;/em&gt;-近似最大散度&lt;/p&gt;
-&lt;p&gt;差分隐私可以保证数据库中每个个体的隐私，并且对于与其他隐私机制的后处理也是健壮的；但是构建DP系统或机制可能具有挑战性，像拉普拉斯这类的添加噪声的机制容易受到机制规范和有限精度算法之间的转换问题的影响，而且在有限精度值上添加不精确计算产生的噪声可能会泄露原始值的重要信息。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;指数机制&lt;/code&gt;：不同于拉普拉斯机制，指数机制从一个固定的公共已知结果集中采样，选择每个结果的概率与一个由隐私数据决定的效用值u成比例。人们最初认为该机制不会受到基于浮点的攻击，然而一种基于不精确的浮点算术攻击可能对该机制造成影响。因此本文提出将e作为基数转换到2为基数，然后阐述了本文的核心概念贡献和主要技术贡献。&lt;/p&gt;
-&lt;h5 id=&quot;1-1差分隐私初步&quot;&gt;&lt;a href=&quot;#1-1差分隐私初步&quot; class=&quot;headerlink&quot; title=&quot;1.1差分隐私初步&quot;&gt;&lt;/a&gt;1.1差分隐私初步&lt;/h5&gt;&lt;p&gt;引用前人提出的纯差分隐私，敏感度和拉普拉斯机制，指数机制等相关概念；&lt;/p&gt;
-&lt;p&gt;Note: 为了实现拉普拉斯机制，必须以任意精度从拉普拉斯分布中取样，而这在实践中肯定是有问题的，因为浮点数不能表示拉普拉斯分布中的每一个可能的值，而这可以被恶意方通过检查结果的最低位进行攻击，即这种攻击得以进行的原因是浮点计算的不精确导致对邻近数据库的查询结果是不同的，幸运的是，这种在拉普拉斯机制上的攻击可以通过细致的计算得到缓解。&lt;/p&gt;</summary>
+&lt;h4 id=&quot;1-介绍&quot;&gt;&lt;a href=&quot;#1-介绍&quot; class=&quot;headerlink&quot; title=&quot;1.介绍&quot;&gt;&lt;/a&gt;1.介绍&lt;/h4&gt;</summary>
     
     
     
@@ -51,8 +46,13 @@
     <updated>2022-07-18T02:19:44.000Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot; title=&quot;1.&quot;&gt;&lt;/a&gt;1.&lt;/h1&gt;&lt;p&gt;本科软件工程专业出身的我，自上大学以来就一直想花点时间和精力学习一下搭建博客。无奈的是&lt;/p&gt;
-</summary>
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot;</summary>
+        
+      
     
     
     
@@ -72,11 +72,7 @@
     
     
     <summary type="html">&lt;h3 id=&quot;1-差分隐私的两个目标&quot;&gt;&lt;a href=&quot;#1-差分隐私的两个目标&quot; class=&quot;headerlink&quot; title=&quot;1.差分隐私的两个目标&quot;&gt;&lt;/a&gt;1.差分隐私的两个目标&lt;/h3&gt;&lt;p&gt;（1）隐私保护中, 如何在分享数据时定义隐私&lt;/p&gt;
-&lt;p&gt;（2）如何在保证可用性的数据发布时, 提供隐私保护的问题&lt;/p&gt;
-&lt;h3 id=&quot;2-差分隐私背景：&quot;&gt;&lt;a href=&quot;#2-差分隐私背景：&quot; class=&quot;headerlink&quot; title=&quot;2.差分隐私背景：&quot;&gt;&lt;/a&gt;2.差分隐私背景：&lt;/h3&gt;&lt;p&gt;差分隐私对于隐私的定义不依赖于攻击者的背景知识&lt;/p&gt;
-&lt;h3 id=&quot;3-隐私信息的全生命周期模型（9个部分）&quot;&gt;&lt;a href=&quot;#3-隐私信息的全生命周期模型（9个部分）&quot; class=&quot;headerlink&quot; title=&quot;3.隐私信息的全生命周期模型（9个部分）&quot;&gt;&lt;/a&gt;3.隐私信息的全生命周期模型（9个部分）&lt;/h3&gt;&lt;p&gt;隐私信息产生, 隐私感知, 隐私保护, 隐私发布, 隐私信息存储, 隐私交换, 隐私分析, 隐私销毁, 隐私接收者&lt;/p&gt;
-&lt;h3 id=&quot;4-隐私保护的方式（主要有三种）&quot;&gt;&lt;a href=&quot;#4-隐私保护的方式（主要有三种）&quot; class=&quot;headerlink&quot; title=&quot;4.隐私保护的方式（主要有三种）&quot;&gt;&lt;/a&gt;4.隐私保护的方式（主要有三种）&lt;/h3&gt;&lt;p&gt;数据失真、加密、访问控制&lt;/p&gt;
-&lt;h3 id=&quot;5-准标识符&quot;&gt;&lt;a href=&quot;#5-准标识符&quot; class=&quot;headerlink&quot; title=&quot;5.准标识符&quot;&gt;&lt;/a&gt;5.准标识符&lt;/h3&gt;</summary>
+&lt;p&gt;（2）如何在保证可用性的数据发布时, 提供隐私保护的问题&lt;/p&gt;</summary>
     
     
     
