@@ -24,8 +24,7 @@
     <updated>2022-07-18T02:28:39.000Z</updated>
     
     
-    <summary type="html">&lt;h4 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h4&gt;&lt;p&gt;现如今差分隐私有很好的理论支持，但是实现却仍是一个挑战，因为差分隐私的理论机制是任意或无限精度的，而在差分隐私具体的实现过程中采用的却是浮点或者固定精度。显然，差分隐私从理论到实际的这一转换过程肯定会存在一些问题，而这一点可能会成为攻击者实施攻击的一种手段。本文提出的方法将差分隐私定义中的基数e转换成基数2，而因为计算机是二进制的，这样转换之后就可以精确地执行算法，且时空复杂度较低。&lt;/p&gt;
-&lt;h4 id=&quot;1-介绍&quot;&gt;&lt;a href=&quot;#1-介绍&quot; class=&quot;headerlink&quot; title=&quot;1.介绍&quot;&gt;&lt;/a&gt;1.介绍&lt;/h4&gt;</summary>
+    <summary type="html">&lt;h4 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h4&gt;&lt;p&gt;现如今差分隐私有很好的理论支持，但是实现却仍是一个挑战，因为差分隐私的理论机制是任意或无限精度的，而在差分隐私具体的实现过程中采用的却是浮点或者固定精度。显然，差分隐私从理论到实际的这一转换过程肯定会存在一些问题，而这一点可能会成为攻击者实施攻击的一种手段。本文提出的方法将差分隐私定义中的基数e转换成基数2，而因为计算机是二进制的，这样转换之后就可以精确地执行算法，且时空复杂度较低。&lt;/p&gt;</summary>
     
     
     

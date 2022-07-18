@@ -23,12 +23,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"aurora2hl.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="摘要现如今差分隐私有很好的理论支持，但是实现却仍是一个挑战，因为差分隐私的理论机制是任意或无限精度的，而在差分隐私具体的实现过程中采用的却是浮点或者固定精度。显然，差分隐私从理论到实际的这一转换过程肯定会存在一些问题，而这一点可能会成为攻击者实施攻击的一种手段。本文提出的方法将差分隐私定义中的基数e转换成基数2，而因为计算机是二进制的，这样转换之后就可以精确地执行算法，且时空复杂度较低。 1.介绍">
+    <meta name="description" content="摘要现如今差分隐私有很好的理论支持，但是实现却仍是一个挑战，因为差分隐私的理论机制是任意或无限精度的，而在差分隐私具体的实现过程中采用的却是浮点或者固定精度。显然，差分隐私从理论到实际的这一转换过程肯定会存在一些问题，而这一点可能会成为攻击者实施攻击的一种手段。本文提出的方法将差分隐私定义中的基数e转换成基数2，而因为计算机是二进制的，这样转换之后就可以精确地执行算法，且时空复杂度较低。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Implementing the Exponential Mechanism with Base-2 Differential Privacy">
 <meta property="og:url" content="https://aurora2hl.github.io/post/b63ba420.html">
 <meta property="og:site_name" content="Aurora2HL">
-<meta property="og:description" content="摘要现如今差分隐私有很好的理论支持，但是实现却仍是一个挑战，因为差分隐私的理论机制是任意或无限精度的，而在差分隐私具体的实现过程中采用的却是浮点或者固定精度。显然，差分隐私从理论到实际的这一转换过程肯定会存在一些问题，而这一点可能会成为攻击者实施攻击的一种手段。本文提出的方法将差分隐私定义中的基数e转换成基数2，而因为计算机是二进制的，这样转换之后就可以精确地执行算法，且时空复杂度较低。 1.介绍">
+<meta property="og:description" content="摘要现如今差分隐私有很好的理论支持，但是实现却仍是一个挑战，因为差分隐私的理论机制是任意或无限精度的，而在差分隐私具体的实现过程中采用的却是浮点或者固定精度。显然，差分隐私从理论到实际的这一转换过程肯定会存在一些问题，而这一点可能会成为攻击者实施攻击的一种手段。本文提出的方法将差分隐私定义中的基数e转换成基数2，而因为计算机是二进制的，这样转换之后就可以精确地执行算法，且时空复杂度较低。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-18T02:28:39.000Z">
 <meta property="article:modified_time" content="2022-07-18T02:28:39.000Z">
@@ -51,7 +51,7 @@
 
 
 
-<script src="/lib/fireworks.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
 #needsharebutton-postbottom {
   cursor: pointer;
   height: 26px;
@@ -64,7 +64,7 @@
   display: initial;
   padding: 1px 4px;
 }
-</style>
+</style><script src="/lib/fireworks.js"></script>
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -323,6 +323,8 @@
     
     <div class="post-body" itemprop="articleBody">
         <h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><p>现如今差分隐私有很好的理论支持，但是实现却仍是一个挑战，因为差分隐私的理论机制是任意或无限精度的，而在差分隐私具体的实现过程中采用的却是浮点或者固定精度。显然，差分隐私从理论到实际的这一转换过程肯定会存在一些问题，而这一点可能会成为攻击者实施攻击的一种手段。本文提出的方法将差分隐私定义中的基数e转换成基数2，而因为计算机是二进制的，这样转换之后就可以精确地执行算法，且时空复杂度较低。</p>
+<span id="more"></span>
+
 <h4 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h4><p>首先介绍了差分隐私理论（一个理论上十分严格的隐私框架，要求同一查询对邻近数据库的结果不可区分）（邻近数据库：两个数据库之间只相差一个条目）的提出背景；</p>
 <p><code>差分隐私的定义源自</code>：KL散度，最大散度，<em>δ</em>-近似最大散度</p>
 <p>差分隐私可以保证数据库中每个个体的隐私，并且对于与其他隐私机制的后处理也是健壮的；但是构建DP系统或机制可能具有挑战性，像拉普拉斯这类的添加噪声的机制容易受到机制规范和有限精度算法之间的转换问题的影响，而且在有限精度值上添加不精确计算产生的噪声可能会泄露原始值的重要信息。</p>
