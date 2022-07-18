@@ -24,11 +24,12 @@
     <updated>2022-07-18T02:28:39.000Z</updated>
     
     
-    <summary type="html">&lt;h4 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h4&gt;</summary>
+    <summary type="html">&lt;h4 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h4&gt;&lt;p&gt;现如今差分隐私有很好的理论支持，但是实现却仍是一个挑战，因为差分隐私的理论机制是任意或无限精度的，而在差分隐私具体的实现过程中采用的却是浮点或者固定精度。显然，差分隐私从理论到实际的这一转换过程肯定会存在一些问题，而这一点可能会成为攻击者实施攻击的一种手段。本文提出的方法将差分隐私定义中的基数e转换成基数2，而因为计算机是二进制的，这样转换之后就可以精确地执行算法，且时空复杂度较低。&lt;/p&gt;
+&lt;h4 id=&quot;1-介绍&quot;&gt;&lt;a href=&quot;#1-介绍&quot; class=&quot;headerlink&quot; title=&quot;1.介绍&quot;&gt;&lt;/a&gt;1.介绍&lt;/h4&gt;&lt;p&gt;首先介绍了差分隐私理论（一个理论上十分严格的隐私框架，要求同一查询对邻近数据库的结果不可区分）（邻近数据库：两个数据库之间只相差一个条目）的提出背景；&lt;/p&gt;</summary>
     
     
     
-    <category term="差分隐私" scheme="https://aurora2hl.github.io/categories/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/"/>
+    <category term="差分隐私（英文文献）" scheme="https://aurora2hl.github.io/categories/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%EF%BC%88%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%EF%BC%89/"/>
     
     
     <category term="差分隐私" scheme="https://aurora2hl.github.io/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/"/>
@@ -43,7 +44,13 @@
     <updated>2022-07-18T02:19:44.000Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot; title=&quot;1.&quot;&gt;&lt;/a&gt;1.&lt;/h1&gt;</summary>
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot;</summary>
+        
+      
     
     
     
@@ -62,11 +69,13 @@
     <updated>2022-07-17T08:50:15.000Z</updated>
     
     
-    <summary type="html">&lt;h3 id=&quot;1-差分隐私的两个目标&quot;&gt;&lt;a href=&quot;#1-差分隐私的两个目标&quot; class=&quot;headerlink&quot; title=&quot;1.差分隐私的两个目标&quot;&gt;&lt;/a&gt;1.差分隐私的两个目标&lt;/h3&gt;</summary>
+    <summary type="html">&lt;h3 id=&quot;1-差分隐私的两个目标&quot;&gt;&lt;a href=&quot;#1-差分隐私的两个目标&quot; class=&quot;headerlink&quot; title=&quot;1.差分隐私的两个目标&quot;&gt;&lt;/a&gt;1.差分隐私的两个目标&lt;/h3&gt;&lt;p&gt;（1）隐私保护中, 如何在分享数据时定义隐私&lt;/p&gt;
+&lt;p&gt;（2）如何在保证可用性的数据发布时, 提供隐私保护的问题&lt;/p&gt;
+&lt;h3 id=&quot;2-差分隐私背景：&quot;&gt;&lt;a href=&quot;#2-差分隐私背景：&quot; class=&quot;headerlink&quot; title=&quot;2.差分隐私背景：&quot;&gt;&lt;/a&gt;2.差分隐私背景：&lt;/h3&gt;</summary>
     
     
     
-    <category term="差分隐私" scheme="https://aurora2hl.github.io/categories/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/"/>
+    <category term="差分隐私（中文综述）" scheme="https://aurora2hl.github.io/categories/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%EF%BC%88%E4%B8%AD%E6%96%87%E7%BB%BC%E8%BF%B0%EF%BC%89/"/>
     
     
     <category term="差分隐私" scheme="https://aurora2hl.github.io/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/"/>
