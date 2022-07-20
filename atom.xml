@@ -45,8 +45,7 @@
     <updated>2022-07-18T02:19:44.000Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class=&quot;headerlink&quot; title=&quot;1.&quot;&gt;&lt;/a&gt;1.&lt;/h1&gt;&lt;p&gt;本科软件工程专业出身的我，自上大学以来就一直想花点时间和精力学习一下搭建博客。无奈的是&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;本人的博客采用&lt;code&gt;Hexo+Github&lt;/code&gt;的方式完成，采用这两者相结合的方式的原因在于：一方面，虽然&lt;code&gt;Hexo&lt;/code&gt;是一个静态博客框架，但是本人觉得个人博客只在于记录一些学习过程中的心得和学习笔记，所以静态博客框架完全可以满足这种需求；另一方面，&lt;code&gt;Github&lt;/code&gt;提供了&lt;code&gt;Github Pages&lt;/code&gt;这种免费的静态站点托管服务，这对于我这种学生党来说无疑是一种福音。&lt;/p&gt;</summary>
     
     
     
