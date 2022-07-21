@@ -23,31 +23,37 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"aurora2hl.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="1.差分隐私的两个目标（1）隐私保护中, 如何在分享数据时定义隐私 （2）如何在保证可用性的数据发布时, 提供隐私保护的问题">
+    <meta name="description" content="1.众包模式一个公司或机构把过去由员工执行的工作任务，以自由自愿的形式外包给非特定的，而且通常是大型的大众网络的模式 2.隐私保护的目标在数据收集阶段引入隐私保护机制来降低并控制隐私泄露的风险，平衡隐私保护与数据可用性之间的关系，解决和完善针对不牺牲用户个人隐私的大数据分析问题和机制">
 <meta property="og:type" content="article">
-<meta property="og:title" content="差分隐私综述">
-<meta property="og:url" content="https://aurora2hl.github.io/post/46d864ff.html">
+<meta property="og:title" content="本地差分隐私保护综述">
+<meta property="og:url" content="https://aurora2hl.github.io/post/b16e3800.html">
 <meta property="og:site_name" content="Aurora2HL">
-<meta property="og:description" content="1.差分隐私的两个目标（1）隐私保护中, 如何在分享数据时定义隐私 （2）如何在保证可用性的数据发布时, 提供隐私保护的问题">
+<meta property="og:description" content="1.众包模式一个公司或机构把过去由员工执行的工作任务，以自由自愿的形式外包给非特定的，而且通常是大型的大众网络的模式 2.隐私保护的目标在数据收集阶段引入隐私保护机制来降低并控制隐私泄露的风险，平衡隐私保护与数据可用性之间的关系，解决和完善针对不牺牲用户个人隐私的大数据分析问题和机制">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://aurora2hl.github.io/post/46d864ff/1.png">
-<meta property="og:image" content="https://aurora2hl.github.io/post/46d864ff/2.png">
-<meta property="article:published_time" content="2022-07-17T09:24:35.000Z">
-<meta property="article:modified_time" content="2022-07-17T08:50:15.000Z">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/1.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/2.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/4.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/5.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/6.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/7.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/8.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/9.png">
+<meta property="article:published_time" content="2022-07-21T08:07:55.000Z">
+<meta property="article:modified_time" content="2022-07-21T10:19:40.767Z">
 <meta property="article:author" content="HL">
 <meta property="article:tag" content="差分隐私">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://aurora2hl.github.io/post/46d864ff/1.png">
+<meta name="twitter:image" content="https://aurora2hl.github.io/post/undefined/1.png">
 
 
-<link rel="canonical" href="https://aurora2hl.github.io/post/46d864ff.html">
+<link rel="canonical" href="https://aurora2hl.github.io/post/b16e3800.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://aurora2hl.github.io/post/46d864ff.html","path":"post/46d864ff.html","title":"差分隐私综述"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://aurora2hl.github.io/post/b16e3800.html","path":"post/b16e3800.html","title":"本地差分隐私保护综述"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>差分隐私综述 | Aurora2HL</title>
+<title>本地差分隐私保护综述 | Aurora2HL</title>
   
 
 
@@ -164,7 +170,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%9B%AE%E6%A0%87"><span class="nav-text">1.差分隐私的两个目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E8%83%8C%E6%99%AF%EF%BC%9A"><span class="nav-text">2.差分隐私背景：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%9A%90%E7%A7%81%E4%BF%A1%E6%81%AF%E7%9A%84%E5%85%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B%EF%BC%889%E4%B8%AA%E9%83%A8%E5%88%86%EF%BC%89"><span class="nav-text">3.隐私信息的全生命周期模型（9个部分）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%88%E4%B8%BB%E8%A6%81%E6%9C%89%E4%B8%89%E7%A7%8D%EF%BC%89"><span class="nav-text">4.隐私保护的方式（主要有三种）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%87%86%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="nav-text">5.准标识符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E5%87%86%E6%A0%87%E8%AF%86%E7%AC%A6%E5%81%87%E8%AE%BE"><span class="nav-text">6.准标识符假设</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-K%E5%8C%BF%E5%90%8D%E7%AE%97%E6%B3%95"><span class="nav-text">7.K匿名算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-%E7%AD%89%E4%BB%B7%E7%B1%BB"><span class="nav-text">8.等价类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-l-diversity%EF%BC%88l-%E5%A4%9A%E6%A0%B7%E6%80%A7%EF%BC%89"><span class="nav-text">9.l-diversity（l-多样性）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-%E5%8F%AF%E5%8C%BA%E5%88%86%E8%89%AF%E8%A1%A8%E7%A4%BA"><span class="nav-text">10.可区分良表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-%E9%A1%BA%E5%BA%8F%E5%90%88%E6%88%90%E6%80%A7%E8%B4%A8%E3%80%81%E5%B9%B3%E8%A1%8C%E5%90%88%E6%88%90%E6%80%A7%E8%B4%A8"><span class="nav-text">11.顺序合成性质、平行合成性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-%E6%8E%A7%E5%88%B6%E9%9A%90%E7%A7%81%E9%A2%84%E7%AE%97%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="nav-text">12.控制隐私预算的目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-%E5%8F%98%E6%8D%A2%E4%B8%8D%E5%8F%98%E6%80%A7"><span class="nav-text">13.变换不变性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-%E4%B8%AD%E5%87%B8%E6%80%A7"><span class="nav-text">14.中凸性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-%E6%9B%BC%E5%93%88%E9%A1%BF%E8%B7%9D%E7%A6%BB"><span class="nav-text">15.曼哈顿距离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-%E5%85%A8%E5%B1%80%E6%95%8F%E6%84%9F%E5%BA%A6%EF%BC%88%E4%B8%8E%E6%95%B0%E6%8D%AE%E9%9B%86%E6%97%A0%E5%85%B3%EF%BC%8C%E5%8F%AA%E7%94%B1%E6%9F%A5%E8%AF%A2%E5%87%BD%E6%95%B0%E6%9C%AC%E8%BA%AB%E5%86%B3%E5%AE%9A%EF%BC%89"><span class="nav-text">16.全局敏感度（与数据集无关，只由查询函数本身决定）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-%E5%B1%80%E9%83%A8%E6%95%8F%E6%84%9F%E5%BA%A6%EF%BC%88%E7%94%B1%E6%9F%A5%E8%AF%A2%E5%87%BD%E6%95%B0%E5%92%8C%E7%BB%99%E5%AE%9A%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86%E5%85%B1%E5%90%8C%E5%86%B3%E5%AE%9A%EF%BC%89"><span class="nav-text">17.局部敏感度（由查询函数和给定的数据集共同决定）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-%E5%B9%B3%E6%BB%91%E4%B8%8A%E7%95%8C%E3%80%81%E5%B9%B3%E6%BB%91%E6%95%8F%E6%84%9F%E5%BA%A6%EF%BC%88%E4%B8%BA%E4%BA%86%E5%BC%A5%E8%A1%A5%E5%B1%80%E9%83%A8%E6%95%8F%E6%84%9F%E5%BA%A6%E7%9A%84%E7%BC%BA%E9%99%B7%E8%80%8C%E6%8F%90%E5%87%BA%EF%BC%89"><span class="nav-text">18.平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E6%9C%BA%E5%88%B6"><span class="nav-text">19.拉普拉斯机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-%E6%8C%87%E6%95%B0%E6%9C%BA%E5%88%B6"><span class="nav-text">20.指数机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-SSE%E3%80%81MSE%E3%80%81RMSE"><span class="nav-text">21.SSE、MSE、RMSE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-%E9%9A%90%E7%A7%81%E9%A2%84%E7%AE%97%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">22.隐私预算表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23-%E7%A0%94%E7%A9%B6%E7%8E%B0%E7%8A%B6"><span class="nav-text">23.研究现状</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%BC%97%E5%8C%85%E6%A8%A1%E5%BC%8F"><span class="nav-text">1.众包模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4%E7%9A%84%E7%9B%AE%E6%A0%87"><span class="nav-text">2.隐私保护的目标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E4%BC%A0%E7%BB%9F%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4%E7%AE%97%E6%B3%95%E7%9A%84%E7%BC%BA%E9%99%B7"><span class="nav-text">3.传统隐私保护算法的缺陷</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%9C%AC%E5%9C%B0%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4%EF%BC%88LDP%EF%BC%89%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="nav-text">4.本地差分隐私保护（LDP）的优势</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-LDP%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">5.LDP应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%B8%83%E9%B2%81%E5%A7%86%E8%BF%87%E6%BB%A4%E5%99%A8%EF%BC%88Bloom-Filter%EF%BC%89"><span class="nav-text">6.布鲁姆过滤器（Bloom Filter）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E5%88%86%E7%B1%BB"><span class="nav-text">7.差分隐私分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-%E4%B8%AD%E4%BD%8D%E6%95%B0%E6%9C%BA%E5%88%B6%EF%BC%88%E7%9B%AE%E5%89%8D%E6%B2%A1%E5%BC%84%E6%87%82%EF%BC%89"><span class="nav-text">8.中位数机制（目前没弄懂）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-%E6%9C%AC%E5%9C%B0%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4%E4%B8%BB%E8%A6%81%E6%80%9D%E6%83%B3"><span class="nav-text">9.本地差分隐私保护主要思想</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-DP%E4%B8%8ELDP%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">10.DP与LDP的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-%E6%9C%AC%E5%9C%B0%E6%A8%A1%E5%9E%8B%E4%B8%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B"><span class="nav-text">11.本地模型下的数据分析流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-%E9%9A%8F%E6%9C%BA%E5%93%8D%E5%BA%94RR%EF%BC%88Randomized-Response%EF%BC%89"><span class="nav-text">12.随机响应RR（Randomized Response）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-%E9%9A%8F%E6%9C%BA%E5%93%8D%E5%BA%94RR%E4%B8%BE%E4%BE%8B"><span class="nav-text">13.随机响应RR举例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-LDP%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91"><span class="nav-text">14.LDP研究方向</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1RAPPOR%E7%AE%97%E6%B3%95%EF%BC%88Google-Chrome%EF%BC%89"><span class="nav-text">1RAPPOR算法（Google Chrome）</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -247,7 +253,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://aurora2hl.github.io/post/46d864ff.html">
+    <link itemprop="mainEntityOfPage" href="https://aurora2hl.github.io/post/b16e3800.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -260,12 +266,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="差分隐私综述 | Aurora2HL">
+      <meta itemprop="name" content="本地差分隐私保护综述 | Aurora2HL">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          差分隐私综述
+          本地差分隐私保护综述
         </h1>
 
         <div class="post-meta-container">
@@ -277,7 +283,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-07-17 17:24:35 / 修改时间：16:50:15" itemprop="dateCreated datePublished" datetime="2022-07-17T17:24:35+08:00">2022-07-17</time>
+      <time title="创建时间：2022-07-21 16:07:55 / 修改时间：18:19:40" itemprop="dateCreated datePublished" datetime="2022-07-21T16:07:55+08:00">2022-07-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -303,14 +309,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.6k</span>
+      <span>2.8k</span>
     </span>
     <span class="post-meta-item" title="预计阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">预计阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -321,43 +327,78 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="1-差分隐私的两个目标"><a href="#1-差分隐私的两个目标" class="headerlink" title="1.差分隐私的两个目标"></a>1.差分隐私的两个目标</h3><p>（1）隐私保护中, 如何在分享数据时定义隐私</p>
-<p>（2）如何在保证可用性的数据发布时, 提供隐私保护的问题</p>
+        <h1 id="1-众包模式"><a href="#1-众包模式" class="headerlink" title="1.众包模式"></a>1.众包模式</h1><p>一个公司或机构把过去由员工执行的工作任务，以自由自愿的形式外包给非特定的，而且通常是大型的大众网络的模式</p>
+<h1 id="2-隐私保护的目标"><a href="#2-隐私保护的目标" class="headerlink" title="2.隐私保护的目标"></a>2.隐私保护的目标</h1><p>在数据收集阶段引入隐私保护机制来降低并控制隐私泄露的风险，平衡隐私保护与数据可用性之间的关系，解决和完善针对不牺牲用户个人隐私的大数据分析问题和机制</p>
 <span id="more"></span>
 
-<h3 id="2-差分隐私背景："><a href="#2-差分隐私背景：" class="headerlink" title="2.差分隐私背景："></a>2.差分隐私背景：</h3><p>差分隐私对于隐私的定义不依赖于攻击者的背景知识</p>
-<h3 id="3-隐私信息的全生命周期模型（9个部分）"><a href="#3-隐私信息的全生命周期模型（9个部分）" class="headerlink" title="3.隐私信息的全生命周期模型（9个部分）"></a>3.隐私信息的全生命周期模型（9个部分）</h3><p>隐私信息产生, 隐私感知, 隐私保护, 隐私发布, 隐私信息存储, 隐私交换, 隐私分析, 隐私销毁, 隐私接收者</p>
-<h3 id="4-隐私保护的方式（主要有三种）"><a href="#4-隐私保护的方式（主要有三种）" class="headerlink" title="4.隐私保护的方式（主要有三种）"></a>4.隐私保护的方式（主要有三种）</h3><p>数据失真、加密、访问控制</p>
-<h3 id="5-准标识符"><a href="#5-准标识符" class="headerlink" title="5.准标识符"></a>5.准标识符</h3><p>可以和外部表链接来识别个体的最小属性集</p>
-<h3 id="6-准标识符假设"><a href="#6-准标识符假设" class="headerlink" title="6.准标识符假设"></a>6.准标识符假设</h3><p>数据持有者可以识别出其所持有数据表中可能出现在外部数据中的属性，因此其可以准确的识别出准标识符集合（实际上这个假设不可能成立）</p>
-<h3 id="7-K匿名算法"><a href="#7-K匿名算法" class="headerlink" title="7.K匿名算法"></a>7.K匿名算法</h3><p>通过概括和隐匿技术，发布精度较低的技术，使得每条记录至少与数据表中其他k-1条记录具有完全相同的准标识符属性值，从而减少链接攻击所导致的隐私泄露。</p>
-<p>缺点：无法抵抗同质攻击，背景知识攻击和补充数据攻击等</p>
-<h3 id="8-等价类"><a href="#8-等价类" class="headerlink" title="8.等价类"></a>8.等价类</h3><p>拥有相同准标识符的所有记录</p>
-<h3 id="9-l-diversity（l-多样性）"><a href="#9-l-diversity（l-多样性）" class="headerlink" title="9.l-diversity（l-多样性）"></a>9.l-diversity（l-多样性）</h3><p>一个等价类里的敏感属性至少有l个良表示的取值</p>
-<p>缺点：因为在一个真实的数据集中, 属性值很有可能是偏斜的或者语义相近的, 而 l-多样性只保证了多样性，没有认识到在属性值上语义相近的情况</p>
-<h3 id="10-可区分良表示"><a href="#10-可区分良表示" class="headerlink" title="10.可区分良表示"></a>10.可区分良表示</h3><p>同一等价类中的敏感属性至少有l个可区分的取值</p>
-<h3 id="11-顺序合成性质、平行合成性质"><a href="#11-顺序合成性质、平行合成性质" class="headerlink" title="11.顺序合成性质、平行合成性质"></a>11.顺序合成性质、平行合成性质</h3><p>一个算法序列同时作用在一个数据集上时；多个算法序列分别作用在一个数据集上多个不同子集上时</p>
-<h3 id="12-控制隐私预算的目的"><a href="#12-控制隐私预算的目的" class="headerlink" title="12.控制隐私预算的目的"></a>12.控制隐私预算的目的</h3><p>如果在一个较低隐私预算参数的情况下, 攻击者对一个数据集进行了多次查询, 那么根据顺序合成性质, 攻击者实际上获得的隐私预算就相当于获得了多次查询的隐私预算的和, 而这就破坏了原本设定的隐私预算，所以需要控制隐私预算的上限。</p>
-<h3 id="13-变换不变性"><a href="#13-变换不变性" class="headerlink" title="13.变换不变性"></a>13.变换不变性</h3><p>满足差分隐私的算法经过后处理之后仍然满足差分隐私</p>
-<h3 id="14-中凸性"><a href="#14-中凸性" class="headerlink" title="14.中凸性"></a>14.中凸性</h3><p>如果有2个不同的差分隐私算法, 都提供了足够的不确定性来保护隐私, 那么可以通过选择任意的算法来应用到数据上实现对数据的隐私保护, 只要选择的算法和数据是独立的</p>
-<h3 id="15-曼哈顿距离"><a href="#15-曼哈顿距离" class="headerlink" title="15.曼哈顿距离"></a>15.曼哈顿距离</h3><p>两个点在标准坐标系上的绝对轴距综合。这里的曼哈顿距离就相当于对称差值，其度量了修改一个元组时查询结果的最大变化</p>
-<h3 id="16-全局敏感度（与数据集无关，只由查询函数本身决定）"><a href="#16-全局敏感度（与数据集无关，只由查询函数本身决定）" class="headerlink" title="16.全局敏感度（与数据集无关，只由查询函数本身决定）"></a>16.全局敏感度（与数据集无关，只由查询函数本身决定）</h3><p>控制噪声的重要参数。定义为查询函数f作用于任意两个相邻数据集得到的查询结果的曼哈顿距离</p>
-<h3 id="17-局部敏感度（由查询函数和给定的数据集共同决定）"><a href="#17-局部敏感度（由查询函数和给定的数据集共同决定）" class="headerlink" title="17.局部敏感度（由查询函数和给定的数据集共同决定）"></a>17.局部敏感度（由查询函数和给定的数据集共同决定）</h3><p>定义为查询函数f作用于给定两个相邻数据集得到的查询结果的曼哈顿距离</p>
-<p>缺陷：局部敏感度不满足差分隐私的要求，因为噪声大小本身可能会揭示数据库信息</p>
-<h3 id="18-平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）"><a href="#18-平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）" class="headerlink" title="18.平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）"></a>18.平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）</h3><h3 id="19-拉普拉斯机制"><a href="#19-拉普拉斯机制" class="headerlink" title="19.拉普拉斯机制"></a>19.拉普拉斯机制</h3><p>在查询结果上加入一个满足拉普拉斯分布的噪声来实现差分隐私保护，所加入的拉普拉斯噪声的均值要求为 0，这样输出的才是无偏估计</p>
-<h3 id="20-指数机制"><a href="#20-指数机制" class="headerlink" title="20.指数机制"></a>20.指数机制</h3><p>对于任意一个可用性函数q和一个差分隐私预算 , 随机算法 M 以正比于的概率输出一个o作为结果</p>
-<img src="/post/46d864ff/1.png" class title="指数机制">
+<h1 id="3-传统隐私保护算法的缺陷"><a href="#3-传统隐私保护算法的缺陷" class="headerlink" title="3.传统隐私保护算法的缺陷"></a>3.传统隐私保护算法的缺陷</h1><p>（1）集中存储模型下，非可信数据管理者使用户无法直接控制个人隐私数据（<code>DP</code>也存在这一问题）</p>
+<p>（2）由于背景知识无法明确界定，基于等价类的隐私保护模型被迫随着新攻击技术的出现而不断被动调整（3）无法提供严格且有效的数学理论来证明其隐私保护水平，无法定量分析隐私泄露风险</p>
+<p>（4）值得重视的是，即使被严格处理的数据也可能泄露用户隐私</p>
+<h1 id="4-本地差分隐私保护（LDP）的优势"><a href="#4-本地差分隐私保护（LDP）的优势" class="headerlink" title="4.本地差分隐私保护（LDP）的优势"></a>4.本地差分隐私保护（LDP）的优势</h1><p>本地差分隐私保护可以在不需要信任第三方数据管理者的情况下，直接在本地将隐私数据加噪来保护个人信息不被泄露，同时从宏观角度保证数据收集者可正确地推断出群体统计信息</p>
+<h1 id="5-LDP应用场景"><a href="#5-LDP应用场景" class="headerlink" title="5.LDP应用场景"></a>5.LDP应用场景</h1><p>（1）集值型流式频繁项集挖掘的Heavy Hitters估计</p>
+<p>（2）众包模式下字符串边缘频率估计和联合概率估计</p>
+<p>（3）针对智能设备的机器学习</p>
+<h1 id="6-布鲁姆过滤器（Bloom-Filter）"><a href="#6-布鲁姆过滤器（Bloom-Filter）" class="headerlink" title="6.布鲁姆过滤器（Bloom Filter）"></a>6.布鲁姆过滤器（Bloom Filter）</h1><p>（1）定义：由一个超长的二进制位数组和一系列的哈希函数组成。二进制位数组初始值全部为0，当给定一个待查询的元素时，这个元素会被一系列哈希函数计算映射出一系列的值，所有的值在位数组的偏移量处置为1</p>
+<img src="/post/undefined/1.png" class title="布鲁姆过滤器">
 
-<h3 id="21-SSE、MSE、RMSE"><a href="#21-SSE、MSE、RMSE" class="headerlink" title="21.SSE、MSE、RMSE"></a>21.SSE、MSE、RMSE</h3><p>和方差、均方误差、均方根误差</p>
-<h3 id="22-隐私预算表达式"><a href="#22-隐私预算表达式" class="headerlink" title="22.隐私预算表达式"></a>22.隐私预算表达式</h3><img src="/post/46d864ff/2.png" class title="隐私预算">
+<p>（2）判断元素是否在集合中的方法：元素经过一系列哈希函数计算后得到所有的偏移位置，若这些位置全都为1，则判断这个元素在这个集合中，若有一个不为1，则判断这个元素不在这个集合中</p>
+<p>（3）优点：节省空间，采用位数组，2的32次方&#x3D;4294967296 可以看到42亿长度的位数组占用4294967296&#x2F;8&#x2F;1024&#x2F;1024&#x3D;512MB 只需占用512MB的内存空间</p>
+<p>（4）缺点：有一定的误判，有可能把不在这个集合中的误判为在这个集合中，因为另一个元素经过哈希后各个位置也可能为1</p>
+<h1 id="7-差分隐私分类"><a href="#7-差分隐私分类" class="headerlink" title="7.差分隐私分类"></a>7.差分隐私分类</h1><p>根据其应用场景及针对数据处理和收集方式的不同，主要存在两种数据分布模型：</p>
+<p>（1）集中式模型（分为交互式和非交互式框架），又称为可信管理者模型（<code>Trusted Curator</code>）：服务器端直接存储未处理的原始用户隐私数据，并经过隐私处理等方式后统一对外发布</p>
+<p>（2）本地模型（<code>Local Model</code>）：服务器端只能收到用户加噪的数据；用户在向数据收集者发送个人数据前，先在本地加入满足差分隐私的噪声扰动，最后数据收集者根据收集到的噪声数据，从统计学的角度近似估计出用户群体的统计特性，而不是针对具体用户个体进行统计特性推断</p>
+<h1 id="8-中位数机制（目前没弄懂）"><a href="#8-中位数机制（目前没弄懂）" class="headerlink" title="8.中位数机制（目前没弄懂）"></a>8.中位数机制（目前没弄懂）</h1><h1 id="9-本地差分隐私保护主要思想"><a href="#9-本地差分隐私保护主要思想" class="headerlink" title="9.本地差分隐私保护主要思想"></a>9.本地差分隐私保护主要思想</h1><p>（1）不能收集或拥有任何个人的精确信息</p>
+<p>（2）可以推断出用户群体的泛化统计信息</p>
+<h1 id="10-DP与LDP的区别"><a href="#10-DP与LDP的区别" class="headerlink" title="10.DP与LDP的区别"></a>10.DP与LDP的区别</h1><p>两者最重要的区别在于加入噪声扰动的时机不同</p>
+<img src="/post/undefined/2.png" class title="DP与LDP区别">
 
-<h3 id="23-研究现状"><a href="#23-研究现状" class="headerlink" title="23.研究现状"></a>23.研究现状</h3><p>（1）差分隐私虽然现在已经被用于数据挖掘，推荐系统等领域，但是差分隐私对于挖掘数据保护后，还能对数据分析者提供多少可用信息目前还没有一个合理通用的度量方法</p>
-<p>（2）差分隐私与机器学习的结合将是未来的一个研究热点</p>
-<p>（3）在差分隐私和机器学习中，主要有以下问题需要解决</p>
-<p>​			（a）因为传统机器学习方法不能满足差分隐私的需求，需要解决样本数据集中缺失数据的问题</p>
-<p>​			（b）医疗数据集中, 很多体征数据只是暂时的，而且对于数据的扰动很有可能使数据失去重要的信息, 因此需要有应对这种类型数据的差分隐私模型</p>
-<p>​			（c）隐私是否能在不牺牲机器学习模型可用性的条件下实现</p>
-<p>​			（d）在正则化的机器学习模型中, 差分隐私是否可以与正则化的想法兼容</p>
+<h1 id="11-本地模型下的数据分析流程"><a href="#11-本地模型下的数据分析流程" class="headerlink" title="11.本地模型下的数据分析流程"></a>11.本地模型下的数据分析流程</h1><p>每个本地用户用随机器Q扰乱个人数据v得到Z，数据收集者将其汇总得到S，最后进行数据分析；</p>
+<p>拉普拉斯机制经常被用于本地模型中，常用于对数值型结果的隐私保护</p>
+
+
+<h1 id="12-随机响应RR（Randomized-Response）"><a href="#12-随机响应RR（Randomized-Response）" class="headerlink" title="12.随机响应RR（Randomized Response）"></a>12.随机响应RR（Randomized Response）</h1><p>（1）应用：保护敏感话题调查参与者隐私，目前主流的本地差分隐私保护都是基于RR</p>
+<p>（2）具体应用场景：每个人不是属于组A就是组B，问题是在不能确定具体个人属于哪组的前提下，估计组A中人数的比例</p>
+<p>（3）RR的解决方案：随机选取n个人，随机设备 (可以是抛硬币、摸球模型)以概率P指向A，以概率(1 一p)指向B。在每轮调查中，受访者只需回答设备指向(调查者未知)的组别是否与其真正的组别一致(Yes或No)，这样便可以得到组A人数的最大似然估计</p>
+<p>（4）随机响应的效果：实现了ε-LDP，其中ε&#x3D;ln(p&#x2F;(1-p))</p>
+<p>（5）存在问题：现有的基于RR技术的LDP机制在数据挖掘中具有一定的局限性，只适用于用户数据类型为数值型或范围型， 而数据收集者的数据挖掘任务局限于基本统计，如计数或求中位值等</p>
+<p>（6）RR技术及其改进模型在收集群体层面的统计数据而不泄露个体数据方面具有优越性能，目前已成为新的研究热点</p>
+<h1 id="13-随机响应RR举例"><a href="#13-随机响应RR举例" class="headerlink" title="13.随机响应RR举例"></a>13.随机响应RR举例</h1><p>（1）问题：假设有<code>n</code>个用户，其中艾滋病患者的比例为<code>π</code>，我们希望对<code>π</code>进行统计。于是对目标用户发起问卷调查：“你是否为艾滋病患者？”显然，如果直接获得用户的相应数据进行统计，一旦数据泄露，那么用户隐私随即泄露。因此，我们假设存在一枚非均匀的硬币，其正面向上的概率为<code>p</code>，反面向上的概率为<code>1-p</code>。抛出该硬币，若正面向上，则回答真实答案，反面向上，则回答相反的答案。</p>
+<p>（2）推导过程：</p>
+<ol>
+<li><p>（step 1）</p>
+<p>理论上，<code>Pr[Xi=“是”]=πp+(1-π)(1-p)</code>，<code>Pr[Xi=“否”]=(1-π)p+π(1-p)</code>。直觉上，当<code>n</code>足够大时，设回答“是”的人数为<code>n1</code>，回答“否”的人数为<code>n2</code>。<code>Pr[Xi=“是”]=n1/n</code>，<code>Pr[Xi=“否”]=n2/n</code>。求解下面的二次方程即可获得<code>π</code>的值</p>
+<img src="/post/undefined/4.png" class title="二次方程">
+
+<p>但是，<code>上述的结果并非真实比例的无偏估计</code>，我们用极大似然估计(<code>Max Likehood Estimation</code>)对统计结果进行校正</p>
+</li>
+<li><p>（step 2）</p>
+<p>首先构建最大似然函数：</p>
+<img src="/post/undefined/5.png" class title="最大似然函数">
+
+<p>对数似然函数为：</p>
+<img src="/post/undefined/6.png" class title="对数似然函数">
+
+<p>令</p>
+<img src="/post/undefined/7.png" class title="求解对数似然函数">
+
+<p>求解可得<code>π</code>的极大似然估计：</p>
+<img src="/post/undefined/8.png" class title="最大似然估计">
+
+<p>由此可得患有<code>HIV</code>的总人数为：</p>
+<img src="/post/undefined/9.png" class title="求总人数"></li>
+</ol>
+<h1 id="14-LDP研究方向"><a href="#14-LDP研究方向" class="headerlink" title="14.LDP研究方向"></a>14.LDP研究方向</h1><p>（1）基于随机应答与<code>Bloom Filter</code>的编解码方式研究（<code>RAPPOR</code>）</p>
+<p>（2）针对流式频繁项集挖掘<code>Heavy Hitters</code>挖掘</p>
+<p>（3）针对智能终端的收集与机器学习</p>
+<h1 id="1RAPPOR算法（Google-Chrome）"><a href="#1RAPPOR算法（Google-Chrome）" class="headerlink" title="1RAPPOR算法（Google Chrome）"></a>1RAPPOR算法（Google Chrome）</h1><p><code>RAPPOR</code>应答被定义为比特位字符串，每一 位都是对应用户端特性报告的逻辑谓词随机应答， 用来收集用户群体的数值和序数值的统计，可以提供<code>ln(3)</code>的差分隐私保护（因为是基于随机响应技术，根据<code>13.随机响应RR</code>可求得隐私预算）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：用户数据X，参数k(串长度)，h(Hash个数)，概率参数f、p、q</span><br><span class="line">输出：数据报告s</span><br><span class="line">算法流程：</span><br><span class="line">(1)信号处理。用BloomFilter中的h个哈希函数将X编码成长度为k的01串B。 </span><br><span class="line">(2)永久随机响应(PRR)。利用随机应答技术对B进行扰动得到永久随机响应B&#x27;。 </span><br><span class="line">(3)即时随机响应(IRR)。利用随机应答技术对B&#x27;进行二次扰动得到即时随机响应s。 </span><br><span class="line">(4)报文。把收集的报告s发送到服务器</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>RAPPOR在解码过程中结合成熟的假设检验、最小二乘求解和LASSO回归实现针对字符串抽样群体频率的高可用解码框架</p>
+</blockquote>
+<p>存在问题：</p>
+<p>（1）使用RAPPOR的数据收集者只能孤立地了解单一变量的分布。实际上，研究多个变量之间的关联更有意义</p>
+<p>（2）数据收集者必须事先知道潜在字符串字典、安装软件的报告、名称、hash值，然而这些是不可能作为先验知识的</p>
 
     </div>
 
@@ -417,7 +458,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://aurora2hl.github.io/post/46d864ff.html" title="差分隐私综述">https://aurora2hl.github.io/post/46d864ff.html</a>
+      <a href="https://aurora2hl.github.io/post/b16e3800.html" title="本地差分隐私保护综述">https://aurora2hl.github.io/post/b16e3800.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处，侵权必究！
@@ -450,11 +491,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/post/b63ba420.html" rel="prev" title="Implementing the Exponential Mechanism with Base-2 Differential Privacy">
+                  <i class="fa fa-chevron-left"></i> Implementing the Exponential Mechanism with Base-2 Differential Privacy
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/post/bf8017ed.html" rel="next" title="基于Hexo和Github搭建博客">
-                  基于Hexo和Github搭建博客 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -568,7 +609,7 @@ setInterval("createtime()",250);
       new needShareButton('#needsharebutton-postbottom', pbOptions);
   </script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Aurora2HL","repo":"Aurora2HL.github.io","client_id":"5d3f9fe2f1f3e55b5775","client_secret":"69dac81763a2c26a7ce05e632c038fa56088a421","admin_user":"Aurora2HL","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"759fdebe4e75993a004826c1b167c46a"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Aurora2HL","repo":"Aurora2HL.github.io","client_id":"5d3f9fe2f1f3e55b5775","client_secret":"69dac81763a2c26a7ce05e632c038fa56088a421","admin_user":"Aurora2HL","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"6629aa00efb87604f8da52a250c48ba9"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>

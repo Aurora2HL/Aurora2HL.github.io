@@ -6,7 +6,7 @@
   <link href="https://aurora2hl.github.io/atom.xml" rel="self"/>
   
   <link href="https://aurora2hl.github.io/"/>
-  <updated>2022-07-18T02:28:39.000Z</updated>
+  <updated>2022-07-21T10:19:40.767Z</updated>
   <id>https://aurora2hl.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>本地差分隐私保护综述</title>
+    <link href="https://aurora2hl.github.io/post/b16e3800.html"/>
+    <id>https://aurora2hl.github.io/post/b16e3800.html</id>
+    <published>2022-07-21T08:07:55.000Z</published>
+    <updated>2022-07-21T10:19:40.767Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;1-众包模式&quot;&gt;&lt;a href=&quot;#1-众包模式&quot; class=&quot;headerlink&quot; title=&quot;1.众包模式&quot;&gt;&lt;/a&gt;1.众包模式&lt;/h1&gt;&lt;p&gt;一个公司或机构把过去由员工执行的工作任务，以自由自愿的形式外包给非特定的，而且通常是大型的大众网络的模式&lt;/p&gt;
+&lt;h1 id=&quot;2-隐私保护的目标&quot;&gt;&lt;a href=&quot;#2-隐私保护的目标&quot; class=&quot;headerlink&quot; title=&quot;2.隐私保护的目标&quot;&gt;&lt;/a&gt;2.隐私保护的目标&lt;/h1&gt;&lt;p&gt;在数据收集阶段引入隐私保护机制来降低并控制隐私泄露的风险，平衡隐私保护与数据可用性之间的关系，解决和完善针对不牺牲用户个人隐私的大数据分析问题和机制&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="差分隐私（中文综述）" scheme="https://aurora2hl.github.io/categories/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%EF%BC%88%E4%B8%AD%E6%96%87%E7%BB%BC%E8%BF%B0%EF%BC%89/"/>
+    
+    
+    <category term="差分隐私" scheme="https://aurora2hl.github.io/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/"/>
+    
+  </entry>
   
   <entry>
     <title>Implementing the Exponential Mechanism with Base-2 Differential Privacy</title>
