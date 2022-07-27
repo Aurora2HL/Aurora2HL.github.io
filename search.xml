@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>差分隐私综述</title>
+    <url>/post/46d864ff.html</url>
+    <content><![CDATA[<h3 id="1-差分隐私的两个目标"><a href="#1-差分隐私的两个目标" class="headerlink" title="1.差分隐私的两个目标"></a>1.差分隐私的两个目标</h3><p>（1）隐私保护中, 如何在分享数据时定义隐私</p>
+<p>（2）如何在保证可用性的数据发布时, 提供隐私保护的问题</p>
+<span id="more"></span>
+
+<h3 id="2-差分隐私背景："><a href="#2-差分隐私背景：" class="headerlink" title="2.差分隐私背景："></a>2.差分隐私背景：</h3><p>差分隐私对于隐私的定义不依赖于攻击者的背景知识</p>
+<h3 id="3-隐私信息的全生命周期模型（9个部分）"><a href="#3-隐私信息的全生命周期模型（9个部分）" class="headerlink" title="3.隐私信息的全生命周期模型（9个部分）"></a>3.隐私信息的全生命周期模型（9个部分）</h3><p>隐私信息产生, 隐私感知, 隐私保护, 隐私发布, 隐私信息存储, 隐私交换, 隐私分析, 隐私销毁, 隐私接收者</p>
+<h3 id="4-隐私保护的方式（主要有三种）"><a href="#4-隐私保护的方式（主要有三种）" class="headerlink" title="4.隐私保护的方式（主要有三种）"></a>4.隐私保护的方式（主要有三种）</h3><p>数据失真、加密、访问控制</p>
+<h3 id="5-准标识符"><a href="#5-准标识符" class="headerlink" title="5.准标识符"></a>5.准标识符</h3><p>可以和外部表链接来识别个体的最小属性集</p>
+<h3 id="6-准标识符假设"><a href="#6-准标识符假设" class="headerlink" title="6.准标识符假设"></a>6.准标识符假设</h3><p>数据持有者可以识别出其所持有数据表中可能出现在外部数据中的属性，因此其可以准确的识别出准标识符集合（实际上这个假设不可能成立）</p>
+<h3 id="7-K匿名算法"><a href="#7-K匿名算法" class="headerlink" title="7.K匿名算法"></a>7.K匿名算法</h3><p>通过概括和隐匿技术，发布精度较低的技术，使得每条记录至少与数据表中其他k-1条记录具有完全相同的准标识符属性值，从而减少链接攻击所导致的隐私泄露。</p>
+<p>缺点：无法抵抗同质攻击，背景知识攻击和补充数据攻击等</p>
+<h3 id="8-等价类"><a href="#8-等价类" class="headerlink" title="8.等价类"></a>8.等价类</h3><p>拥有相同准标识符的所有记录</p>
+<h3 id="9-l-diversity（l-多样性）"><a href="#9-l-diversity（l-多样性）" class="headerlink" title="9.l-diversity（l-多样性）"></a>9.l-diversity（l-多样性）</h3><p>一个等价类里的敏感属性至少有l个良表示的取值</p>
+<p>缺点：因为在一个真实的数据集中, 属性值很有可能是偏斜的或者语义相近的, 而 l-多样性只保证了多样性，没有认识到在属性值上语义相近的情况</p>
+<h3 id="10-可区分良表示"><a href="#10-可区分良表示" class="headerlink" title="10.可区分良表示"></a>10.可区分良表示</h3><p>同一等价类中的敏感属性至少有l个可区分的取值</p>
+<h3 id="11-顺序合成性质、平行合成性质"><a href="#11-顺序合成性质、平行合成性质" class="headerlink" title="11.顺序合成性质、平行合成性质"></a>11.顺序合成性质、平行合成性质</h3><p>一个算法序列同时作用在一个数据集上时；多个算法序列分别作用在一个数据集上多个不同子集上时</p>
+<h3 id="12-控制隐私预算的目的"><a href="#12-控制隐私预算的目的" class="headerlink" title="12.控制隐私预算的目的"></a>12.控制隐私预算的目的</h3><p>如果在一个较低隐私预算参数的情况下, 攻击者对一个数据集进行了多次查询, 那么根据顺序合成性质, 攻击者实际上获得的隐私预算就相当于获得了多次查询的隐私预算的和, 而这就破坏了原本设定的隐私预算，所以需要控制隐私预算的上限。</p>
+<h3 id="13-变换不变性"><a href="#13-变换不变性" class="headerlink" title="13.变换不变性"></a>13.变换不变性</h3><p>满足差分隐私的算法经过后处理之后仍然满足差分隐私</p>
+<h3 id="14-中凸性"><a href="#14-中凸性" class="headerlink" title="14.中凸性"></a>14.中凸性</h3><p>如果有2个不同的差分隐私算法, 都提供了足够的不确定性来保护隐私, 那么可以通过选择任意的算法来应用到数据上实现对数据的隐私保护, 只要选择的算法和数据是独立的</p>
+<h3 id="15-曼哈顿距离"><a href="#15-曼哈顿距离" class="headerlink" title="15.曼哈顿距离"></a>15.曼哈顿距离</h3><p>两个点在标准坐标系上的绝对轴距综合。这里的曼哈顿距离就相当于对称差值，其度量了修改一个元组时查询结果的最大变化</p>
+<h3 id="16-全局敏感度（与数据集无关，只由查询函数本身决定）"><a href="#16-全局敏感度（与数据集无关，只由查询函数本身决定）" class="headerlink" title="16.全局敏感度（与数据集无关，只由查询函数本身决定）"></a>16.全局敏感度（与数据集无关，只由查询函数本身决定）</h3><p>控制噪声的重要参数。定义为查询函数f作用于任意两个相邻数据集得到的查询结果的曼哈顿距离</p>
+<h3 id="17-局部敏感度（由查询函数和给定的数据集共同决定）"><a href="#17-局部敏感度（由查询函数和给定的数据集共同决定）" class="headerlink" title="17.局部敏感度（由查询函数和给定的数据集共同决定）"></a>17.局部敏感度（由查询函数和给定的数据集共同决定）</h3><p>定义为查询函数f作用于给定两个相邻数据集得到的查询结果的曼哈顿距离</p>
+<p>缺陷：局部敏感度不满足差分隐私的要求，因为噪声大小本身可能会揭示数据库信息</p>
+<h3 id="18-平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）"><a href="#18-平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）" class="headerlink" title="18.平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）"></a>18.平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）</h3><h3 id="19-拉普拉斯机制"><a href="#19-拉普拉斯机制" class="headerlink" title="19.拉普拉斯机制"></a>19.拉普拉斯机制</h3><p>在查询结果上加入一个满足拉普拉斯分布的噪声来实现差分隐私保护，所加入的拉普拉斯噪声的均值要求为 0，这样输出的才是无偏估计</p>
+<h3 id="20-指数机制"><a href="#20-指数机制" class="headerlink" title="20.指数机制"></a>20.指数机制</h3><p>对于任意一个可用性函数q和一个差分隐私预算 , 随机算法 M 以正比于的概率输出一个o作为结果</p>
+<img src="/post/46d864ff/1.png" class title="指数机制">
+
+<h3 id="21-SSE、MSE、RMSE"><a href="#21-SSE、MSE、RMSE" class="headerlink" title="21.SSE、MSE、RMSE"></a>21.SSE、MSE、RMSE</h3><p>和方差、均方误差、均方根误差</p>
+<h3 id="22-隐私预算表达式"><a href="#22-隐私预算表达式" class="headerlink" title="22.隐私预算表达式"></a>22.隐私预算表达式</h3><img src="/post/46d864ff/2.png" class title="隐私预算">
+
+<h3 id="23-研究现状"><a href="#23-研究现状" class="headerlink" title="23.研究现状"></a>23.研究现状</h3><p>（1）差分隐私虽然现在已经被用于数据挖掘，推荐系统等领域，但是差分隐私对于挖掘数据保护后，还能对数据分析者提供多少可用信息目前还没有一个合理通用的度量方法</p>
+<p>（2）差分隐私与机器学习的结合将是未来的一个研究热点</p>
+<p>（3）在差分隐私和机器学习中，主要有以下问题需要解决</p>
+<p>​			（a）因为传统机器学习方法不能满足差分隐私的需求，需要解决样本数据集中缺失数据的问题</p>
+<p>​			（b）医疗数据集中, 很多体征数据只是暂时的，而且对于数据的扰动很有可能使数据失去重要的信息, 因此需要有应对这种类型数据的差分隐私模型</p>
+<p>​			（c）隐私是否能在不牺牲机器学习模型可用性的条件下实现</p>
+<p>​			（d）在正则化的机器学习模型中, 差分隐私是否可以与正则化的想法兼容</p>
+]]></content>
+      <categories>
+        <category>差分隐私（中文综述）</category>
+      </categories>
+      <tags>
+        <tag>差分隐私</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>基于Hexo和Github搭建博客</title>
     <url>/post/bf8017ed.html</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本人的博客采用<code>Hexo+Github</code>的方式完成，采用这两者相结合的方式的原因在于：一方面，虽然<code>Hexo</code>是一个静态博客框架，但是本人觉得个人博客只在于记录一些学习过程中的心得和学习笔记，所以静态博客框架完全可以满足这种需求；另一方面，<code>Github</code>提供了<code>Github Pages</code>这种免费的静态站点托管服务，这对于我这种学生党来说无疑是一种福音。</p>
@@ -87,54 +135,6 @@
       </tags>
   </entry>
   <entry>
-    <title>差分隐私综述</title>
-    <url>/post/46d864ff.html</url>
-    <content><![CDATA[<h3 id="1-差分隐私的两个目标"><a href="#1-差分隐私的两个目标" class="headerlink" title="1.差分隐私的两个目标"></a>1.差分隐私的两个目标</h3><p>（1）隐私保护中, 如何在分享数据时定义隐私</p>
-<p>（2）如何在保证可用性的数据发布时, 提供隐私保护的问题</p>
-<span id="more"></span>
-
-<h3 id="2-差分隐私背景："><a href="#2-差分隐私背景：" class="headerlink" title="2.差分隐私背景："></a>2.差分隐私背景：</h3><p>差分隐私对于隐私的定义不依赖于攻击者的背景知识</p>
-<h3 id="3-隐私信息的全生命周期模型（9个部分）"><a href="#3-隐私信息的全生命周期模型（9个部分）" class="headerlink" title="3.隐私信息的全生命周期模型（9个部分）"></a>3.隐私信息的全生命周期模型（9个部分）</h3><p>隐私信息产生, 隐私感知, 隐私保护, 隐私发布, 隐私信息存储, 隐私交换, 隐私分析, 隐私销毁, 隐私接收者</p>
-<h3 id="4-隐私保护的方式（主要有三种）"><a href="#4-隐私保护的方式（主要有三种）" class="headerlink" title="4.隐私保护的方式（主要有三种）"></a>4.隐私保护的方式（主要有三种）</h3><p>数据失真、加密、访问控制</p>
-<h3 id="5-准标识符"><a href="#5-准标识符" class="headerlink" title="5.准标识符"></a>5.准标识符</h3><p>可以和外部表链接来识别个体的最小属性集</p>
-<h3 id="6-准标识符假设"><a href="#6-准标识符假设" class="headerlink" title="6.准标识符假设"></a>6.准标识符假设</h3><p>数据持有者可以识别出其所持有数据表中可能出现在外部数据中的属性，因此其可以准确的识别出准标识符集合（实际上这个假设不可能成立）</p>
-<h3 id="7-K匿名算法"><a href="#7-K匿名算法" class="headerlink" title="7.K匿名算法"></a>7.K匿名算法</h3><p>通过概括和隐匿技术，发布精度较低的技术，使得每条记录至少与数据表中其他k-1条记录具有完全相同的准标识符属性值，从而减少链接攻击所导致的隐私泄露。</p>
-<p>缺点：无法抵抗同质攻击，背景知识攻击和补充数据攻击等</p>
-<h3 id="8-等价类"><a href="#8-等价类" class="headerlink" title="8.等价类"></a>8.等价类</h3><p>拥有相同准标识符的所有记录</p>
-<h3 id="9-l-diversity（l-多样性）"><a href="#9-l-diversity（l-多样性）" class="headerlink" title="9.l-diversity（l-多样性）"></a>9.l-diversity（l-多样性）</h3><p>一个等价类里的敏感属性至少有l个良表示的取值</p>
-<p>缺点：因为在一个真实的数据集中, 属性值很有可能是偏斜的或者语义相近的, 而 l-多样性只保证了多样性，没有认识到在属性值上语义相近的情况</p>
-<h3 id="10-可区分良表示"><a href="#10-可区分良表示" class="headerlink" title="10.可区分良表示"></a>10.可区分良表示</h3><p>同一等价类中的敏感属性至少有l个可区分的取值</p>
-<h3 id="11-顺序合成性质、平行合成性质"><a href="#11-顺序合成性质、平行合成性质" class="headerlink" title="11.顺序合成性质、平行合成性质"></a>11.顺序合成性质、平行合成性质</h3><p>一个算法序列同时作用在一个数据集上时；多个算法序列分别作用在一个数据集上多个不同子集上时</p>
-<h3 id="12-控制隐私预算的目的"><a href="#12-控制隐私预算的目的" class="headerlink" title="12.控制隐私预算的目的"></a>12.控制隐私预算的目的</h3><p>如果在一个较低隐私预算参数的情况下, 攻击者对一个数据集进行了多次查询, 那么根据顺序合成性质, 攻击者实际上获得的隐私预算就相当于获得了多次查询的隐私预算的和, 而这就破坏了原本设定的隐私预算，所以需要控制隐私预算的上限。</p>
-<h3 id="13-变换不变性"><a href="#13-变换不变性" class="headerlink" title="13.变换不变性"></a>13.变换不变性</h3><p>满足差分隐私的算法经过后处理之后仍然满足差分隐私</p>
-<h3 id="14-中凸性"><a href="#14-中凸性" class="headerlink" title="14.中凸性"></a>14.中凸性</h3><p>如果有2个不同的差分隐私算法, 都提供了足够的不确定性来保护隐私, 那么可以通过选择任意的算法来应用到数据上实现对数据的隐私保护, 只要选择的算法和数据是独立的</p>
-<h3 id="15-曼哈顿距离"><a href="#15-曼哈顿距离" class="headerlink" title="15.曼哈顿距离"></a>15.曼哈顿距离</h3><p>两个点在标准坐标系上的绝对轴距综合。这里的曼哈顿距离就相当于对称差值，其度量了修改一个元组时查询结果的最大变化</p>
-<h3 id="16-全局敏感度（与数据集无关，只由查询函数本身决定）"><a href="#16-全局敏感度（与数据集无关，只由查询函数本身决定）" class="headerlink" title="16.全局敏感度（与数据集无关，只由查询函数本身决定）"></a>16.全局敏感度（与数据集无关，只由查询函数本身决定）</h3><p>控制噪声的重要参数。定义为查询函数f作用于任意两个相邻数据集得到的查询结果的曼哈顿距离</p>
-<h3 id="17-局部敏感度（由查询函数和给定的数据集共同决定）"><a href="#17-局部敏感度（由查询函数和给定的数据集共同决定）" class="headerlink" title="17.局部敏感度（由查询函数和给定的数据集共同决定）"></a>17.局部敏感度（由查询函数和给定的数据集共同决定）</h3><p>定义为查询函数f作用于给定两个相邻数据集得到的查询结果的曼哈顿距离</p>
-<p>缺陷：局部敏感度不满足差分隐私的要求，因为噪声大小本身可能会揭示数据库信息</p>
-<h3 id="18-平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）"><a href="#18-平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）" class="headerlink" title="18.平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）"></a>18.平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）</h3><h3 id="19-拉普拉斯机制"><a href="#19-拉普拉斯机制" class="headerlink" title="19.拉普拉斯机制"></a>19.拉普拉斯机制</h3><p>在查询结果上加入一个满足拉普拉斯分布的噪声来实现差分隐私保护，所加入的拉普拉斯噪声的均值要求为 0，这样输出的才是无偏估计</p>
-<h3 id="20-指数机制"><a href="#20-指数机制" class="headerlink" title="20.指数机制"></a>20.指数机制</h3><p>对于任意一个可用性函数q和一个差分隐私预算 , 随机算法 M 以正比于的概率输出一个o作为结果</p>
-<img src="/post/46d864ff/1.png" class title="指数机制">
-
-<h3 id="21-SSE、MSE、RMSE"><a href="#21-SSE、MSE、RMSE" class="headerlink" title="21.SSE、MSE、RMSE"></a>21.SSE、MSE、RMSE</h3><p>和方差、均方误差、均方根误差</p>
-<h3 id="22-隐私预算表达式"><a href="#22-隐私预算表达式" class="headerlink" title="22.隐私预算表达式"></a>22.隐私预算表达式</h3><img src="/post/46d864ff/2.png" class title="隐私预算">
-
-<h3 id="23-研究现状"><a href="#23-研究现状" class="headerlink" title="23.研究现状"></a>23.研究现状</h3><p>（1）差分隐私虽然现在已经被用于数据挖掘，推荐系统等领域，但是差分隐私对于挖掘数据保护后，还能对数据分析者提供多少可用信息目前还没有一个合理通用的度量方法</p>
-<p>（2）差分隐私与机器学习的结合将是未来的一个研究热点</p>
-<p>（3）在差分隐私和机器学习中，主要有以下问题需要解决</p>
-<p>​			（a）因为传统机器学习方法不能满足差分隐私的需求，需要解决样本数据集中缺失数据的问题</p>
-<p>​			（b）医疗数据集中, 很多体征数据只是暂时的，而且对于数据的扰动很有可能使数据失去重要的信息, 因此需要有应对这种类型数据的差分隐私模型</p>
-<p>​			（c）隐私是否能在不牺牲机器学习模型可用性的条件下实现</p>
-<p>​			（d）在正则化的机器学习模型中, 差分隐私是否可以与正则化的想法兼容</p>
-]]></content>
-      <categories>
-        <category>差分隐私（中文综述）</category>
-      </categories>
-      <tags>
-        <tag>差分隐私</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>本地差分隐私保护综述</title>
     <url>/post/b16e3800.html</url>
     <content><![CDATA[<h1 id="1-众包模式"><a href="#1-众包模式" class="headerlink" title="1.众包模式"></a>1.众包模式</h1><p>一个公司或机构把过去由员工执行的工作任务，以自由自愿的形式外包给非特定的，而且通常是大型的大众网络的模式</p>
@@ -149,7 +149,7 @@
 <p>（2）众包模式下字符串边缘频率估计和联合概率估计</p>
 <p>（3）针对智能设备的机器学习</p>
 <h1 id="6-布鲁姆过滤器（Bloom-Filter）"><a href="#6-布鲁姆过滤器（Bloom-Filter）" class="headerlink" title="6.布鲁姆过滤器（Bloom Filter）"></a>6.布鲁姆过滤器（Bloom Filter）</h1><p>（1）定义：由一个超长的二进制位数组和一系列的哈希函数组成。二进制位数组初始值全部为0，当给定一个待查询的元素时，这个元素会被一系列哈希函数计算映射出一系列的值，所有的值在位数组的偏移量处置为1</p>
-<img src="/post/undefined/1.png" class title="布鲁姆过滤器">
+<img src="/post/b16e3800/1.png" class title="布鲁姆过滤器">
 
 <p>（2）判断元素是否在集合中的方法：元素经过一系列哈希函数计算后得到所有的偏移位置，若这些位置全都为1，则判断这个元素在这个集合中，若有一个不为1，则判断这个元素不在这个集合中</p>
 <p>（3）优点：节省空间，采用位数组，2的32次方&#x3D;4294967296 可以看到42亿长度的位数组占用4294967296&#x2F;8&#x2F;1024&#x2F;1024&#x3D;512MB 只需占用512MB的内存空间</p>
@@ -160,7 +160,7 @@
 <h1 id="8-中位数机制（目前没弄懂）"><a href="#8-中位数机制（目前没弄懂）" class="headerlink" title="8.中位数机制（目前没弄懂）"></a>8.中位数机制（目前没弄懂）</h1><h1 id="9-本地差分隐私保护主要思想"><a href="#9-本地差分隐私保护主要思想" class="headerlink" title="9.本地差分隐私保护主要思想"></a>9.本地差分隐私保护主要思想</h1><p>（1）不能收集或拥有任何个人的精确信息</p>
 <p>（2）可以推断出用户群体的泛化统计信息</p>
 <h1 id="10-DP与LDP的区别"><a href="#10-DP与LDP的区别" class="headerlink" title="10.DP与LDP的区别"></a>10.DP与LDP的区别</h1><p>两者最重要的区别在于加入噪声扰动的时机不同</p>
-<img src="/post/undefined/2.png" class title="DP与LDP区别">
+<img src="/post/b16e3800/2.png" class title="DP与LDP区别">
 
 <h1 id="11-本地模型下的数据分析流程"><a href="#11-本地模型下的数据分析流程" class="headerlink" title="11.本地模型下的数据分析流程"></a>11.本地模型下的数据分析流程</h1><p>每个本地用户用随机器Q扰乱个人数据v得到Z，数据收集者将其汇总得到S，最后进行数据分析；</p>
 <p>拉普拉斯机制经常被用于本地模型中，常用于对数值型结果的隐私保护</p>
@@ -177,25 +177,25 @@
 <ol>
 <li><p>（step 1）</p>
 <p>理论上，<code>Pr[Xi=“是”]=πp+(1-π)(1-p)</code>，<code>Pr[Xi=“否”]=(1-π)p+π(1-p)</code>。直觉上，当<code>n</code>足够大时，设回答“是”的人数为<code>n1</code>，回答“否”的人数为<code>n2</code>。<code>Pr[Xi=“是”]=n1/n</code>，<code>Pr[Xi=“否”]=n2/n</code>。求解下面的二次方程即可获得<code>π</code>的值</p>
-<img src="/post/undefined/4.png" class title="二次方程">
+<img src="/post/b16e3800/4.png" class title="二次方程">
 
 <p>但是，<code>上述的结果并非真实比例的无偏估计</code>，我们用极大似然估计(<code>Max Likehood Estimation</code>)对统计结果进行校正</p>
 </li>
 <li><p>（step 2）</p>
 <p>首先构建最大似然函数：</p>
-<img src="/post/undefined/5.png" class title="最大似然函数">
+<img src="/post/b16e3800/5.png" class title="最大似然函数">
 
 <p>对数似然函数为：</p>
-<img src="/post/undefined/6.png" class title="对数似然函数">
+<img src="/post/b16e3800/6.png" class title="对数似然函数">
 
 <p>令</p>
-<img src="/post/undefined/7.png" class title="求解对数似然函数">
+<img src="/post/b16e3800/7.png" class title="求解对数似然函数">
 
 <p>求解可得<code>π</code>的极大似然估计：</p>
-<img src="/post/undefined/8.png" class title="最大似然估计">
+<img src="/post/b16e3800/8.png" class title="最大似然估计">
 
 <p>由此可得患有<code>HIV</code>的总人数为：</p>
-<img src="/post/undefined/9.png" class title="求总人数"></li>
+<img src="/post/b16e3800/9.png" class title="求总人数"></li>
 </ol>
 <h1 id="14-LDP研究方向"><a href="#14-LDP研究方向" class="headerlink" title="14.LDP研究方向"></a>14.LDP研究方向</h1><p>（1）基于随机应答与<code>Bloom Filter</code>的编解码方式研究（<code>RAPPOR</code>）</p>
 <p>（2）针对流式频繁项集挖掘<code>Heavy Hitters</code>挖掘</p>
@@ -215,6 +215,169 @@
       </categories>
       <tags>
         <tag>差分隐私</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AHEAD: Adaptive Hierarchical Decomposition for Range Query under Local Differential Privacy</title>
+    <url>/post/8d2d0774.html</url>
+    <content><![CDATA[<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>为了保护用户的隐私数据，人们使用本地差分隐私（<code>LDP</code>）提供支持隐私保护的范围查询，并支持进一步的统计分析。然而，现有的基于<code>LDP</code>的范围查询方法受限于其属性。而这种静态框架在低隐私预算场景下会带来过量的噪声。因此，提出了<code>AHEAD（Adaptive Hierarchical Decomposition）</code>方案，它可以自适应且动态地控制树的结构，进而注入的噪声可以得到较好地控制。</p>
+<h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h1><h2 id="1-1DP和LDP的执行流程"><a href="#1-1DP和LDP的执行流程" class="headerlink" title="1.1DP和LDP的执行流程"></a>1.1DP和LDP的执行流程</h2><p><code>DP</code>：一个可信的中心聚合器从用户端收集到敏感数据，然后再执行扰动分析，最后通过回答查询或者发布合成数据来提供数据服务；</p>
+<p><code>LDP</code>：用户首先在本地对自己的隐私数据进行编码和扰动，然后再将处理过后的数据传输给聚合器。</p>
+<h2 id="1-2LDP的研究"><a href="#1-2LDP的研究" class="headerlink" title="1.2LDP的研究"></a>1.2LDP的研究</h2><p>频率估计问题（即获得整个域的频率分布）是<code>LDP</code>过去的主要研究内容，然而实际上人们可能对范围查询更加感兴趣。而且，根据范围查询结果，我们可以直接获得其他分布特征（如顺序统计量）</p>
+<p><code>顺序统计量</code>：在一个由<code>n</code>个元素组成的集合中，第<code>i</code>个顺序统计量即为该集合中第<code>i</code>小的元素</p>
+<h2 id="1-3范围查询"><a href="#1-3范围查询" class="headerlink" title="1.3范围查询"></a>1.3范围查询</h2><p>范围查询根据查询维度可以划分为低纬度查询（维度小于等于2）和高纬度查询（维度大于等于2）</p>
+<p><code>低纬度查询</code>：王等人提出了基于完全B叉树结构分层分解整个域并且通过累积频率值来回答范围查询；Cormode等人提出在扰动的时候使用离散小波变换将用户的隐私值转化为一个哈尔变化系数向量并且执行其逆变换得到查询结果</p>
+<h3 id="1-3-1离散小波变换（待续）"><a href="#1-3-1离散小波变换（待续）" class="headerlink" title="1.3.1离散小波变换（待续）"></a>1.3.1离散小波变换（待续）</h3><h3 id="1-3-2哈尔小波变换（待续）"><a href="#1-3-2哈尔小波变换（待续）" class="headerlink" title="1.3.2哈尔小波变换（待续）"></a>1.3.2哈尔小波变换（待续）</h3><p><code>高纬度查询</code>：杨等人提出从一二维网格组合信息，并且使用加权更新策略去估计高纬度的范围查询</p>
+<h2 id="1-4现有的方法存在的限制"><a href="#1-4现有的方法存在的限制" class="headerlink" title="1.4现有的方法存在的限制"></a>1.4现有的方法存在的限制</h2><p>大多数真实世界数据集中的数据域中存在<code>稀疏区域</code>（也就是某些区间的比重可能非常小），因此在网格或完全树中的值较小的结点可能被注入的噪声淹没；</p>
+<p>现有的科技主要为具体维度的查询而设计（而实际数据集是经常变化的）（可以理解为都是<code>静态框架</code>），虽然每一种方法技术上不受查询维度的限制，但是在非目标维度的情况下有效性会降低，为了解决维度变化问题，聚合器需要组合为不同维度设计的算法，而这会限制这些算法的适用性和实用性。</p>
+<h2 id="1-5文章的贡献"><a href="#1-5文章的贡献" class="headerlink" title="1.5文章的贡献"></a>1.5文章的贡献</h2><p>提出了一种在<code>LDP</code>下解决范围查询的动态算法<code>AHEAD</code>，它可以自适应地觉得域组合的粒度大小；</p>
+<p>理论上推导了在满足严格的<code>LDP</code>保证下能实现高效用的参数设置；</p>
+<p>通过大量实验证实了<code>AHEAD</code>算法的有效性。</p>
+<h1 id="2-背景"><a href="#2-背景" class="headerlink" title="2.背景"></a>2.背景</h1><h2 id="2-1频率估计（Frequency-Oracle）"><a href="#2-1频率估计（Frequency-Oracle）" class="headerlink" title="2.1频率估计（Frequency Oracle）"></a>2.1频率估计（Frequency Oracle）</h2><p>频率估计是用来估计某个隐私属性的频率分布F，作为一般<code>LDP</code>任务（<code>边际释放</code>和<code>范围查询</code>）的基本构建块。大部分<code>FO</code>算法包括三部分：编码、扰动和聚合。</p>
+<p><code>边际释放</code>：</p>
+<h2 id="2-2两种FO协议（GRR和OUE）"><a href="#2-2两种FO协议（GRR和OUE）" class="headerlink" title="2.2两种FO协议（GRR和OUE）"></a>2.2两种FO协议（GRR和OUE）</h2><h3 id="2-2-1广义随机响应（Generalized-Randomized-Response-GRR）"><a href="#2-2-1广义随机响应（Generalized-Randomized-Response-GRR）" class="headerlink" title="2.2.1广义随机响应（Generalized Randomized Response, GRR）"></a>2.2.1广义随机响应（Generalized Randomized Response, GRR）</h3><blockquote>
+<p>Ps：随机响应算法的广义版本，目前我理解的是先对隐私数据进行扰动再进行编码</p>
+</blockquote>
+<p><code>编码</code>：对于用户<code>i</code>的隐私数据<code>Vi</code>，将其编码为<code>Xi</code>；</p>
+<p><code>扰动</code>：用户<code>i</code>以根据以下式子选择<code>Vi</code>的值，并将扰动后的隐私值对应的编码<code>Xi&#39;</code>上传到服务器（其中<code>Vi&#39;</code>是从数据集<code>D</code>中随机选择）；</p>
+<img src="/post/undefined/1.png" class title="广义随机响应">
+
+<p><code>聚合</code>：聚合器首先收集所有经过用户扰动之后的数据，然后计算每个数据<code>V</code>的频率<code>count[V]</code>，<code>count[V]</code>的一个无偏估计为：</p>
+<img src="/post/undefined/2.png" class title="&#96;count[V]&#96;的无偏估计">
+
+<p><code>估计误差</code>：<code>GRR</code>的估计误差源自算法方差：</p>
+<img src="/post/undefined/3.png" class title="GRR算法方差">
+
+<h2 id="2-2-2优化的一元编码（Optimized-Unary-Encoding-OUE）"><a href="#2-2-2优化的一元编码（Optimized-Unary-Encoding-OUE）" class="headerlink" title="2.2.2优化的一元编码（Optimized Unary Encoding, OUE）"></a>2.2.2优化的一元编码（Optimized Unary Encoding, OUE）</h2><blockquote>
+<p>Ps：<code>RAPPOR</code>算法的优化版本</p>
+</blockquote>
+<p><code>编码</code>：对于用户<code>i</code>的隐私数据<code>Vi</code>，采用<code>独热编码</code>的方式将其编码为一个长为长度<code>|D|</code>的向量，其中<code>Vi</code>数据对应向量的第<code>i</code>个值为<code>1</code>，其余均为<code>0</code>；</p>
+<h4 id="2-2-2-1One-Hot-Encoding（独热编码）"><a href="#2-2-2-1One-Hot-Encoding（独热编码）" class="headerlink" title="2.2.2.1One-Hot Encoding（独热编码）"></a>2.2.2.1One-Hot Encoding（独热编码）</h4><p><code>One-Hot编码</code>，又称为一位有效编码，即采用<code>N</code>个独立的寄存器对<code>N</code>个状态进行编码，对于每个状态，只有一个寄存器的值为<code>1</code>，其余寄存器的值都为<code>0</code></p>
+<p><code>扰动</code>：对上一步得到的每个数据都采用<code>GRR</code>方法进行扰动，具体对每个数据的每一位来说，如果该位为<code>1（0）</code>，则以概率<code>p（q）</code>保持不变，以概率<code>1-p（1-q）</code>进行反转，然后用户将扰动后的编码<code>Xi&#39;</code>传输到服务器</p>
+<p><code>聚合</code>：聚合器收集到所有经过用户扰动后的数据，然后对每一位为1的个数进行频率统计得到<code>count[V]</code>，<code>count[V]</code>的一个无偏估计为：</p>
+<img src="/post/undefined/2.png" class title="&#96;count[V]&#96;的无偏估计">
+
+<p><code>估计误差</code>：算法方差为：</p>
+<img src="/post/undefined/4.png" class title="算法方差">
+
+<blockquote>
+<p>总结：可以看到，<code>GRR</code>和<code>OUE</code>算法都得到了频率值的无偏估计，而且，<code>OUE</code>算法的方差独立于数据集大小<code>|D|</code>。所以对于更小的<code>|D|</code>，<code>GRR</code>算法更好；而对于更大的<code>|D|</code>，<code>OUE</code>算法更好</p>
+</blockquote>
+<h1 id="3-现有的解决方案（针对范围查询问题）"><a href="#3-现有的解决方案（针对范围查询问题）" class="headerlink" title="3.现有的解决方案（针对范围查询问题）"></a>3.现有的解决方案（针对范围查询问题）</h1><h2 id="3-1Hierarchical-Interval-Optimized（HIO）"><a href="#3-1Hierarchical-Interval-Optimized（HIO）" class="headerlink" title="3.1Hierarchical-Interval Optimized（HIO）"></a>3.1Hierarchical-Interval Optimized（HIO）</h2><h3 id="3-1-1算法描述"><a href="#3-1-1算法描述" class="headerlink" title="3.1.1算法描述"></a>3.1.1算法描述</h3><p>基于<code>B</code>叉树，<code>HIO</code>算法将整个域分层分解为相互不相交的子集称为<code>区间</code>。根节点代表整个域，叶节点代表单个的值，其中相同层的结点代表相同粒度的<code>区间</code>。<code>HIO</code>算法通过<code>OUE</code>算法获得每一层结点的频率估计值，且通过使用最少的来自不同层的区间来回答范围查询。</p>
+<blockquote>
+<p>对于范围长度为<code>r</code>的一般查询，<code>HIO</code>算法最多需要**2（B-1）log<sub>B</sub>|D|**个区间进行回答</p>
+</blockquote>
+<h3 id="3-1-2算法不足"><a href="#3-1-2算法不足" class="headerlink" title="3.1.2算法不足"></a>3.1.2算法不足</h3><p>在所有区间的估计频率值中插入了相同级别的噪声，对于小区间的结点，扰动噪声可能会淹没真实的频率值，进而降低了整个算法的有效性；</p>
+<p>在多维度场景中，树的层数随着维度的变化呈指数级增长；</p>
+<p>在高维度场景中，查询误差因为小区间的结点数量过多，查询误差会不断增加。</p>
+<h2 id="3-2Discrete-Haar-Wavelet-Transform（DHT）"><a href="#3-2Discrete-Haar-Wavelet-Transform（DHT）" class="headerlink" title="3.2Discrete Haar Wavelet Transform（DHT）"></a>3.2Discrete Haar Wavelet Transform（DHT）</h2><h3 id="3-2-1算法描述"><a href="#3-2-1算法描述" class="headerlink" title="3.2.1算法描述"></a>3.2.1算法描述</h3><p><code>DHT</code>算法对于整个域采用采用完全二叉树结构，并且把用户的隐私数据编码为一个<code>哈尔小波系数集合</code>。</p>
+<blockquote>
+<p>对于范围长度为<code>r</code>的查询，<code>DHT</code>算法比起直接采用<code>FO</code>算法能够在哈尔变换域中使用更少数量的估计值</p>
+</blockquote>
+<h3 id="3-2-2算法不足"><a href="#3-2-2算法不足" class="headerlink" title="3.2.2算法不足"></a>3.2.2算法不足</h3><p>与<code>HIO</code>算法相似，在所有区间的估计频率值中插入了相同级别的噪声，对于小区间的结点，扰动噪声可能会淹没真实的频率值，进而降低了整个算法的有效性；</p>
+<p>主要针对一维场景设计，因此限制了其实际的应用场景。</p>
+<h2 id="3-3Consistent-Adaptive-Local-Marginal（CALM）"><a href="#3-3Consistent-Adaptive-Local-Marginal（CALM）" class="headerlink" title="3.3Consistent Adaptive Local Marginal（CALM）"></a>3.3Consistent Adaptive Local Marginal（CALM）</h2><h3 id="3-3-1列联表（Contingency-table）"><a href="#3-3-1列联表（Contingency-table）" class="headerlink" title="3.3.1列联表（Contingency table）"></a>3.3.1列联表（Contingency table）</h3><p><code>列联表</code>是观测数据按两个或更多属性（定性变量）分类时所列出的频数表，是由两个以上的变量进行交叉分类的频数分布表，其分析的<code>基本问题</code>是判明所考察的个属性之间有无关联（即是否独立）。若所考虑的属性多于两个则称为<code>多维列联表</code>。如果考虑集合的全部属性，则称为<code>全列联表</code>；如果考虑集合的部分属性，则称为<code>边缘列联表</code>。若考虑集合的属性个数为k，则称为<code>k-路边缘列联表</code>。</p>
+<blockquote>
+<p>Ps：全列联表就是联合概率密度分布，边缘列联表就是边缘概率密度分布</p>
+</blockquote>
+<h3 id="3-3-2算法描述（有点复杂，待续）"><a href="#3-3-2算法描述（有点复杂，待续）" class="headerlink" title="3.3.2算法描述（有点复杂，待续）"></a>3.3.2算法描述（有点复杂，待续）</h3><p><code>CALM</code>算法是一种满足<code>LDP</code>定义的边缘列联表发布方案，它可以在隐私保护保证的背景下构建<code>m</code>个属性的列联表。该算法使用对重构的被包含在查询中的列联表进行求和来对范围查询进行回答。</p>
+<h3 id="3-3-3算法不足"><a href="#3-3-3算法不足" class="headerlink" title="3.3.3算法不足"></a>3.3.3算法不足</h3><p>当数据集大小<code>|D|</code>很大时，<code>CALM算法</code>在回答一个查询时会加入大量的加噪列联表，而这很可能会给真实值注入大量的噪声。</p>
+<h2 id="3-4Hybird-Dimensional-Grids（HDG）"><a href="#3-4Hybird-Dimensional-Grids（HDG）" class="headerlink" title="3.4Hybird-Dimensional Grids（HDG）"></a>3.4Hybird-Dimensional Grids（HDG）</h2><h3 id="3-4-1算法描述"><a href="#3-4-1算法描述" class="headerlink" title="3.4.1算法描述"></a>3.4.1算法描述</h3><p>仔细地将属性对的二维域都划分到粗的二维网格中，并且从相关的二维范围查询的答案中估计更高维度范围查询的结果。为了捕获用户数据的细颗粒分发信息，<code>HDG算法</code>还引入了一维网格去提供每个属性上的细粒度分发信息，并将来自一维和二维网格信息结合在一起去回答范围查询。</p>
+<h3 id="3-4-2算法不足"><a href="#3-4-2算法不足" class="headerlink" title="3.4.2算法不足"></a>3.4.2算法不足</h3><p>相同粒度的网格不能处理用户数据的各种分布；</p>
+<p>使用一维网格可能会破坏属性之间的相关性。</p>
+<h2 id="3-5附注"><a href="#3-5附注" class="headerlink" title="3.5附注"></a>3.5附注</h2><h3 id="3-5-1设计目标"><a href="#3-5-1设计目标" class="headerlink" title="3.5.1设计目标"></a>3.5.1设计目标</h3><p>为整个域找到一个合理的分解策略去避免引入过量的噪声；</p>
+<p>在拓展到多维场景时，设计的机制应该要比现有算法的有更高的查询精确度。</p>
+<h3 id="3-5-2与现有算法的不同之处"><a href="#3-5-2与现有算法的不同之处" class="headerlink" title="3.5.2与现有算法的不同之处"></a>3.5.2与现有算法的不同之处</h3><p><code>AHEAD算法</code>是自适应且动态的算法；</p>
+<p><code>AHEAD算法</code>减少了噪声对小区间结点的影响；</p>
+<p><code>AHEAD算法</code>可以从一维拓展到高维场景中。</p>
+<h1 id="4-AHEAD算法"><a href="#4-AHEAD算法" class="headerlink" title="4.AHEAD算法"></a>4.AHEAD算法</h1><h2 id="4-1动机和概述"><a href="#4-1动机和概述" class="headerlink" title="4.1动机和概述"></a>4.1动机和概述</h2><p>一方面，当回答查询需要结合多个小区间结点时，因为每个区间结点都需要满足LDP的隐私保证，所以都会引入噪声，当小区间结点过多时注入的噪声就会更加地多，为了解决这一问题，因此需要动态地结合不同的区间结点，进而减少注入的噪声量；</p>
+<p>另一方面，当查询的范围是某个区间的一部分时，此时需要采用主流的均匀分布假设来回答查询，这时如果区间内分布不均匀就会引入不均匀误差；</p>
+<p>综上分析，AHEAD算法应该试图平衡这两种误差，并解决现有算法的不足。</p>
+<h2 id="4-2工作流程"><a href="#4-2工作流程" class="headerlink" title="4.2工作流程"></a>4.2工作流程</h2><h3 id="4-2-1采样方案的选择（Sampling-Principle）"><a href="#4-2-1采样方案的选择（Sampling-Principle）" class="headerlink" title="4.2.1采样方案的选择（Sampling Principle）"></a>4.2.1采样方案的选择（Sampling Principle）</h3><p>使用隐私预算时有两种策略：<code>隐私预算拆分策略</code>和<code>用户分区策略</code></p>
+<p><code>隐私预算拆分策略（privacy budget splitting strategy）</code>：将整个隐私预算<code>𝜖</code>分成<code>c</code>份，并且在隐私预算<code>𝜖/c</code>下对所有用户的报告进行频率分布的估计</p>
+<p><code>用户分区策略（user partition strategy）</code>：随机地将用户分为<code>c</code>组，并使用整个隐私预算从魅族用户那里获取频率值</p>
+<p>对于相同的区间结点，两种策略的方差分别如下所示：</p>
+<img src="/post/undefined/5.png" class title="隐私预算拆分策略方差">
+
+<img src="/post/undefined/6.png" class title="用户分区策略方差">
+
+<p>因为<code>𝜖&gt;0</code>且<code>c&gt;1</code>，所以<code>Var1&gt;Var2</code></p>
+<blockquote>
+<p>Ps：这两个方差的大小比较还没弄明白（待续）</p>
+</blockquote>
+<p>综上，<code>AHEAD算法</code>选择了<code>用户分区策略（user partition strategy）</code></p>
+<h3 id="4-2-2算法流程"><a href="#4-2-2算法流程" class="headerlink" title="4.2.2算法流程"></a>4.2.2算法流程</h3><p><code>Step1：User Partition</code>：聚合器首先确定用户分区数量<code>c</code>，其中**c&#x3D;log<sub>B</sub>|D|**，然后用户在<code>[1, 2, ... , c]</code>中随机选择一个分区号（用户也可以使用其公共信息去选择分区号）。分区过程应该确保每个分区拥有相似的用户数量去代表总体人口；</p>
+<p><code>Step2：Noisy Frequency Construction</code>：聚合器首先创建一个根节点**n<sub>0</sub><strong>代表整个域，然后聚合器对整个域执行初始分解（即把整个域分解成<code>B</code>个大小相等的区间，<code>B</code>是树的分支数），并将分解得到的区间结点指向根节点<code>n&lt;sub&gt;0&lt;/sub&gt;</code>，此时根节点<code>n&lt;sub&gt;0&lt;/sub&gt;</code>的子结点代表整个域的划分方式</strong>E<sub>1</sub><strong>。之后聚合器选择第一个分区的用户并将</strong>E<sub>1</sub><strong>和隐私预算<code>𝜖</code>发送给用户。这时第一个分区的用户就会先扰动自己的隐私数据，并将扰动值通过<code>OUE</code>算法投入到</strong>E<sub>1</sub><strong>划分后得到的区间中。聚合器在收到用户的数据后就会使用聚合算法去获得频率估计分布</strong>F<sub>1</sub>**。</p>
+<p><code>Step3：New Decomposition Generation</code>：聚合器得到区间的频率估计分布**F<sub>1</sub>&#x3D;{f<sub>1</sub>, f<sub>2</sub>}<strong>之后，会根据阈值θ决定是否要对区间结点进一步分解。具体来说，如果某个频率<code>f</code>小于阈值<code>θ</code>，则不需要再进行分解；如果某个频率<code>f</code>大于阈值<code>θ</code>，则需要对该区间再次进行分解得到划分方式</strong>E<sub>2</sub>**并处理下一组用户；聚合器重复以上步骤知道所有的用户数据都已经处理完毕。在构造上述的原型树时没有考虑书中频率值的约束（子结点的频率值总和等于父节点的频率值），因此需要进行后处理；</p>
+<p><code>Step4：Post-processing</code>：该步骤包含<code>非负</code>和<code>加权平均</code>（可以最大程度减少噪声的幅度）两步操作。<code>AHEAD算法</code>首先在相同层中通过<code>NormSub算法</code>使得结点的估计频率值都非负，且所有频率值的总和为<code>1</code>；然后自底向上计算非叶节点<code>n</code>和其子结点的加权平均值去更新<code>n</code>的频率估计值（通过结合<code>n</code>的多次估计来减少加性噪声）：</p>
+<blockquote>
+<p>对于非根节点<code>n</code>：</p>
+<img src="/post/undefined/8.png" class title="结点频率值更新">
+
+<p>其中，参数设置如下（这样设置可以得到最小的更新方差）：</p>
+<img src="/post/undefined/9.png" class title="参数**𝜆&lt;sub&gt;1&lt;&#x2F;sub&gt;**">
+
+<img src="/post/undefined/10.png" class title="参数**𝜆&lt;sub&gt;2&lt;&#x2F;sub&gt;**">
+
+<p>**Var<sub>child(n)</sub><strong>代表结点<code>n</code>的子结点的方差总和，</strong>Var<sub>n</sub>**代表结点<code>n</code>的方差。<code>f~</code>代表<code>f^</code>的后处理版本</p>
+</blockquote>
+<blockquote>
+<p>定理：使用上述方程对子结点进行组合时，结点<code>n</code>可以获得最小的更新方差</p>
+<p>证明：（待续）</p>
+</blockquote>
+<p>最后，在结点区间均匀分布的假设下，自顶向下对频率值进行迭代分解以获得一颗用于回答范围查询的完全树，至此，<code>AHEAD算法</code>结束。</p>
+<h2 id="4-3隐私和效用分析"><a href="#4-3隐私和效用分析" class="headerlink" title="4.3隐私和效用分析"></a>4.3隐私和效用分析</h2><h3 id="4-3-1隐私保证"><a href="#4-3-1隐私保证" class="headerlink" title="4.3.1隐私保证"></a>4.3.1隐私保证</h3><p><code>定理</code>：<code>AHEAD算法</code>满足<code>𝜖-LDP</code></p>
+<p><code>证明</code></p>
+<p><code>Step1</code>中，用户在<code>[1, 2, ... , c]</code>中随机地选取其分区，这一步没有隐私预算消耗；<code>Step2</code>和<code>Step3</code>中，<code>AHEAD算法</code>顺序地与用户进行交互，并且每个用户产生一个输出；<code>Step4</code>中，AHEAD算法没有触及用户地隐私数据，因此不会产生额外地隐私预算；因此，如果在和用户交互时（<code>Step3</code>和<code>Step4</code>）满足<code>𝜖-LDP</code>，那么<code>AHEAD算法</code>满足<code>𝜖-LDP</code>；</p>
+<p>在每个交互时回合中，<code>AHEAD算法</code>都基于<code>Step2</code>中的隐私预算<code>𝜖</code>使用<code>OUE算法</code>构建嘈杂的频率；对于分区<code>g</code>中同一用户的任何一对可能值<strong>v<sub>1</sub>, v<sub>2</sub>∈D</strong>，加噪的二进制向量<code>O</code>为<code>OUE</code>范围内的潜在输出；</p>
+<img src="/post/undefined/11.png" class title="&#96;𝜖-LDP&#96;证明">
+
+<p>上式中<code>l</code>是<code>O</code>的长度。根据上式可知，Step2满足<code>𝜖-LDP</code>，而由于<code>Step3</code>处理的是用户上传的加噪之后的数据（即没有使用用户原始的隐私数据），所以没有消费额外的隐私预算消费；</p>
+<p>综上，<code>AHEAD算法</code>满足<code>𝜖-LDP</code></p>
+<h3 id="4-3-2误差分析"><a href="#4-3-2误差分析" class="headerlink" title="4.3.2误差分析"></a>4.3.2误差分析</h3><p><code>AHEAD算法</code>的误差来源有三个：<code>噪声</code>、<code>采样误差</code>、<code>不均匀误差</code></p>
+<p><code>噪声</code>和<code>采样误差</code>：来自OUE扰动和用户采样过程。虽然OUE算法可以得到频率估计值的无偏估计，但是仍然会存在由扰动导致的估计方差，而据研究分析，采样误差是一个远小于注入噪声的常数；</p>
+<p><code>不均匀误差</code>：来自于一些区间，其频率值要通过较大的区间（父节点）来获得，而父节点并不一定满足均匀分布假设</p>
+<p>综上，<code>AHEAD算法</code>的主要误差为<code>噪声</code>和<code>不均匀误差</code></p>
+<h2 id="4-4B和θ的选择"><a href="#4-4B和θ的选择" class="headerlink" title="4.4B和θ的选择"></a>4.4B和θ的选择</h2><h3 id="4-4-1θ的选择"><a href="#4-4-1θ的选择" class="headerlink" title="4.4.1θ的选择"></a>4.4.1θ的选择</h3><p><code>θ</code>遵循以下式子进行设置：</p>
+<img src="/post/undefined/12.png" class title="&#96;θ&#96;的选择">
+
+<img src="/post/undefined/13.png" class title="&#96;Var&#96;">
+
+<p><code>分析</code></p>
+<p>首先使用在<code>HIO算法</code>中使用的策略去获得频率估计值和整体估计误差的期望，具体计算如下：</p>
+<img src="/post/undefined/14.png" class title="&#96;HIO算法&#96;误差">
+
+<p>然后使用在<code>AHEAD算法</code>去获得整体估计误差的期望，具体计算如下：</p>
+<img src="/post/undefined/15.png" class title="&#96;AHEAD算法&#96;误差">
+
+<p>然后令<code>AHEAD算法</code>的误差小于<code>HIO算法</code>的误差，得到以下不等式：</p>
+<img src="/post/undefined/16.png" class title="推导结果">
+
+<p>综上，使用上述式子对<code>θ</code>进行设置时可以更好地减小估计误差</p>
+<h3 id="4-4-2B的选择"><a href="#4-4-2B的选择" class="headerlink" title="4.4.2B的选择"></a>4.4.2B的选择</h3><p>分支因数<code>B</code>的作用在于平衡树的高度和回答查询需要的结点数量，<code>AHEAD算法</code>在考虑了不均匀误差的基础上将<code>B</code>设置为<code>2</code></p>
+<p><code>分析</code></p>
+<p>因为对数据的分布没有先验知识，所以对于不均匀误差应该考虑最坏情况，此时估计误差的期望为：</p>
+<img src="/post/undefined/17.png" class title="估计误差期望">
+
+<p>对上式进行求导并另导函数为<code>0</code>，得到<code>B=0.6</code>或<code>B=2.2</code>。因为分支因数为大于<code>1</code>的整数，并且<code>B=2</code>比<code>B=3</code>的期望更小，所以最终设置<code>B=2</code></p>
+<h2 id="4-5拓展到多维场景"><a href="#4-5拓展到多维场景" class="headerlink" title="4.5拓展到多维场景"></a>4.5拓展到多维场景</h2><h3 id="4-5-1二维范围查询"><a href="#4-5-1二维范围查询" class="headerlink" title="4.5.1二维范围查询"></a>4.5.1二维范围查询</h3><p>对于<code>AHEAD算法</code>，一维和二维的主要区别在于分解过程：对于一维场景，分解的总区间为<code>[1, |D|]</code>；对于二维场景，分解的总区间为<code>[1, |D|]x[1, |D|] </code>；</p>
+<p>对于二维场景，<code>AHEAD算法</code>将<code>B</code>设置为<code>4</code>（每个维度的<code>B=2</code>），其具体的工作流程与一位范围查询基本相同。而为了减小随着结点使用数量不断增加而增加的查询误差，<code>AHEAD算法</code>更偏向于使用粗粒结点来回答查询（即自顶向下）</p>
+<h3 id="4-5-2高维范围查询"><a href="#4-5-2高维范围查询" class="headerlink" title="4.5.2高维范围查询"></a>4.5.2高维范围查询</h3><p>AHEAD算法可以通过两种方式拓展到更高维度：<code>Direct Estimation</code>、<code>Leveraging Low-dimensional Estimation</code></p>
+<p><code>Direct Estimation</code>：对于一颗分支因数为B&#x3D;2<sup>m</sup>的树，<code>AHEAD算法</code>同时在<code>m</code>个维度进行分解；该方法的不足在于随着维度的不断增加，叶节点的数量呈指数级增长，这使得对高维度数据集进行范围查询处理时变得相当耗时；</p>
+<p><code>Leveraging Low-dimensional Estimation</code>：该算法对用户数据的数量进行结对组合，并对每一对属性对构建一颗二维<code>AHEAD树</code>；当回答一个<code>m</code>维的范围查询时，<code>LLE</code>构建了一个带有关联**2<sup>m</sup><strong>个查询的查询集合，然后，以二维频率作为限制，<code>LLE</code>通过最大熵优化估算所有</strong>2<sup>m</sup>**个查询的频率值</p>
+<blockquote>
+<p><code>最大熵优化估算</code>：（待续）</p>
+</blockquote>
+<p>综上，<code>DE</code>方法的实现相对简单，并且用户分区的数量不会随维度的增加而增加。但是，在高维场景中，使用<code>DE</code>的<code>AHEAD树</code>可能非常大，这会使树的构造和进行范围查询的过程变得相当耗时。与<code>DE</code>相比，<code>LLE</code>将属性成对结合在一起，然后为每个属性对构造一个二维<code>AHEAD树</code>，这会使每棵树的规模都不太大。</p>
+<h1 id="5-总结"><a href="#5-总结" class="headerlink" title="5.总结"></a>5.总结</h1><p>通过利用自适应层次分解，为一维和多维范围查询问题提出了一种新颖的<code>LDP</code>协议。<code>AHEAD算法</code>满足了严格的<code>LDP</code>保证，同时使用理论上衍生的参数实现了有利的实用性性能。通过理论分析以及广泛的实验评估，文章展示了<code>AHEAD算法</code>在范围查询方面平衡效用和隐私性的有效性及其在最新方法中的显着优势。此外，通过研究各种参数设置，文章得出了几种在实践中采用的重要观察。</p>
+]]></content>
+      <categories>
+        <category>差分隐私（英文文献）</category>
+      </categories>
+      <tags>
+        <tag>差分隐私</tag>
+        <tag>Base-2指数机制</tag>
+        <tag>Range Query</tag>
       </tags>
   </entry>
   <entry>
