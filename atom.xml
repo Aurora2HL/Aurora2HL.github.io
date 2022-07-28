@@ -6,7 +6,7 @@
   <link href="https://aurora2hl.github.io/atom.xml" rel="self"/>
   
   <link href="https://aurora2hl.github.io/"/>
-  <updated>2022-07-28T03:52:19.876Z</updated>
+  <updated>2022-07-28T04:02:57.480Z</updated>
   <id>https://aurora2hl.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://aurora2hl.github.io/post/8d2d0774.html"/>
     <id>https://aurora2hl.github.io/post/8d2d0774.html</id>
     <published>2022-07-25T09:04:11.000Z</published>
-    <updated>2022-07-28T03:52:19.876Z</updated>
+    <updated>2022-07-28T04:02:57.480Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h1&gt;&lt;p&gt;为了保护用户的隐私数据，人们使用本地差分隐私（&lt;code&gt;LDP&lt;/code&gt;）提供支持隐私保护的范围查询，并支持进一步的统计分析。然而，现有的基于&lt;code&gt;LDP&lt;/code&gt;的范围查询方法受限于其属性。而这种静态框架在低隐私预算场景下会带来过量的噪声。因此，提出了&lt;code&gt;AHEAD（Adaptive Hierarchical Decomposition）&lt;/code&gt;方案，它可以自适应且动态地控制树的结构，进而注入的噪声可以得到较好地控制。&lt;/p&gt;</summary>

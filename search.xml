@@ -249,7 +249,7 @@
 <p><code>估计误差</code>：<code>GRR</code>的估计误差源自算法方差：</p>
 <img src="/post/8d2d0774/3.png" class title="GRR算法方差">
 
-<h2 id="2-2-2优化的一元编码（Optimized-Unary-Encoding-OUE）"><a href="#2-2-2优化的一元编码（Optimized-Unary-Encoding-OUE）" class="headerlink" title="2.2.2优化的一元编码（Optimized Unary Encoding, OUE）"></a>2.2.2优化的一元编码（Optimized Unary Encoding, OUE）</h2><blockquote>
+<h3 id="2-2-2优化的一元编码（Optimized-Unary-Encoding-OUE）"><a href="#2-2-2优化的一元编码（Optimized-Unary-Encoding-OUE）" class="headerlink" title="2.2.2优化的一元编码（Optimized Unary Encoding, OUE）"></a>2.2.2优化的一元编码（Optimized Unary Encoding, OUE）</h3><blockquote>
 <p>Ps：<code>RAPPOR</code>算法的优化版本</p>
 </blockquote>
 <p><code>编码</code>：对于用户<code>i</code>的隐私数据<code>Vi</code>，采用<code>独热编码</code>的方式将其编码为一个长为长度<code>|D|</code>的向量，其中<code>Vi</code>数据对应向量的第<code>i</code>个值为<code>1</code>，其余均为<code>0</code>；</p>
