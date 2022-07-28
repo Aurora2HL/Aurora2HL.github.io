@@ -6,7 +6,7 @@
   <link href="https://aurora2hl.github.io/atom.xml" rel="self"/>
   
   <link href="https://aurora2hl.github.io/"/>
-  <updated>2022-07-28T04:02:57.480Z</updated>
+  <updated>2022-07-28T04:05:21.063Z</updated>
   <id>https://aurora2hl.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://aurora2hl.github.io/post/8d2d0774.html"/>
     <id>https://aurora2hl.github.io/post/8d2d0774.html</id>
     <published>2022-07-25T09:04:11.000Z</published>
-    <updated>2022-07-28T04:02:57.480Z</updated>
+    <updated>2022-07-28T04:05:21.063Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h1&gt;&lt;p&gt;为了保护用户的隐私数据，人们使用本地差分隐私（&lt;code&gt;LDP&lt;/code&gt;）提供支持隐私保护的范围查询，并支持进一步的统计分析。然而，现有的基于&lt;code&gt;LDP&lt;/code&gt;的范围查询方法受限于其属性。而这种静态框架在低隐私预算场景下会带来过量的噪声。因此，提出了&lt;code&gt;AHEAD（Adaptive Hierarchical Decomposition）&lt;/code&gt;方案，它可以自适应且动态地控制树的结构，进而注入的噪声可以得到较好地控制。&lt;/p&gt;</summary>
@@ -33,7 +33,9 @@
     
     <category term="差分隐私" scheme="https://aurora2hl.github.io/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/"/>
     
-    <category term="Base-2指数机制" scheme="https://aurora2hl.github.io/tags/Base-2%E6%8C%87%E6%95%B0%E6%9C%BA%E5%88%B6/"/>
+    <category term="频率估计" scheme="https://aurora2hl.github.io/tags/%E9%A2%91%E7%8E%87%E4%BC%B0%E8%AE%A1/"/>
+    
+    <category term="边缘列联表发布" scheme="https://aurora2hl.github.io/tags/%E8%BE%B9%E7%BC%98%E5%88%97%E8%81%94%E8%A1%A8%E5%8F%91%E5%B8%83/"/>
     
     <category term="Range Query" scheme="https://aurora2hl.github.io/tags/Range-Query/"/>
     
