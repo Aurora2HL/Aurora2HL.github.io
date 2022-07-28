@@ -6,7 +6,7 @@
   <link href="https://aurora2hl.github.io/atom.xml" rel="self"/>
   
   <link href="https://aurora2hl.github.io/"/>
-  <updated>2022-07-27T15:14:08.935Z</updated>
+  <updated>2022-07-28T03:13:23.096Z</updated>
   <id>https://aurora2hl.github.io/</id>
   
   <author>
@@ -21,15 +21,10 @@
     <link href="https://aurora2hl.github.io/post/8d2d0774.html"/>
     <id>https://aurora2hl.github.io/post/8d2d0774.html</id>
     <published>2022-07-25T09:04:11.000Z</published>
-    <updated>2022-07-27T15:14:08.935Z</updated>
+    <updated>2022-07-28T03:13:23.096Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h1&gt;&lt;p&gt;为了保护用户的隐私数据，人们使用本地差分隐私（&lt;code&gt;LDP&lt;/code&gt;）提供支持隐私保护的范围查询，并支持进一步的统计分析。然而，现有的基于&lt;code&gt;LDP&lt;/code&gt;的范围查询方法受限于其属性。而这种静态框架在低隐私预算场景下会带来过量的噪声。因此，提出了&lt;code&gt;AHEAD（Adaptive Hierarchical Decomposition）&lt;/code&gt;方案，它可以自适应且动态地控制树的结构，进而注入的噪声可以得到较好地控制。&lt;/p&gt;
-&lt;h1 id=&quot;1-介绍&quot;&gt;&lt;a href=&quot;#1-介绍&quot; class=&quot;headerlink&quot; title=&quot;1.介绍&quot;&gt;&lt;/a&gt;1.介绍&lt;/h1&gt;&lt;h2 id=&quot;1-1DP和LDP的执行流程&quot;&gt;&lt;a href=&quot;#1-1DP和LDP的执行流程&quot; class=&quot;headerlink&quot; title=&quot;1.1DP和LDP的执行流程&quot;&gt;&lt;/a&gt;1.1DP和LDP的执行流程&lt;/h2&gt;&lt;p&gt;&lt;code&gt;DP&lt;/code&gt;：一个可信的中心聚合器从用户端收集到敏感数据，然后再执行扰动分析，最后通过回答查询或者发布合成数据来提供数据服务；&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;LDP&lt;/code&gt;：用户首先在本地对自己的隐私数据进行编码和扰动，然后再将处理过后的数据传输给聚合器。&lt;/p&gt;
-&lt;h2 id=&quot;1-2LDP的研究&quot;&gt;&lt;a href=&quot;#1-2LDP的研究&quot; class=&quot;headerlink&quot; title=&quot;1.2LDP的研究&quot;&gt;&lt;/a&gt;1.2LDP的研究&lt;/h2&gt;&lt;p&gt;频率估计问题（即获得整个域的频率分布）是&lt;code&gt;LDP&lt;/code&gt;过去的主要研究内容，然而实际上人们可能对范围查询更加感兴趣。而且，根据范围查询结果，我们可以直接获得其他分布特征（如顺序统计量）&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;顺序统计量&lt;/code&gt;：在一个由&lt;code&gt;n&lt;/code&gt;个元素组成的集合中，第&lt;code&gt;i&lt;/code&gt;个顺序统计量即为该集合中第&lt;code&gt;i&lt;/code&gt;小的元素&lt;/p&gt;
-&lt;h2 id=&quot;1-3范围查询&quot;&gt;&lt;a href=&quot;#1-3范围查询&quot; class=&quot;headerlink&quot; title=&quot;1.3范围查询&quot;&gt;&lt;/a&gt;1.3范围查询&lt;/h2&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h1&gt;&lt;p&gt;为了保护用户的隐私数据，人们使用本地差分隐私（&lt;code&gt;LDP&lt;/code&gt;）提供支持隐私保护的范围查询，并支持进一步的统计分析。然而，现有的基于&lt;code&gt;LDP&lt;/code&gt;的范围查询方法受限于其属性。而这种静态框架在低隐私预算场景下会带来过量的噪声。因此，提出了&lt;code&gt;AHEAD（Adaptive Hierarchical Decomposition）&lt;/code&gt;方案，它可以自适应且动态地控制树的结构，进而注入的噪声可以得到较好地控制。&lt;/p&gt;</summary>
     
     
     
