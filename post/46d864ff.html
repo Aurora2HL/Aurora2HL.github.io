@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/black/pace-theme-loading-bar.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"aurora2hl.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"aurora2hl.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="1.差分隐私的两个目标（1）隐私保护中, 如何在分享数据时定义隐私 （2）如何在保证可用性的数据发布时, 提供隐私保护的问题">
 <meta property="og:type" content="article">
@@ -346,10 +346,10 @@
 <p>缺陷：局部敏感度不满足差分隐私的要求，因为噪声大小本身可能会揭示数据库信息</p>
 <h3 id="18-平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）"><a href="#18-平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）" class="headerlink" title="18.平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）"></a>18.平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）</h3><h3 id="19-拉普拉斯机制"><a href="#19-拉普拉斯机制" class="headerlink" title="19.拉普拉斯机制"></a>19.拉普拉斯机制</h3><p>在查询结果上加入一个满足拉普拉斯分布的噪声来实现差分隐私保护，所加入的拉普拉斯噪声的均值要求为 0，这样输出的才是无偏估计</p>
 <h3 id="20-指数机制"><a href="#20-指数机制" class="headerlink" title="20.指数机制"></a>20.指数机制</h3><p>对于任意一个可用性函数q和一个差分隐私预算 , 随机算法 M 以正比于的概率输出一个o作为结果</p>
-<img src="/post/46d864ff/1.png" class title="指数机制">
+<img data-src="/post/46d864ff/1.png" class title="指数机制">
 
 <h3 id="21-SSE、MSE、RMSE"><a href="#21-SSE、MSE、RMSE" class="headerlink" title="21.SSE、MSE、RMSE"></a>21.SSE、MSE、RMSE</h3><p>和方差、均方误差、均方根误差</p>
-<h3 id="22-隐私预算表达式"><a href="#22-隐私预算表达式" class="headerlink" title="22.隐私预算表达式"></a>22.隐私预算表达式</h3><img src="/post/46d864ff/2.png" class title="隐私预算">
+<h3 id="22-隐私预算表达式"><a href="#22-隐私预算表达式" class="headerlink" title="22.隐私预算表达式"></a>22.隐私预算表达式</h3><img data-src="/post/46d864ff/2.png" class title="隐私预算">
 
 <h3 id="23-研究现状"><a href="#23-研究现状" class="headerlink" title="23.研究现状"></a>23.研究现状</h3><p>（1）差分隐私虽然现在已经被用于数据挖掘，推荐系统等领域，但是差分隐私对于挖掘数据保护后，还能对数据分析者提供多少可用信息目前还没有一个合理通用的度量方法</p>
 <p>（2）差分隐私与机器学习的结合将是未来的一个研究热点</p>
@@ -538,6 +538,7 @@ setInterval("createtime()",250);
   <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 

@@ -22,13 +22,13 @@
 <p>算法流程：首先使用哈希函数将输入域[c]压缩为一个更小的域g（一般g&lt;&lt;[c’]），然后利用广义随机响应（GRR）扰动哈希值并最终上传至服务器。</p>
 <p>该算法中的哈希操作和扰动操作都会导致信息丢失，因此在选择g时需要权衡两者之间的信息损失。文献之处，g的最优取值为e+1</p>
 <p>扰动机制为：</p>
-<img src="/post/c1df81ba/1.png" class title="扰动机制">
+<img data-src="/post/c1df81ba/1.png" class title="扰动机制">
 
 <p>无偏估计值：</p>
-<img src="/post/c1df81ba/2.png" class title="无偏估计值">
+<img data-src="/post/c1df81ba/2.png" class title="无偏估计值">
 
 <p>估计方差：</p>
-<img src="/post/c1df81ba/3.png" class title="估计方差">
+<img data-src="/post/c1df81ba/3.png" class title="估计方差">
 
 <h1 id="3-现有算法"><a href="#3-现有算法" class="headerlink" title="3.现有算法"></a>3.现有算法</h1><h2 id="3-1LHIO"><a href="#3-1LHIO" class="headerlink" title="3.1LHIO"></a>3.1LHIO</h2><h2 id="3-2MSW"><a href="#3-2MSW" class="headerlink" title="3.2MSW"></a>3.2MSW</h2>]]></content>
       <categories>
@@ -54,10 +54,10 @@
 <p>（2）Git: <code>https://git-scm.com/downloads</code></p>
 </blockquote>
 <p>安装完成之后，<code>Win+R</code>输入<code>cmd</code>打开命令行窗口，输入<code>node -v</code>, <code>npm -v</code>, <code>git --version</code>检查是否安装成功（ps：<code>Node.js</code>中安装了<code>npm</code>命令安装模块，因此不需要额外安装）。若<code>cmd</code>窗口如下图所示，说明安装成功，如下图所示：</p>
-<img src="/post/bf8017ed/1.png" class title="安装检查">
+<img data-src="/post/bf8017ed/1.png" class title="安装检查">
 
 <h1 id="2-创建Github仓库"><a href="#2-创建Github仓库" class="headerlink" title="2.创建Github仓库"></a>2.创建Github仓库</h1><p>首先需要使用<code>Git</code>命令行连接到自己的<code>Github</code>账号（这个网上教程很多，这里不再赘述）；因为需要使用<code>Github Pages</code>服务，所以需要在<code>Github</code>中先创建一个仓库，：<code>Repository name</code>中填入<code>Github用户名.github.io</code>，并勾选<code>Add a README file</code>，如下图所示：</p>
-<img src="/post/bf8017ed/2.png" class title="创建Github仓库">
+<img data-src="/post/bf8017ed/2.png" class title="创建Github仓库">
 
 <h1 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h1><p>首先需要在本地新建一个文件夹用于存放博客程序所有文件，例如<code>My-Blog</code>。然后进入<code>My-Blog</code>文件夹，右键选择<code>Git Bash Here</code>打开<code>Git</code>命令窗口，然后依次输入以下命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli		# 安装Hexo博客程序</span><br><span class="line">hexo init					# 初始化</span><br><span class="line">npm install					# 安装组件</span><br><span class="line">hexo g						# 生成页面</span><br><span class="line">hexo s						# 启动预览</span><br></pre></td></tr></table></figure>
@@ -71,7 +71,7 @@
 
 <p>然后在<code>Git</code>命令窗口中输入<code>hexo d</code>命令将博客上传部署到<code>Github Pages</code>中。</p>
 <p>注意到我们这里是将<code>Hexo</code>博客上传到了<code>master</code>分支，因此需要在中将默认分支改为<code>master</code>，如下图所示：</p>
-<img src="/post/bf8017ed/3.png" class title="更改默认分支">
+<img data-src="/post/bf8017ed/3.png" class title="更改默认分支">
 
 <p>至此所有安装部署操作均已完成，这时访问<code>https://用户名.github.io</code>就可以看到我们自己的网站了！</p>
 <h1 id="5-创建并发布文章"><a href="#5-创建并发布文章" class="headerlink" title="5.创建并发布文章"></a>5.创建并发布文章</h1><p>首先打开本地博客程序根目录（<code>My-Blog</code>），右键选择<code>Git Bash Here</code>，输入以下命令创建文章：</p>
@@ -153,10 +153,10 @@
 <p>缺陷：局部敏感度不满足差分隐私的要求，因为噪声大小本身可能会揭示数据库信息</p>
 <h3 id="18-平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）"><a href="#18-平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）" class="headerlink" title="18.平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）"></a>18.平滑上界、平滑敏感度（为了弥补局部敏感度的缺陷而提出）</h3><h3 id="19-拉普拉斯机制"><a href="#19-拉普拉斯机制" class="headerlink" title="19.拉普拉斯机制"></a>19.拉普拉斯机制</h3><p>在查询结果上加入一个满足拉普拉斯分布的噪声来实现差分隐私保护，所加入的拉普拉斯噪声的均值要求为 0，这样输出的才是无偏估计</p>
 <h3 id="20-指数机制"><a href="#20-指数机制" class="headerlink" title="20.指数机制"></a>20.指数机制</h3><p>对于任意一个可用性函数q和一个差分隐私预算 , 随机算法 M 以正比于的概率输出一个o作为结果</p>
-<img src="/post/46d864ff/1.png" class title="指数机制">
+<img data-src="/post/46d864ff/1.png" class title="指数机制">
 
 <h3 id="21-SSE、MSE、RMSE"><a href="#21-SSE、MSE、RMSE" class="headerlink" title="21.SSE、MSE、RMSE"></a>21.SSE、MSE、RMSE</h3><p>和方差、均方误差、均方根误差</p>
-<h3 id="22-隐私预算表达式"><a href="#22-隐私预算表达式" class="headerlink" title="22.隐私预算表达式"></a>22.隐私预算表达式</h3><img src="/post/46d864ff/2.png" class title="隐私预算">
+<h3 id="22-隐私预算表达式"><a href="#22-隐私预算表达式" class="headerlink" title="22.隐私预算表达式"></a>22.隐私预算表达式</h3><img data-src="/post/46d864ff/2.png" class title="隐私预算">
 
 <h3 id="23-研究现状"><a href="#23-研究现状" class="headerlink" title="23.研究现状"></a>23.研究现状</h3><p>（1）差分隐私虽然现在已经被用于数据挖掘，推荐系统等领域，但是差分隐私对于挖掘数据保护后，还能对数据分析者提供多少可用信息目前还没有一个合理通用的度量方法</p>
 <p>（2）差分隐私与机器学习的结合将是未来的一个研究热点</p>
@@ -188,7 +188,7 @@
 <p>（2）众包模式下字符串边缘频率估计和联合概率估计</p>
 <p>（3）针对智能设备的机器学习</p>
 <h1 id="6-布鲁姆过滤器（Bloom-Filter）"><a href="#6-布鲁姆过滤器（Bloom-Filter）" class="headerlink" title="6.布鲁姆过滤器（Bloom Filter）"></a>6.布鲁姆过滤器（Bloom Filter）</h1><p>（1）定义：由一个超长的二进制位数组和一系列的哈希函数组成。二进制位数组初始值全部为0，当给定一个待查询的元素时，这个元素会被一系列哈希函数计算映射出一系列的值，所有的值在位数组的偏移量处置为1</p>
-<img src="/post/b16e3800/1.png" class title="布鲁姆过滤器">
+<img data-src="/post/b16e3800/1.png" class title="布鲁姆过滤器">
 
 <p>（2）判断元素是否在集合中的方法：元素经过一系列哈希函数计算后得到所有的偏移位置，若这些位置全都为1，则判断这个元素在这个集合中，若有一个不为1，则判断这个元素不在这个集合中</p>
 <p>（3）优点：节省空间，采用位数组，2的32次方&#x3D;4294967296 可以看到42亿长度的位数组占用4294967296&#x2F;8&#x2F;1024&#x2F;1024&#x3D;512MB 只需占用512MB的内存空间</p>
@@ -199,7 +199,7 @@
 <h1 id="8-中位数机制（目前没弄懂）"><a href="#8-中位数机制（目前没弄懂）" class="headerlink" title="8.中位数机制（目前没弄懂）"></a>8.中位数机制（目前没弄懂）</h1><h1 id="9-本地差分隐私保护主要思想"><a href="#9-本地差分隐私保护主要思想" class="headerlink" title="9.本地差分隐私保护主要思想"></a>9.本地差分隐私保护主要思想</h1><p>（1）不能收集或拥有任何个人的精确信息</p>
 <p>（2）可以推断出用户群体的泛化统计信息</p>
 <h1 id="10-DP与LDP的区别"><a href="#10-DP与LDP的区别" class="headerlink" title="10.DP与LDP的区别"></a>10.DP与LDP的区别</h1><p>两者最重要的区别在于加入噪声扰动的时机不同</p>
-<img src="/post/b16e3800/2.png" class title="DP与LDP区别">
+<img data-src="/post/b16e3800/2.png" class title="DP与LDP区别">
 
 <h1 id="11-本地模型下的数据分析流程"><a href="#11-本地模型下的数据分析流程" class="headerlink" title="11.本地模型下的数据分析流程"></a>11.本地模型下的数据分析流程</h1><p>每个本地用户用随机器Q扰乱个人数据v得到Z，数据收集者将其汇总得到S，最后进行数据分析；</p>
 <p>拉普拉斯机制经常被用于本地模型中，常用于对数值型结果的隐私保护</p>
@@ -216,25 +216,25 @@
 <ol>
 <li><p>（step 1）</p>
 <p>理论上，<code>Pr[Xi=“是”]=πp+(1-π)(1-p)</code>，<code>Pr[Xi=“否”]=(1-π)p+π(1-p)</code>。直觉上，当<code>n</code>足够大时，设回答“是”的人数为<code>n1</code>，回答“否”的人数为<code>n2</code>。<code>Pr[Xi=“是”]=n1/n</code>，<code>Pr[Xi=“否”]=n2/n</code>。求解下面的二次方程即可获得<code>π</code>的值</p>
-<img src="/post/b16e3800/4.png" class title="二次方程">
+<img data-src="/post/b16e3800/4.png" class title="二次方程">
 
 <p>但是，<code>上述的结果并非真实比例的无偏估计</code>，我们用极大似然估计(<code>Max Likehood Estimation</code>)对统计结果进行校正</p>
 </li>
 <li><p>（step 2）</p>
 <p>首先构建最大似然函数：</p>
-<img src="/post/b16e3800/5.png" class title="最大似然函数">
+<img data-src="/post/b16e3800/5.png" class title="最大似然函数">
 
 <p>对数似然函数为：</p>
-<img src="/post/b16e3800/6.png" class title="对数似然函数">
+<img data-src="/post/b16e3800/6.png" class title="对数似然函数">
 
 <p>令</p>
-<img src="/post/b16e3800/7.png" class title="求解对数似然函数">
+<img data-src="/post/b16e3800/7.png" class title="求解对数似然函数">
 
 <p>求解可得<code>π</code>的极大似然估计：</p>
-<img src="/post/b16e3800/8.png" class title="最大似然估计">
+<img data-src="/post/b16e3800/8.png" class title="最大似然估计">
 
 <p>由此可得患有<code>HIV</code>的总人数为：</p>
-<img src="/post/b16e3800/9.png" class title="求总人数"></li>
+<img data-src="/post/b16e3800/9.png" class title="求总人数"></li>
 </ol>
 <h1 id="14-LDP研究方向"><a href="#14-LDP研究方向" class="headerlink" title="14.LDP研究方向"></a>14.LDP研究方向</h1><p>（1）基于随机应答与<code>Bloom Filter</code>的编解码方式研究（<code>RAPPOR</code>）</p>
 <p>（2）针对流式频繁项集挖掘<code>Heavy Hitters</code>挖掘</p>
@@ -255,6 +255,140 @@
       <tags>
         <tag>差分隐私</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Answering Multi-Dimensional Analytical Queries under Local Differential Privacy</title>
+    <url>/post/a9e145d2.html</url>
+    <content><![CDATA[<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>该文献主要研究<code>LDP</code>下回答多维分析查询的问题（<code>MDA</code>），并提出了几种<code>LDP</code>编码器和频率估计算法去处理不同类型的<code>MDA查询</code>。该文献提出的技术能够在严格的误差范围内回答<code>MDA查询</code>，并在真实数据集和合成数据集上进行了相关实验进一步验证了理论分析结果。</p>
+<span id="more"></span>
+
+<h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h1><h2 id="1-1数据模型和应用场景"><a href="#1-1数据模型和应用场景" class="headerlink" title="1.1数据模型和应用场景"></a>1.1数据模型和应用场景</h2><p>用户在使用云服务的过程中会产生一些多维数据，这些多维数据大致可以分为以下三部分：<code>measure attributes</code>、<code>sensitive</code>、<code>non-sensitive</code>。另一方面，云服务提供商希望通过在<code>sensitive</code>受到约束的情况下的一些聚合<code>measure</code>的分析查询，以分析云服务的执行情况。尽管用户所有维度的数据不会公之于众，并且上述的分析过程在服务器端内部执行，但是云服务提供商需要提供一个运行在每个用户设备上的<code>LDP</code>数据收集算法，以确保<code>sensitive</code>维度得到妥善处理。</p>
+<p>这篇文章研究的是如何（近似）回答一类多维分析查询（<code>MDA</code>），同时通过<code>LDP</code>收集每个用户的敏感数据。MDA查询就是对<code>measure attributes</code>进行聚合（<code>COUNT, SUM, AVG</code>）的<code>SQL</code>查询，且其约束条件（点约束和范围约束）作用在<code>sensitive</code>上。</p>
+<h2 id="1-2解决方案概述"><a href="#1-2解决方案概述" class="headerlink" title="1.2解决方案概述"></a>1.2解决方案概述</h2><p>客户端的每个用户拥有一些多维数据，他们使用LDP编码算法<b>A</b>对<code>sensitive</code>进行扰动，并将扰动后的数据上传给服务器。服务器端从用户那里收集到进行<code>LDP</code>编码后的数据，然后再将其与其他服务器已知的数据和一些非敏感数据组合共同构成<code>fact table</code>（事实表）。由于在收集每个用户的数据之前保证了每个用户的隐私，因此可以发出任意数量的 MDA 查询。 由于敏感维度是用注入的随机噪声编码的，因此需要一个算法 <b>P</b> 来估计查询结果。</p>
+<h2 id="1-3挑战"><a href="#1-3挑战" class="headerlink" title="1.3挑战"></a>1.3挑战</h2><h3 id="1-3-1边缘列联表发布"><a href="#1-3-1边缘列联表发布" class="headerlink" title="1.3.1边缘列联表发布"></a>1.3.1边缘列联表发布</h3><p>在<code>LDP</code>下回答<code>MDA查询</code>与在<code>LDP</code>下发布边缘列联表（<code>marginal release</code>）的工作密切相关。一个边缘列联表记录了一系列维度之间的概率分布，其中表中的每一行类似于一个<code>COUNT</code>查询。因此可以通过对查询<code>Q</code>覆盖到的边缘列联表中的每一行进行求和来回答一个<code>MDA查询</code>。</p>
+<p><code>挑战</code>：因为表中的每一行数据都被扰动过，所以每行数据都带有噪声，这种情况下去进行求和时，查询结果每多加一行就会多增加一点噪声，因此该方法存在很大缺陷。一般来说，假设总共有<code>d</code>个有序维度，每个维度有<code>m</code>个不同的值，那么最坏情况下的平方误差会与<b>O(m<sup>d</sup>)</b>成正比，而当<code>m</code>很大时，最坏情况的误差可能会非常大。</p>
+<h3 id="1-3-2频率估计"><a href="#1-3-2频率估计" class="headerlink" title="1.3.2频率估计"></a>1.3.2频率估计</h3><p>在<code>LDP</code>下回答<code>MDA查询</code>与在<code>LDP</code>下进行频率估计（<code>frequency oracle</code>）的工作同样密切相关。这种情景下，客户端每个用户有一个隐私值。此时用户会对敏感数据添加噪声进行<code>LDP</code>扰动， 然后再将扰动之后的数据上传给服务器。而服务器端则需要估计一个给定值的频率。实际上，一些简单的<code>MDA查询</code>（<code>COUNT</code>查询）可以被转换成频率估计问题。</p>
+<p><code>挑战</code>：然而，目前不知道如何通过频率估计解决其他聚合函数（<code>SUM, AVG</code>）的问题，以及如何在多个维度上处理复杂的谓词（范围约束）而不会导致估计误差。</p>
+<h2 id="1-4贡献"><a href="#1-4贡献" class="headerlink" title="1.4贡献"></a>1.4贡献</h2><p>（1）该文献提出了一种加权的频率估计算法：每个用户都关联一个公共权重并持有一个隐私值，且用户将隐私值经过<code>LDP</code>扰动后再发送给服务器。首先将每一个<code>measure attribute</code>看作每个用户的权重，然后对<code>measure attributes</code>执行更加一般的聚合函数（<code>SUM, AVG, STDEV</code>），因此<code>MDA查询</code>就转化为对于给定的值，估计持有该值的用户总权重；</p>
+<p>（2）将加权频率估计算法融入到区间分层机制中，使得基于边缘列联表发布的最坏情况下的平方误差从<b>O(m<sup>d</sup>)</b>减少到<b>log<sup>O(d)</sup>m</b>；</p>
+<p>（3）将分解模式从一维扩展到了<code>d</code>维，使得误差仍然为<b>log<sup>O(d)</sup>m</b>。</p>
+<h1 id="2-初步"><a href="#2-初步" class="headerlink" title="2.初步"></a>2.初步</h1><h2 id="2-1多维模型和分析"><a href="#2-1多维模型和分析" class="headerlink" title="2.1多维模型和分析"></a>2.1多维模型和分析</h2><p>每个用户的多维数据包含的一系列属性（<code>dimensions/measures</code>）构成一个元组<code>t</code>。在一个分析问题中，<code>dimension</code>用<code>D</code>表示，其出现在谓语中，<code>measure</code>用<code>M</code>表示，其出现在聚合函数中，因此<code>t[D]</code>和<code>t[M]</code>代表元组<code>t</code>中的某个属性值（<code>D</code>和<code>M</code>也可以代表属性的取值域<code>domain</code>）。</p>
+<p>假设<code>T</code>为事实表<code>fact table</code>，考虑以下类型的多维分析查询：</p>
+<img data-src="/post/a9e145d2/1.png" class title="多维分析查询">
+
+<p>聚合函数<code>F(M)</code>可以为<code>COUNT(*), SUM(M), AVG(M)</code>，考虑到<code>COUNT(*)</code>是一种特殊的聚合函数，且<code>AVG(M)</code>可以从其他两个聚合函数中推导得出，因此主要考虑<code>SUM(M)</code>函数；</p>
+<p>谓语<code>C</code>由对分类维度的点约束（<b>D<sub>i</sub>&#x3D;v<sub>i</sub></b>）和对有序维度的范围约束（<b>D<sub>i</sub>∈[l<sub>i</sub>, r<sub>i</sub>]</b>）组成。</p>
+<h2 id="2-2LDP信任模型"><a href="#2-2LDP信任模型" class="headerlink" title="2.2LDP信任模型"></a>2.2LDP信任模型</h2><p>在LDP下，用户将元组<code>t</code>中的敏感维度通过随机算法<b>A</b>进行编码得到<code>A(t)</code>（<code>LDP</code>报告），然后用户将该报告发送给服务器。与之前LDP上的工作相比，该文献中的模型区分了敏感信息和非敏感信息，且在查询中使用了非敏感信息。</p>
+<h2 id="2-3多维分析查询"><a href="#2-3多维分析查询" class="headerlink" title="2.3多维分析查询"></a>2.3多维分析查询</h2><p><code>客户端（LDP编码器A）</code>：每个用户采用满足<code>ε-LDP</code>的算法<b>A<sup>ε</sup></b>对其敏感维度进行处理，并将<b>A<sup>ε</sup>(t)</b>发送给服务器；</p>
+<p><code>服务器端（估计处理器P）</code>：<code>n</code>个用户的数据元组构成一个事实表<b>T&#x3D;{t<sub>1</sub>, … , t<sub>n</sub>}</b>，而服务器实际从客户端收集到的表为<b>A(T)&#x3D;{A(t<sub>1</sub>), … , A(t<sub>n</sub>)}</b>。那么MDA查询<b>q&#x3D;Q<sub>T</sub>(F(M), C)</b>就可以根据<b>A(T)</b>和<b>T</b>的其他属性使用估计算法<b>P</b>近似进行回答，最终得到<b>P(q)</b>；</p>
+<p><code>误差测量</code>：采用期望平方误差<b>Err(P(q))&#x3D;E[(P(q)-q)<sup>2</sup>]</b>，如果<b>P(q)</b>是q的无偏估计，那么<b>Err(P(q))&#x3D;Var(P(q))</b>。</p>
+<h1 id="3-加权频率估计"><a href="#3-加权频率估计" class="headerlink" title="3.加权频率估计"></a>3.加权频率估计</h1><h2 id="3-1加权频率查询和MDA之间的关系"><a href="#3-1加权频率查询和MDA之间的关系" class="headerlink" title="3.1加权频率查询和MDA之间的关系"></a>3.1加权频率查询和MDA之间的关系</h2><p>加权频率查询和MDA的关系如下图所示：</p>
+<img data-src="/post/a9e145d2/2.png" class title="加权频率估计">
+
+<h2 id="3-2LDP频率估计"><a href="#3-2LDP频率估计" class="headerlink" title="3.2LDP频率估计"></a>3.2LDP频率估计</h2><h3 id="3-2-1未加权频率估计"><a href="#3-2-1未加权频率估计" class="headerlink" title="3.2.1未加权频率估计"></a>3.2.1未加权频率估计</h3><p>当所有用户均满足<code>t[M]=1</code>时，<code>MDA查询</code><b>f<sup>M</sup><sub>S</sub>(v)</b>就相当于计算<code>v</code>的频率，即等同于一个<code>COUNT</code>查询：</p>
+<img data-src="/post/a9e145d2/3.png" class title="COUNT查询">
+
+<p>在之前的工作中，<code>OLH</code>算法是一种拥有渐进最优误差的未加权频率估计算法，其主要流程为：首先从一个哈希函数族中随机选择一个哈希函数<code>H</code>，然后将用户数据中的属性<code>t[D]</code>从范围<code>D</code>映射到一个更小的范围<code>g</code>，并以一定的概率将<code>t[D]</code>扰动为<code>g</code>中某个值<code>y</code>，即<code>y=H(t[D])</code>。因此用户数据t经过LDP扰动后得到的LDP报文为<b>A<sub>FO</sub>(t[D])&#x3D;&lt;H, y&gt;</b>。<code>OLH</code>算法具体流程如下图所示：</p>
+<img data-src="/post/a9e145d2/4.png" class title="OLH算法">
+
+<blockquote>
+<p>Ps：Client side第一步原文作者好像打错了，个人感觉应该是at random</p>
+</blockquote>
+<p>其中，下图所示的引理给出了OLH算法的渐进最优误差：</p>
+<img data-src="/post/a9e145d2/5.png" class title="OLH算法渐进最优误差">
+
+<h3 id="3-2-2加权频率估计"><a href="#3-2-2加权频率估计" class="headerlink" title="3.2.2加权频率估计"></a>3.2.2加权频率估计</h3><p>加权频率估计在<code>OLH</code>算法的基础上进行改进，该算法的主要思想为将用户根据其<code>measures</code>进行分组，例如<b>S<sub>x</sub>&#x3D;{t∈S|t[M]&#x3D;x}</b>。对于一个维度值<code>v</code>，通过<b>S<sub>x</sub></b>建立未加权频率估计与加权频率估计之间的关系，如下图所示：</p>
+<img data-src="/post/a9e145d2/6.png" class title="两种频率估计之间的关系">
+
+<p>加权频率估计算法的误差推导如下所示：</p>
+<img data-src="/post/a9e145d2/7.png" class title="加权频率估计算法误差">
+
+<h2 id="3-3随机样本放大"><a href="#3-3随机样本放大" class="headerlink" title="3.3随机样本放大"></a>3.3随机样本放大</h2><p>当只有某些随机样本被抽取去使用<b>A<sub>FO</sub></b>报告他们的私人值<code>t[D]</code>时，这种情况下首先需要使用<b>f<sup>M</sup></b>估计该样本中值<code>v</code>的加权频率，然后再将所估计的频率扩大到所有用户。</p>
+<blockquote>
+<p>Ps：这一做法被作者使用在其所提出的机制中，实验指出该做法提升了性能</p>
+</blockquote>
+<p>具体来说，对于用户集合<code>S</code>，首先随机地将<code>S</code>分成<b>S<sub>1</sub>, … , S<sub>k</sub></b>总共<code>k</code>个组（其中<code>S</code>中的每个用户以概率<code>1/k</code>随机选择一个组<b>S<sub>i</sub></b>）；然后，只对一个样本（记作<b>S<sub>1</sub></b>）运行加权频率估计算法<b>(A<sub>FO</sub>, f<sup>M</sup>)</b>，那么就可以得到<b>S<sub>1</sub></b>这个组中<code>v</code>的频率估计，然后通过下图所示的表达式获取整个用户集合<code>S</code>中<code>v</code>的频率估计：</p>
+<img data-src="/post/a9e145d2/8.png" class title="频率估计">
+
+<p>据下图可知，上式中等号左边的表达式是<b>f<sup>M</sup><sub>S</sub>(v)</b>的无偏估计：</p>
+<img data-src="/post/a9e145d2/9.png" class title="无偏估计">
+
+<p><code>误差</code>：该算法误差有两个来源，一个是来自LDP噪声，另一个是来自采样过程。下图推导了该算法的误差界限：</p>
+<img data-src="/post/a9e145d2/10.png" class title="误差界限">
+
+<h2 id="3-4通过边缘列联表回答MDA"><a href="#3-4通过边缘列联表回答MDA" class="headerlink" title="3.4通过边缘列联表回答MDA"></a>3.4通过边缘列联表回答MDA</h2><p>估计边缘列联表的机制主要关注<code>COUNT</code>查询，但实际上只需要做一些变换就可以用这些机制去处理MDA查询：为了回答一个MDA查询，我们首先根据<code>measure</code> <code>M</code>将事实表<code>T</code>分为多个子表<b>T<sub>x</sub></b>，即<b>T<sub>x</sub>&#x3D;{t∈T|t[M]&#x3D;x}</b>；然后再根据估计得到的边缘列联表去计算每一个子标<b>T<sub>x</sub></b>中的满足限制条件<code>C</code>的元组（记作<b>n<sub>x</sub></b>），那么对于一个<code>SUM</code>类型的<code>MDA</code>查询，其结果可以通过<b>Σ<sub>x</sub> x n<sub>x</sub></b>进行求得。</p>
+<p><code>不足</code>：如<code>1.3.1</code>所述，该方法会引入较大的误差。一般来说，假设<code>D∈[l, r</code>]中有<code>m</code>个不同的值，那么根据<code>3.2.2</code>该机制的误差为（线性依赖于<code>m</code>）：</p>
+<img data-src="/post/a9e145d2/11.png" class title="误差">
+
+<p><code>解决方案</code>：为了解决上述问题，<code>4-5节</code>提出了新的机制，使得最终的误差对数依赖于<code>m</code>。</p>
+<h1 id="4-一个隐私维度的MDA"><a href="#4-一个隐私维度的MDA" class="headerlink" title="4.一个隐私维度的MDA"></a>4.一个隐私维度的MDA</h1><p>首先关注只有一个隐私维度的场景，并在下一节中阐述多维隐私维度的解决方案</p>
+<h2 id="4-1区间分层机制"><a href="#4-1区间分层机制" class="headerlink" title="4.1区间分层机制"></a>4.1区间分层机制</h2><h3 id="4-1-1区间分层"><a href="#4-1-1区间分层" class="headerlink" title="4.1.1区间分层"></a>4.1.1区间分层</h3><p>假设有序维度<code>D</code>有<code>m</code>个不同的值，顺序依次为<b>Z<sub>1</sub>, Z<sub>2</sub>, … , Z<sub>m</sub></b>，然后构建一颗完全<code>B</code>叉树，直到最后一层每个结点只包含一个值：第一层为<b>L<sup>0</sup>&#x3D;{[Z<sub>1</sub>, Z<sub>m</sub>]}</b>，其对应根节点；最后一层为<b>L<sup>h</sup>&#x3D;{[Z<sub>1</sub>, Z<sub>1</sub>], … , [Z<sub>m</sub>, Z<sub>m</sub>]}</b>。记<b>I<sub>D</sub>&#x3D;{L<sup>0</sup>, … , L<sup>h</sup>}</b>，其中<b>h&#x3D;log<sub>b</sub>m</b>。</p>
+<h3 id="4-1-2通过区间分层重写查询"><a href="#4-1-2通过区间分层重写查询" class="headerlink" title="4.1.2通过区间分层重写查询"></a>4.1.2通过区间分层重写查询</h3><p>对于某个查询<b>q&#x3D;Q<sub>T</sub>(SUM(M), D∈[l, r])</b>，平均来说区间<b>[l, r]</b>可以被分解为<b>2(b-1)log<sub>b</sub>m</b>个不相交的子区间<b>I<sup>1</sup>, … , I<sup>p</sup></b>。因此查询<b>q</b>便可以相应地分解为基于这些子区间的子查询，而每一个子查询又可以通过加权频率估计算法进行频率估计，如下图所示：</p>
+<img data-src="/post/a9e145d2/12.png" class title="重写查询">
+
+<blockquote>
+<p>Ps：<b>2(b-1)log<sub>b</sub>m</b>来源于普渡大学李宁辉教授的某篇文献（目前还没找到具体文献）</p>
+</blockquote>
+<h3 id="4-1-3HI机制（一维）"><a href="#4-1-3HI机制（一维）" class="headerlink" title="4.1.3HI机制（一维）"></a>4.1.3HI机制（一维）</h3><p><code>客户端</code>：首先隐私预算<b>ε</b>基于完全树的高度<b>h</b>均等地分成<b>h</b>份，那么每一层的隐私预算为<b>ε&#x2F;(log<sub>b</sub>m)</b>，然后用户对其敏感属性所在的每一层的对应区间都使用<code>OLH</code>算法进行<code>LDP</code>扰动，并将扰动之后的树发送给服务器；</p>
+<p><code>服务器端</code>：首先将查询范围<b>D</b>进行重写，然后使用加权频率估计去估计每一个子查询，最后再进行求和，那么求和结果就是查询结果，如下图所示：</p>
+<img data-src="/post/a9e145d2/13.png" class title="一维HI机制">
+
+<p><code>误差</code>：根据以下理论可以得出<code>HI</code>机制的误差界限：</p>
+<img data-src="/post/a9e145d2/14.png" class title="一维HI机制误差">
+
+<h2 id="4-2HIO机制（一维）"><a href="#4-2HIO机制（一维）" class="headerlink" title="4.2HIO机制（一维）"></a>4.2HIO机制（一维）</h2><p><code>HIO</code>机制采用<code>3.3</code>节的随机采样放大算法。在<code>HI</code>机制中，客户端将隐私预算进行平均分配；而在<code>HIO</code>机制中，则采用将用户随机分成<b>h</b>组（<b>h</b>为树的高度）：分组<b>S<sub>j</sub></b>中的用户（对应树的第<b>j</b>层）可以被看成是从整个用户集合<b>S</b>中以采样率<b>1&#x2F;h</b>得到，<code>HIO</code>机制具体如下图所示：</p>
+<img data-src="/post/a9e145d2/15.png" class title="一维HIO机制">
+
+<p><code>算法流程</code>：和HI机制一样，查询<b>q&#x3D;Q<sub>T</sub>(SUM(M), D∈[l, r])</b>仍然分解为多个子查询；而对于每个子查询所在的子区间的层数，那么就可以使用被分组到该层的用户进行分组频率估计，然后再放大h倍作为该子查询的结果；</p>
+<p><code>误差</code>：根据以下理论可以得出<code>HIO</code>机制的误差界限：</p>
+<img data-src="/post/a9e145d2/16.png" class title="一维HIO机制误差">
+
+<h1 id="5-多个隐私维度的MDA"><a href="#5-多个隐私维度的MDA" class="headerlink" title="5.多个隐私维度的MDA"></a>5.多个隐私维度的MDA</h1><h2 id="5-1有序维度-有序维度"><a href="#5-1有序维度-有序维度" class="headerlink" title="5.1有序维度+有序维度"></a>5.1有序维度+有序维度</h2><h3 id="5-1-1多维度区间分层"><a href="#5-1-1多维度区间分层" class="headerlink" title="5.1.1多维度区间分层"></a>5.1.1多维度区间分层</h3><p><code>二维</code>：二维区间定义为两个一维区间的笛卡儿积，如下图所示：</p>
+<img data-src="/post/a9e145d2/17.png" class title="二维区间定义">
+
+<p>一般来说，区间<b>[l<sub>1</sub>, r<sub>1</sub>]</b>可以分解成<b>p<sub>1</sub></b>个不相交的子区间，区间<b>[l<sub>2</sub>, r<sub>2</sub>]</b>可以分解成<b>p<sub>2</sub></b>个不相交的子区间，那么查询<b>q</b>便可以如下图所示进行分解：</p>
+<img data-src="/post/a9e145d2/18.png" class title="二维查询分解">
+
+<p><code>d维</code>：根据二维查询的分解方式，可以得到下图所示的<b>d</b>维查询的分解方式：</p>
+<img data-src="/post/a9e145d2/19.png" class title="d维查询分解">
+
+<h3 id="5-1-2HI机制（多维）"><a href="#5-1-2HI机制（多维）" class="headerlink" title="5.1.2HI机制（多维）"></a>5.1.2HI机制（多维）</h3><p><code>算法流程</code>：多维<code>HI</code>机制流程如下图所示：</p>
+<img data-src="/post/a9e145d2/20.png" class title="多维HI机制">
+
+<p><code>误差</code>：多维<code>HI</code>机制误差分析如下图所示：</p>
+<img data-src="/post/a9e145d2/21.png" class title="多维HI机制误差">
+
+<h3 id="5-1-3HIO机制（多维）"><a href="#5-1-3HIO机制（多维）" class="headerlink" title="5.1.3HIO机制（多维）"></a>5.1.3HIO机制（多维）</h3><p>多维<code>HIO</code>机制流程如下图所示：</p>
+<img data-src="/post/a9e145d2/22.png" class title="多维HIO机制">
+
+<p><code>误差</code>：多维<code>HIO</code>机制误差分析如下图所示：</p>
+<img data-src="/post/a9e145d2/23.png" class title="多维HIO机制误差">
+
+<h2 id="5-2有序维度-分类维度"><a href="#5-2有序维度-分类维度" class="headerlink" title="5.2有序维度+分类维度"></a>5.2有序维度+分类维度</h2><p>对于某个分类维度<b>D</b>，可以将其看作成一颗只有两层的树：第一层为一个包含所有取值的根节点，第二层则根据<b>D</b>中不同的值分解为多个只包含一个维度值的结点。通过这种分解转化，那么分类维度同样可以被看作成有序维度去处理。</p>
+<h2 id="5-3SC机制"><a href="#5-3SC机制" class="headerlink" title="5.3SC机制"></a>5.3SC机制</h2><p>可以看到<code>HI</code>机制和<code>HIO</code>机制所产生的误差随着查询维度数量<b>d<sub>q</sub></b>和总隐私维度数量<b>d</b>的增长呈现指数级增长，于是作者想探究当查询维度数量<b>d<sub>q</sub></b>远小于总隐私维度数量<b>d</b>时，是否可能去除误差对总隐私维度数量<b>d</b>的依赖。</p>
+<p><code>主要思想</code>：与<code>HI</code>机制不同的是，<code>SC</code>机制对<b>d</b>个隐私维度独立编码和上传，那么这种情况下就需要考虑如何将所有独立上传的维度串联起来去完成多维度查询。</p>
+<h3 id="5-3-1状态变量及其转移"><a href="#5-3-1状态变量及其转移" class="headerlink" title="5.3.1状态变量及其转移"></a>5.3.1状态变量及其转移</h3><p>作者根据下图定义了输入状态和输出状态：</p>
+<img data-src="/post/a9e145d2/24.png" class title="输入&#x2F;输出状态">
+
+<p>根据输入状态和输出状态便可以定义下图所示的一维转移概率：</p>
+<img data-src="/post/a9e145d2/25.png" class title="一维转移概率">
+
+<p>依次类推，便可以定义下图所示的二维转移概率：</p>
+<img data-src="/post/a9e145d2/26.png" class title="二维转移概率">
+
+<h3 id="5-3-2通过转移矩阵进行频率估计"><a href="#5-3-2通过转移矩阵进行频率估计" class="headerlink" title="5.3.2通过转移矩阵进行频率估计"></a>5.3.2通过转移矩阵进行频率估计</h3><p><code>主要思想</code>：根据用户集合<b>S</b>及其<code>LDP</code>报文便可以得出每个二维输出状态的频率，然后借助转移矩阵便可得出每个二维输入状态的频率（其中还可以采用加权频率估计算法），如下图所示：</p>
+<img data-src="/post/a9e145d2/27.png" class title="通过转移矩阵进行频率估计">
+
+<p><code>多维</code>：二维与多维唯一的区别在于转移矩阵的大小发生了变化，当隐私维度是<b>d</b>维时，转移矩阵的大小为<b>2<sup>d</sup>x2<sup>d</sup></b>。</p>
+<p><code>频率估计器误差</code>：如下图所示：</p>
+<img data-src="/post/a9e145d2/28.png" class title="频率估计器误差">
+
+<h3 id="5-3-3SC机制"><a href="#5-3-3SC机制" class="headerlink" title="5.3.3SC机制"></a>5.3.3SC机制</h3><p><code>算法流程</code>：多维<code>SC</code>机制流程如下图所示：</p>
+<img data-src="/post/a9e145d2/29.png" class title="多维SC机制">
+
+<p><code>误差</code>：多维<code>HI</code>机制误差分析如下图所示：</p>
+<img data-src="/post/a9e145d2/30.png" class title="多维SC机制误差">
+]]></content>
   </entry>
   <entry>
     <title>AHEAD: Adaptive Hierarchical Decomposition for Range Query under Local Differential Privacy</title>
@@ -280,13 +414,13 @@
 </blockquote>
 <p><code>编码</code>：对于用户<code>i</code>的隐私数据<code>Vi</code>，将其编码为<code>Xi</code>；</p>
 <p><code>扰动</code>：用户<code>i</code>以根据以下式子选择<code>Vi</code>的值，并将扰动后的隐私值对应的编码<code>Xi&#39;</code>上传到服务器（其中<code>Vi&#39;</code>是从数据集<code>D</code>中随机选择）；</p>
-<img src="/post/8d2d0774/1.png" class title="广义随机响应">
+<img data-src="/post/8d2d0774/1.png" class title="广义随机响应">
 
 <p><code>聚合</code>：聚合器首先收集所有经过用户扰动之后的数据，然后计算每个数据<code>V</code>的频率<code>count[V]</code>，<code>count[V]</code>的一个无偏估计为：</p>
-<img src="/post/8d2d0774/2.png" class title="&#96;count[V]&#96;的无偏估计">
+<img data-src="/post/8d2d0774/2.png" class title="&#96;count[V]&#96;的无偏估计">
 
 <p><code>估计误差</code>：<code>GRR</code>的估计误差源自算法方差：</p>
-<img src="/post/8d2d0774/3.png" class title="GRR算法方差">
+<img data-src="/post/8d2d0774/3.png" class title="GRR算法方差">
 
 <h3 id="2-2-2优化的一元编码（Optimized-Unary-Encoding-OUE）"><a href="#2-2-2优化的一元编码（Optimized-Unary-Encoding-OUE）" class="headerlink" title="2.2.2优化的一元编码（Optimized Unary Encoding, OUE）"></a>2.2.2优化的一元编码（Optimized Unary Encoding, OUE）</h3><blockquote>
 <p>Ps：<code>RAPPOR</code>算法的优化版本</p>
@@ -295,10 +429,10 @@
 <h4 id="2-2-2-1One-Hot-Encoding（独热编码）"><a href="#2-2-2-1One-Hot-Encoding（独热编码）" class="headerlink" title="2.2.2.1One-Hot Encoding（独热编码）"></a>2.2.2.1One-Hot Encoding（独热编码）</h4><p><code>One-Hot编码</code>，又称为一位有效编码，即采用<code>N</code>个独立的寄存器对<code>N</code>个状态进行编码，对于每个状态，只有一个寄存器的值为<code>1</code>，其余寄存器的值都为<code>0</code></p>
 <p><code>扰动</code>：对上一步得到的每个数据都采用<code>GRR</code>方法进行扰动，具体对每个数据的每一位来说，如果该位为<code>1（0）</code>，则以概率<code>p（q）</code>保持不变，以概率<code>1-p（1-q）</code>进行反转，然后用户将扰动后的编码<code>Xi&#39;</code>传输到服务器</p>
 <p><code>聚合</code>：聚合器收集到所有经过用户扰动后的数据，然后对每一位为1的个数进行频率统计得到<code>count[V]</code>，<code>count[V]</code>的一个无偏估计为：</p>
-<img src="/post/8d2d0774/2.png" class title="&#96;count[V]&#96;的无偏估计">
+<img data-src="/post/8d2d0774/2.png" class title="&#96;count[V]&#96;的无偏估计">
 
 <p><code>估计误差</code>：算法方差为：</p>
-<img src="/post/8d2d0774/4.png" class title="算法方差">
+<img data-src="/post/8d2d0774/4.png" class title="算法方差">
 
 <blockquote>
 <p>总结：可以看到，<code>GRR</code>和<code>OUE</code>算法都得到了频率值的无偏估计，而且，<code>OUE</code>算法的方差独立于数据集大小<code>|D|</code>。所以对于更小的<code>|D|</code>，<code>GRR</code>算法更好；而对于更大的<code>|D|</code>，<code>OUE</code>算法更好</p>
@@ -337,9 +471,9 @@
 <p><code>隐私预算拆分策略（privacy budget splitting strategy）</code>：将整个隐私预算<code>𝜖</code>分成<code>c</code>份，并且在隐私预算<code>𝜖/c</code>下对所有用户的报告进行频率分布的估计；</p>
 <p><code>用户分区策略（user partition strategy）</code>：随机地将用户分为<code>c</code>组，并使用整个隐私预算从魅族用户那里获取频率值；</p>
 <p>对于相同的区间结点，两种策略的方差分别如下所示：</p>
-<img src="/post/8d2d0774/5.png" class title="隐私预算拆分策略方差">
+<img data-src="/post/8d2d0774/5.png" class title="隐私预算拆分策略方差">
 
-<img src="/post/8d2d0774/6.png" class title="用户分区策略方差">
+<img data-src="/post/8d2d0774/6.png" class title="用户分区策略方差">
 
 <p>因为<code>𝜖&gt;0</code>且<code>c&gt;1</code>，所以<code>Var1&gt;Var2</code></p>
 <blockquote>
@@ -352,12 +486,12 @@
 <p><code>Step4：Post-processing</code>：该步骤包含<code>非负</code>和<code>加权平均</code>（可以最大程度减少噪声的幅度）两步操作。<code>AHEAD算法</code>首先在相同层中通过<code>NormSub算法</code>使得结点的估计频率值都非负，且所有频率值的总和为<code>1</code>；然后自底向上计算非叶节点<code>n</code>和其子结点的加权平均值去更新<code>n</code>的频率估计值（通过结合<code>n</code>的多次估计来减少加性噪声）：</p>
 <blockquote>
 <p>对于非根节点<code>n</code>：</p>
-<img src="/post/8d2d0774/8.png" class title="结点频率值更新">
+<img data-src="/post/8d2d0774/8.png" class title="结点频率值更新">
 
 <p>其中，参数设置如下（这样设置可以得到最小的更新方差）：</p>
-<img src="/post/8d2d0774/9.png" class title="参数&lt;b&gt;𝜆&lt;sub&gt;1&lt;&#x2F;sub&gt;&lt;&#x2F;b&gt;">
+<img data-src="/post/8d2d0774/9.png" class title="参数&lt;b&gt;𝜆&lt;sub&gt;1&lt;&#x2F;sub&gt;&lt;&#x2F;b&gt;">
 
-<img src="/post/8d2d0774/10.png" class title="参数&lt;b&gt;𝜆&lt;sub&gt;2&lt;&#x2F;sub&gt;&lt;&#x2F;b&gt;">
+<img data-src="/post/8d2d0774/10.png" class title="参数&lt;b&gt;𝜆&lt;sub&gt;2&lt;&#x2F;sub&gt;&lt;&#x2F;b&gt;">
 
 <p>Var<sub>child(n)</sub>代表结点<code>n</code>的子结点的方差总和，Var<sub>n</sub>代表结点<code>n</code>的方差。<code>f~</code>代表<code>f^</code>的后处理版本</p>
 </blockquote>
@@ -370,7 +504,7 @@
 <p><code>证明</code></p>
 <p><code>Step1</code>中，用户在<code>[1, 2, ... , c]</code>中随机地选取其分区，这一步没有隐私预算消耗；<code>Step2</code>和<code>Step3</code>中，<code>AHEAD算法</code>顺序地与用户进行交互，并且每个用户产生一个输出；<code>Step4</code>中，AHEAD算法没有触及用户地隐私数据，因此不会产生额外地隐私预算；因此，如果在和用户交互时（<code>Step3</code>和<code>Step4</code>）满足<code>𝜖-LDP</code>，那么<code>AHEAD算法</code>满足<code>𝜖-LDP</code>；</p>
 <p>在每个交互时回合中，<code>AHEAD算法</code>都基于<code>Step2</code>中的隐私预算<code>𝜖</code>使用<code>OUE算法</code>构建嘈杂的频率；对于分区<code>g</code>中同一用户的任何一对可能值<b>v<sub>1</sub>, v<sub>2</sub>∈D</b>，加噪的二进制向量<code>O</code>为<code>OUE</code>范围内的潜在输出；</p>
-<img src="/post/8d2d0774/11.png" class title="&#96;𝜖-LDP&#96;证明">
+<img data-src="/post/8d2d0774/11.png" class title="&#96;𝜖-LDP&#96;证明">
 
 <p>上式中<code>l</code>是<code>O</code>的长度。根据上式可知，Step2满足<code>𝜖-LDP</code>，而由于<code>Step3</code>处理的是用户上传的加噪之后的数据（即没有使用用户原始的隐私数据），所以没有消费额外的隐私预算消费；</p>
 <p>综上，<code>AHEAD算法</code>满足<code>𝜖-LDP</code></p>
@@ -379,25 +513,25 @@
 <p><code>不均匀误差</code>：来自于一些区间，其频率值要通过较大的区间（父节点）来获得，而父节点并不一定满足均匀分布假设</p>
 <p>综上，<code>AHEAD算法</code>的主要误差为<code>噪声</code>和<code>不均匀误差</code></p>
 <h2 id="4-4B和θ的选择"><a href="#4-4B和θ的选择" class="headerlink" title="4.4B和θ的选择"></a>4.4B和θ的选择</h2><h3 id="4-4-1θ的选择"><a href="#4-4-1θ的选择" class="headerlink" title="4.4.1θ的选择"></a>4.4.1θ的选择</h3><p><code>θ</code>遵循以下式子进行设置：</p>
-<img src="/post/8d2d0774/12.png" class title="&#96;θ&#96;的选择">
+<img data-src="/post/8d2d0774/12.png" class title="&#96;θ&#96;的选择">
 
-<img src="/post/8d2d0774/13.png" class title="&#96;Var&#96;">
+<img data-src="/post/8d2d0774/13.png" class title="&#96;Var&#96;">
 
 <p><code>分析</code></p>
 <p>首先使用在<code>HIO算法</code>中使用的策略去获得频率估计值和整体估计误差的期望，具体计算如下：</p>
-<img src="/post/8d2d0774/14.png" class title="&#96;HIO算法&#96;误差">
+<img data-src="/post/8d2d0774/14.png" class title="&#96;HIO算法&#96;误差">
 
 <p>然后使用在<code>AHEAD算法</code>去获得整体估计误差的期望，具体计算如下：</p>
-<img src="/post/8d2d0774/15.png" class title="&#96;AHEAD算法&#96;误差">
+<img data-src="/post/8d2d0774/15.png" class title="&#96;AHEAD算法&#96;误差">
 
 <p>然后令<code>AHEAD算法</code>的误差小于<code>HIO算法</code>的误差，得到以下不等式：</p>
-<img src="/post/8d2d0774/16.png" class title="推导结果">
+<img data-src="/post/8d2d0774/16.png" class title="推导结果">
 
 <p>综上，使用上述式子对<code>θ</code>进行设置时可以更好地减小估计误差</p>
 <h3 id="4-4-2B的选择"><a href="#4-4-2B的选择" class="headerlink" title="4.4.2B的选择"></a>4.4.2B的选择</h3><p>分支因数<code>B</code>的作用在于平衡树的高度和回答查询需要的结点数量，<code>AHEAD算法</code>在考虑了不均匀误差的基础上将<code>B</code>设置为<code>2</code></p>
 <p><code>分析</code></p>
 <p>因为对数据的分布没有先验知识，所以对于不均匀误差应该考虑最坏情况，此时估计误差的期望为：</p>
-<img src="/post/8d2d0774/17.png" class title="估计误差期望">
+<img data-src="/post/8d2d0774/17.png" class title="估计误差期望">
 
 <p>对上式进行求导并另导函数为<code>0</code>，得到<code>B=0.6</code>或<code>B=2.2</code>。因为分支因数为大于<code>1</code>的整数，并且<code>B=2</code>比<code>B=3</code>的期望更小，所以最终设置<code>B=2</code></p>
 <h2 id="4-5拓展到多维场景"><a href="#4-5拓展到多维场景" class="headerlink" title="4.5拓展到多维场景"></a>4.5拓展到多维场景</h2><h3 id="4-5-1二维范围查询"><a href="#4-5-1二维范围查询" class="headerlink" title="4.5.1二维范围查询"></a>4.5.1二维范围查询</h3><p>对于<code>AHEAD算法</code>，一维和二维的主要区别在于分解过程：对于一维场景，分解的总区间为<code>[1, |D|]</code>；对于二维场景，分解的总区间为<code>[1, |D|]x[1, |D|] </code>；</p>
@@ -420,140 +554,6 @@
         <tag>频率估计</tag>
         <tag>边缘列联表发布</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Answering Multi-Dimensional Analytical Queries under Local Differential Privacy</title>
-    <url>/post/a9e145d2.html</url>
-    <content><![CDATA[<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>该文献主要研究<code>LDP</code>下回答多维分析查询的问题（<code>MDA</code>），并提出了几种<code>LDP</code>编码器和<code>LDP</code>算法去处理具有不同类型谓语和聚合函数的<code>MDA查询</code>。该文献提出的技术能够在严格的误差范围内回答<code>MDA查询</code>，并在真实数据集和合成数据集上进行了相关实验进一步验证了理论分析结果。</p>
-<span id="more"></span>
-
-<h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h1><h2 id="1-1数据模型和应用场景"><a href="#1-1数据模型和应用场景" class="headerlink" title="1.1数据模型和应用场景"></a>1.1数据模型和应用场景</h2><p>用户在使用云服务的过程中会产生一些多维数据，这些多维数据大致可以分为以下三部分：<code>measure attributes</code>、<code>sensitive</code>、<code>non-sensitive</code>。另一方面，云服务提供商希望通过在<code>sensitive</code>受到约束的情况下的一些聚合<code>measure</code>的分析查询，以分析云服务的执行情况。尽管用户所有维度的数据不会公之于众，并且上述的分析过程在服务器端内部执行，但是云服务提供商需要提供一个运行在每个用户设备上的<code>LDP</code>数据收集算法，以确保<code>sensitive</code>维度得到妥善处理。</p>
-<p>这篇文章研究的是如何（近似）回答一类多维分析查询（<code>MDA</code>），同时通过<code>LDP</code>收集每个用户的敏感数据。MDA查询就是对<code>measure attributes</code>进行聚合（<code>COUNT, SUM, AVG</code>）的<code>SQL</code>查询，且其约束条件（点约束和范围约束）作用在<code>sensitive</code>上。</p>
-<h2 id="1-2解决方案概述"><a href="#1-2解决方案概述" class="headerlink" title="1.2解决方案概述"></a>1.2解决方案概述</h2><p>客户端的每个用户拥有一些多维数据，他们使用LDP编码算法<b>A</b>对<code>sensitive</code>进行扰动，并将扰动后的数据上传给服务器。服务器端从用户那里收集到进行<code>LDP</code>编码后的数据，然后再将其与其他服务器已知的数据和一些非敏感数据组合共同构成<code>fact table</code>（事实表）。由于在收集每个用户的数据之前保证了每个用户的隐私，因此可以发出任意数量的 MDA 查询。 由于敏感维度是用注入的随机噪声编码的，因此需要一个算法 <b>P</b> 来估计查询结果。</p>
-<h2 id="1-3挑战"><a href="#1-3挑战" class="headerlink" title="1.3挑战"></a>1.3挑战</h2><h3 id="1-3-1边缘列联表发布"><a href="#1-3-1边缘列联表发布" class="headerlink" title="1.3.1边缘列联表发布"></a>1.3.1边缘列联表发布</h3><p>在<code>LDP</code>下回答<code>MDA查询</code>与在<code>LDP</code>下发布边缘列联表（<code>marginal release</code>）的工作密切相关。一个边缘列联表记录了一系列维度之间的概率分布，其中表中的每一行类似于一个<code>COUNT</code>查询。因此可以通过对查询<code>Q</code>覆盖到的边缘列联表中的每一行进行求和来回答一个<code>MDA查询</code>。</p>
-<p><code>挑战</code>：因为表中的每一行数据都被扰动过，所以每行数据都带有噪声，这种情况下去进行求和时，查询结果每多加一行就会多增加一点噪声，因此该方法存在很大缺陷。一般来说，假设总共有<code>d</code>个有序维度，每个维度有<code>m</code>个不同的值，那么最坏情况下的平方误差会与<b>O(m<sup>d</sup>)</b>成正比，而当<code>m</code>很大时，最坏情况的误差可能会非常大。</p>
-<h3 id="1-3-2频率估计"><a href="#1-3-2频率估计" class="headerlink" title="1.3.2频率估计"></a>1.3.2频率估计</h3><p>在<code>LDP</code>下回答<code>MDA查询</code>与在<code>LDP</code>下进行频率估计（<code>frequency oracle</code>）的工作同样密切相关。这种情景下，客户端每个用户有一个隐私值。此时用户会对敏感数据添加噪声进行<code>LDP</code>扰动， 然后再将扰动之后的数据上传给服务器。而服务器端则需要估计一个给定值的频率。实际上，一些简单的<code>MDA查询</code>（<code>COUNT</code>查询）可以被转换成频率估计问题。</p>
-<p><code>挑战</code>：然而，目前不知道如何通过频率估计解决其他聚合函数（<code>SUM, AVG</code>）的问题，以及如何在多个维度上处理复杂的谓词（范围约束）而不会导致估计误差。</p>
-<h2 id="1-4贡献"><a href="#1-4贡献" class="headerlink" title="1.4贡献"></a>1.4贡献</h2><p>（1）该文献提出了一种加权的频率估计算法：每个用户都关联一个公共权重并持有一个隐私值，且用户将隐私值经过<code>LDP</code>扰动后再发送给服务器。首先将每一个<code>measure attribute</code>看作每个用户的权重，然后对<code>measure attributes</code>执行更加一般的聚合函数（<code>SUM, AVG, STDEV</code>），因此<code>MDA查询</code>就转化为对于给定的值，估计持有该值的用户总权重；</p>
-<p>（2）将加权频率估计算法融入到区间分层机制中，使得基于边缘列联表发布的最坏情况下的平方误差从<b>O(m<sup>d</sup>)</b>减少到<b>log<sup>O(d)</sup>m</b>；</p>
-<p>（3）将分解模式从一维扩展到了<code>d</code>维，使得误差仍然为<b>log<sup>O(d)</sup>m</b>。</p>
-<h1 id="2-初步"><a href="#2-初步" class="headerlink" title="2.初步"></a>2.初步</h1><h2 id="2-1多维模型和分析"><a href="#2-1多维模型和分析" class="headerlink" title="2.1多维模型和分析"></a>2.1多维模型和分析</h2><p>每个用户的多维数据包含的一系列属性（<code>dimensions/measures</code>）构成一个元组<code>t</code>。在一个分析问题中，<code>dimension</code>用<code>D</code>表示，其出现在谓语中，<code>measure</code>用<code>M</code>表示，其出现在聚合函数中，因此<code>t[D]</code>和<code>t[M]</code>代表元组<code>t</code>中的某个属性值（<code>D</code>和<code>M</code>也可以代表属性的取值域<code>domain</code>）。</p>
-<p>假设<code>T</code>为事实表<code>fact table</code>，考虑以下类型的多维分析查询：</p>
-<img src="/post/a9e145d2/1.png" class title="多维分析查询">
-
-<p>聚合函数<code>F(M)</code>可以为<code>COUNT(*), SUM(M), AVG(M)</code>，考虑到<code>COUNT(*)</code>是一种特殊的聚合函数，且<code>AVG(M)</code>可以从其他两个聚合函数中推导得出，因此主要考虑<code>SUM(M)</code>函数；</p>
-<p>谓语<code>C</code>由对分类维度的点约束（<b>D<sub>i</sub>&#x3D;v<sub>i</sub></b>）和对有序维度的范围约束（<b>D<sub>i</sub>∈[l<sub>i</sub>, r<sub>i</sub>]</b>）组成。</p>
-<h2 id="2-2LDP信任模型"><a href="#2-2LDP信任模型" class="headerlink" title="2.2LDP信任模型"></a>2.2LDP信任模型</h2><p>在LDP下，用户将元组<code>t</code>中的敏感维度通过随机算法<b>A</b>进行编码得到<code>A(t)</code>（<code>LDP</code>报告），然后用户将该报告发送给服务器。与之前LDP上的工作相比，该文献中的模型区分了敏感信息和非敏感信息，且在查询中使用了非敏感信息。</p>
-<h2 id="2-3多维分析查询"><a href="#2-3多维分析查询" class="headerlink" title="2.3多维分析查询"></a>2.3多维分析查询</h2><p><code>客户端（LDP编码器A）</code>：每个用户采用满足<code>ε-LDP</code>的算法<b>A<sup>ε</sup></b>对其敏感维度进行处理，并将<b>A<sup>ε</sup>(t)</b>发送给服务器；</p>
-<p><code>服务器端（估计处理器P）</code>：<code>n</code>个用户的数据元组构成一个事实表<b>T&#x3D;{t<sub>1</sub>, … , t<sub>n</sub>}</b>，而服务器实际从客户端收集到的表为<b>A(T)&#x3D;{A(t<sub>1</sub>), … , A(t<sub>n</sub>)}</b>。那么MDA查询<b>q&#x3D;Q<sub>T</sub>(F(M), C)</b>就可以根据<b>A(T)</b>和<b>T</b>的其他属性使用估计算法<b>P</b>近似进行回答，最终得到<b>P(q)</b>；</p>
-<p><code>误差测量</code>：采用期望平方误差<b>Err(P(q))&#x3D;E[(P(q)-q)<sup>2</sup>]</b>，如果<b>P(q)</b>是q的无偏估计，那么<b>Err(P(q))&#x3D;Var(P(q))</b>。</p>
-<h1 id="3-加权频率估计"><a href="#3-加权频率估计" class="headerlink" title="3.加权频率估计"></a>3.加权频率估计</h1><h2 id="3-1加权频率查询和MDA之间的关系"><a href="#3-1加权频率查询和MDA之间的关系" class="headerlink" title="3.1加权频率查询和MDA之间的关系"></a>3.1加权频率查询和MDA之间的关系</h2><p>加权频率查询和MDA的关系如下图所示：</p>
-<img src="/post/a9e145d2/2.png" class title="加权频率估计">
-
-<h2 id="3-2LDP频率估计"><a href="#3-2LDP频率估计" class="headerlink" title="3.2LDP频率估计"></a>3.2LDP频率估计</h2><h3 id="3-2-1未加权频率估计"><a href="#3-2-1未加权频率估计" class="headerlink" title="3.2.1未加权频率估计"></a>3.2.1未加权频率估计</h3><p>当所有用户均满足<code>t[M]=1</code>时，<code>MDA查询</code><b>f<sup>M</sup><sub>S</sub>(v)</b>就相当于计算<code>v</code>的频率，即等同于一个<code>COUNT</code>查询：</p>
-<img src="/post/a9e145d2/3.png" class title="COUNT查询">
-
-<p>在之前的工作中，<code>OLH</code>算法是一种拥有渐进最优误差的未加权频率估计算法，其主要流程为：首先从一个哈希函数族中随机选择一个哈希函数<code>H</code>，然后将用户数据中的属性<code>t[D]</code>从范围<code>D</code>映射到一个更小的范围<code>g</code>，并以一定的概率将<code>t[D]</code>扰动为<code>g</code>中某个值<code>y</code>，即<code>y=H(t[D])</code>。因此用户数据t经过LDP扰动后得到的LDP报文为<b>A<sub>FO</sub>(t[D])&#x3D;&lt;H, y&gt;</b>。<code>OLH</code>算法具体流程如下图所示：</p>
-<img src="/post/a9e145d2/4.png" class title="OLH算法">
-
-<blockquote>
-<p>Ps：Client side第一步原文作者好像打错了，个人感觉应该是at random</p>
-</blockquote>
-<p>其中，下图所示的引理给出了OLH算法的渐进最优误差：</p>
-<img src="/post/a9e145d2/5.png" class title="OLH算法渐进最优误差">
-
-<h3 id="3-2-2加权频率估计"><a href="#3-2-2加权频率估计" class="headerlink" title="3.2.2加权频率估计"></a>3.2.2加权频率估计</h3><p>加权频率估计在<code>OLH</code>算法的基础上进行改进，该算法的主要思想为将用户根据其<code>measures</code>进行分组，例如<b>S<sub>x</sub>&#x3D;{t∈S|t[M]&#x3D;x}</b>。对于一个维度值<code>v</code>，通过<b>S<sub>x</sub></b>建立未加权频率估计与加权频率估计之间的关系，如下图所示：</p>
-<img src="/post/a9e145d2/6.png" class title="两种频率估计之间的关系">
-
-<p>加权频率估计算法的误差推导如下所示：</p>
-<img src="/post/a9e145d2/7.png" class title="加权频率估计算法误差">
-
-<h2 id="3-3随机样本放大"><a href="#3-3随机样本放大" class="headerlink" title="3.3随机样本放大"></a>3.3随机样本放大</h2><p>当只有某些随机样本被抽取去使用<b>A<sub>FO</sub></b>报告他们的私人值<code>t[D]</code>时，这种情况下首先需要使用<b>f<sup>M</sup></b>估计该样本中值<code>v</code>的加权频率，然后再将所估计的频率扩大到所有用户。</p>
-<blockquote>
-<p>Ps：这一做法被作者使用在其所提出的机制中，实验指出该做法提升了性能</p>
-</blockquote>
-<p>具体来说，对于用户集合<code>S</code>，首先随机地将<code>S</code>分成<b>S<sub>1</sub>, … , S<sub>k</sub></b>总共<code>k</code>个组（其中<code>S</code>中的每个用户以概率<code>1/k</code>随机选择一个组<b>S<sub>i</sub></b>）；然后，只对一个样本（记作<b>S<sub>1</sub></b>）运行加权频率估计算法<b>(A<sub>FO</sub>, f<sup>M</sup>)</b>，那么就可以得到<b>S<sub>1</sub></b>这个组中<code>v</code>的频率估计，然后通过下图所示的表达式获取整个用户集合<code>S</code>中<code>v</code>的频率估计：</p>
-<img src="/post/a9e145d2/8.png" class title="频率估计">
-
-<p>据下图可知，上式中等号左边的表达式是<b>f<sup>M</sup><sub>S</sub>(v)</b>的无偏估计：</p>
-<img src="/post/a9e145d2/9.png" class title="无偏估计">
-
-<p><code>误差</code>：该算法误差有两个来源，一个是来自LDP噪声，另一个是来自采样过程。下图推导了该算法的误差界限：</p>
-<img src="/post/a9e145d2/10.png" class title="误差界限">
-
-<h2 id="3-4通过边缘列联表回答MDA"><a href="#3-4通过边缘列联表回答MDA" class="headerlink" title="3.4通过边缘列联表回答MDA"></a>3.4通过边缘列联表回答MDA</h2><p>估计边缘列联表的机制主要关注<code>COUNT</code>查询，但实际上只需要做一些变换就可以用这些机制去处理MDA查询：为了回答一个MDA查询，我们首先根据<code>measure</code> <code>M</code>将事实表<code>T</code>分为多个子表<b>T<sub>x</sub></b>，即<b>T<sub>x</sub>&#x3D;{t∈T|t[M]&#x3D;x}</b>；然后再根据估计得到的边缘列联表去计算每一个子标<b>T<sub>x</sub></b>中的满足限制条件<code>C</code>的元组（记作<b>n<sub>x</sub></b>），那么对于一个<code>SUM</code>类型的<code>MDA</code>查询，其结果可以通过<b>Σ<sub>x</sub> x n<sub>x</sub></b>进行求得。</p>
-<p><code>不足</code>：如<code>1.3.1</code>所述，该方法会引入较大的误差。一般来说，假设<code>D∈[l, r</code>]中有<code>m</code>个不同的值，那么根据<code>3.2.2</code>该机制的误差为（线性依赖于<code>m</code>）：</p>
-<img src="/post/a9e145d2/11.png" class title="误差">
-
-<p><code>解决方案</code>：为了解决上述问题，<code>4-5节</code>提出了新的机制，使得最终的误差对数依赖于<code>m</code>。</p>
-<h1 id="4-一个隐私维度的MDA"><a href="#4-一个隐私维度的MDA" class="headerlink" title="4.一个隐私维度的MDA"></a>4.一个隐私维度的MDA</h1><p>首先关注只有一个隐私维度的场景，并在下一节中阐述多维隐私维度的解决方案</p>
-<h2 id="4-1区间分层机制"><a href="#4-1区间分层机制" class="headerlink" title="4.1区间分层机制"></a>4.1区间分层机制</h2><h3 id="4-1-1区间分层"><a href="#4-1-1区间分层" class="headerlink" title="4.1.1区间分层"></a>4.1.1区间分层</h3><p>假设有序维度<code>D</code>有<code>m</code>个不同的值，顺序依次为<b>Z<sub>1</sub>, Z<sub>2</sub>, … , Z<sub>m</sub></b>，然后构建一颗完全<code>B</code>叉树，直到最后一层每个结点只包含一个值：第一层为<b>L<sup>0</sup>&#x3D;{[Z<sub>1</sub>, Z<sub>m</sub>]}</b>，其对应根节点；最后一层为<b>L<sup>h</sup>&#x3D;{[Z<sub>1</sub>, Z<sub>1</sub>], … , [Z<sub>m</sub>, Z<sub>m</sub>]}</b>。记<b>I<sub>D</sub>&#x3D;{L<sup>0</sup>, … , L<sup>h</sup>}</b>，其中<b>h&#x3D;log<sub>b</sub>m</b>。</p>
-<h3 id="4-1-2通过区间分层重写查询"><a href="#4-1-2通过区间分层重写查询" class="headerlink" title="4.1.2通过区间分层重写查询"></a>4.1.2通过区间分层重写查询</h3><p>对于某个查询<b>q&#x3D;Q<sub>T</sub>(SUM(M), D∈[l, r])</b>，平均来说区间<b>[l, r]</b>可以被分解为<b>2(b-1)log<sub>b</sub>m</b>个不相交的子区间<b>I<sup>1</sup>, … , I<sup>p</sup></b>。因此查询<b>q</b>便可以相应地分解为基于这些子区间的子查询，而每一个子查询又可以通过加权频率估计算法进行频率估计，如下图所示：</p>
-<img src="/post/a9e145d2/12.png" class title="重写查询">
-
-<blockquote>
-<p>Ps：<b>2(b-1)log<sub>b</sub>m</b>来源于普渡大学李宁辉教授的某篇文献（目前还没找到具体文献）</p>
-</blockquote>
-<h3 id="4-1-3HI机制（一维）"><a href="#4-1-3HI机制（一维）" class="headerlink" title="4.1.3HI机制（一维）"></a>4.1.3HI机制（一维）</h3><p><code>客户端</code>：首先隐私预算<b>ε</b>基于完全树的高度<b>h</b>均等地分成<b>h</b>份，那么每一层的隐私预算为<b>ε&#x2F;(log<sub>b</sub>m)</b>，然后用户对其敏感属性所在的每一层的对应区间都使用<code>OLH</code>算法进行<code>LDP</code>扰动，并将扰动之后的树发送给服务器；</p>
-<p><code>服务器端</code>：首先将查询范围<b>D</b>进行重写，然后使用加权频率估计去估计每一个子查询，最后再进行求和，那么求和结果就是查询结果，如下图所示：</p>
-<img src="/post/a9e145d2/13.png" class title="一维HI机制">
-
-<p><code>误差</code>：根据以下理论可以得出<code>HI</code>机制的误差界限：</p>
-<img src="/post/a9e145d2/14.png" class title="一维HI机制误差">
-
-<h2 id="4-2HIO机制（一维）"><a href="#4-2HIO机制（一维）" class="headerlink" title="4.2HIO机制（一维）"></a>4.2HIO机制（一维）</h2><p><code>HIO</code>机制采用<code>3.3</code>节的随机采样放大算法。在<code>HI</code>机制中，客户端将隐私预算进行平均分配；而在<code>HIO</code>机制中，则采用将用户随机分成<b>h</b>组（<b>h</b>为树的高度）：分组<b>S<sub>j</sub></b>中的用户（对应树的第<b>j</b>层）可以被看成是从整个用户集合<b>S</b>中以采样率<b>1&#x2F;h</b>得到，<code>HIO</code>机制具体如下图所示：</p>
-<img src="/post/a9e145d2/15.png" class title="一维HIO机制">
-
-<p><code>算法流程</code>：和HI机制一样，查询<b>q&#x3D;Q<sub>T</sub>(SUM(M), D∈[l, r])</b>仍然分解为多个子查询；而对于每个子查询所在的子区间的层数，那么就可以使用被分组到该层的用户进行分组频率估计，然后再放大h倍作为该子查询的结果；</p>
-<p><code>误差</code>：根据以下理论可以得出<code>HIO</code>机制的误差界限：</p>
-<img src="/post/a9e145d2/16.png" class title="一维HIO机制误差">
-
-<h1 id="5-多个隐私维度的MDA"><a href="#5-多个隐私维度的MDA" class="headerlink" title="5.多个隐私维度的MDA"></a>5.多个隐私维度的MDA</h1><h2 id="5-1有序维度-有序维度"><a href="#5-1有序维度-有序维度" class="headerlink" title="5.1有序维度+有序维度"></a>5.1有序维度+有序维度</h2><h3 id="5-1-1多维度区间分层"><a href="#5-1-1多维度区间分层" class="headerlink" title="5.1.1多维度区间分层"></a>5.1.1多维度区间分层</h3><p><code>二维</code>：二维区间定义为两个一维区间的笛卡儿积，如下图所示：</p>
-<img src="/post/a9e145d2/17.png" class title="二维区间定义">
-
-<p>一般来说，区间<b>[l<sub>1</sub>, r<sub>1</sub>]</b>可以分解成<b>p<sub>1</sub></b>个不相交的子区间，区间<b>[l<sub>2</sub>, r<sub>2</sub>]</b>可以分解成<b>p<sub>2</sub></b>个不相交的子区间，那么查询<b>q</b>便可以如下图所示进行分解：</p>
-<img src="/post/a9e145d2/18.png" class title="二维查询分解">
-
-<p><code>d维</code>：根据二维查询的分解方式，可以得到下图所示的<b>d</b>维查询的分解方式：</p>
-<img src="/post/a9e145d2/19.png" class title="d维查询分解">
-
-<h3 id="5-1-2HI机制（多维）"><a href="#5-1-2HI机制（多维）" class="headerlink" title="5.1.2HI机制（多维）"></a>5.1.2HI机制（多维）</h3><p><code>算法流程</code>：多维<code>HI</code>机制流程如下图所示：</p>
-<img src="/post/a9e145d2/20.png" class title="多维HI机制">
-
-<p><code>误差</code>：多维<code>HI</code>机制误差分析如下图所示：</p>
-<img src="/post/a9e145d2/21.png" class title="多维HI机制误差">
-
-<h3 id="5-1-3HIO机制（多维）"><a href="#5-1-3HIO机制（多维）" class="headerlink" title="5.1.3HIO机制（多维）"></a>5.1.3HIO机制（多维）</h3><p>多维<code>HIO</code>机制流程如下图所示：</p>
-<img src="/post/a9e145d2/22.png" class title="多维HIO机制">
-
-<p><code>误差</code>：多维<code>HIO</code>机制误差分析如下图所示：</p>
-<img src="/post/a9e145d2/23.png" class title="多维HIO机制误差">
-
-<h2 id="5-2有序维度-分类维度"><a href="#5-2有序维度-分类维度" class="headerlink" title="5.2有序维度+分类维度"></a>5.2有序维度+分类维度</h2><p>对于某个分类维度<b>D</b>，可以将其看作成一颗只有两层的树：第一层为一个包含所有取值的根节点，第二层则根据<b>D</b>中不同的值分解为多个只包含一个维度值的结点。通过这种分解转化，那么分类维度同样可以被看作成有序维度去处理。</p>
-<h2 id="5-3SC机制"><a href="#5-3SC机制" class="headerlink" title="5.3SC机制"></a>5.3SC机制</h2><p>可以看到<code>HI</code>机制和<code>HIO</code>机制所产生的误差随着查询维度数量<b>d<sub>q</sub></b>和总隐私维度数量<b>d</b>的增长呈现指数级增长，于是作者想探究当查询维度数量<b>d<sub>q</sub></b>远小于总隐私维度数量<b>d</b>时，是否可能去除误差对总隐私维度数量<b>d</b>的依赖。</p>
-<p><code>主要思想</code>：与<code>HI</code>机制不同的是，<code>SC</code>机制对<b>d</b>个隐私维度独立编码和上传，那么这种情况下就需要考虑如何将所有独立上传的维度串联起来去完成多维度查询。</p>
-<h3 id="5-3-1状态变量及其转移"><a href="#5-3-1状态变量及其转移" class="headerlink" title="5.3.1状态变量及其转移"></a>5.3.1状态变量及其转移</h3><p>作者根据下图定义了输入状态和输出状态：</p>
-<img src="/post/a9e145d2/24.png" class title="输入&#x2F;输出状态">
-
-<p>根据输入状态和输出状态便可以定义下图所示的一维转移概率：</p>
-<img src="/post/a9e145d2/25.png" class title="一维转移概率">
-
-<p>依次类推，便可以定义下图所示的二维转移概率：</p>
-<img src="/post/a9e145d2/26.png" class title="二维转移概率">
-
-<h3 id="5-3-2通过转移矩阵进行频率估计"><a href="#5-3-2通过转移矩阵进行频率估计" class="headerlink" title="5.3.2通过转移矩阵进行频率估计"></a>5.3.2通过转移矩阵进行频率估计</h3><p><code>主要思想</code>：根据用户集合<b>S</b>及其<code>LDP</code>报文便可以得出每个二维输出状态的频率，然后借助转移矩阵便可得出每个二维输入状态的频率（其中还可以采用加权频率估计算法），如下图所示：</p>
-<img src="/post/a9e145d2/27.png" class title="通过转移矩阵进行频率估计">
-
-<p><code>多维</code>：二维与多维唯一的区别在于转移矩阵的大小发生了变化，当隐私维度是<b>d</b>维时，转移矩阵的大小为<b>2<sup>d</sup>x2<sup>d</sup></b>。</p>
-<p><code>频率估计器误差</code>：如下图所示：</p>
-<img src="/post/a9e145d2/28.png" class title="频率估计器误差">
-
-<h3 id="5-3-3SC机制"><a href="#5-3-3SC机制" class="headerlink" title="5.3.3SC机制"></a>5.3.3SC机制</h3><p><code>算法流程</code>：多维<code>SC</code>机制流程如下图所示：</p>
-<img src="/post/a9e145d2/29.png" class title="多维SC机制">
-
-<p><code>误差</code>：多维<code>HI</code>机制误差分析如下图所示：</p>
-<img src="/post/a9e145d2/30.png" class title="多维SC机制误差">
-]]></content>
   </entry>
   <entry>
     <title>Implementing the Exponential Mechanism with Base-2 Differential Privacy</title>

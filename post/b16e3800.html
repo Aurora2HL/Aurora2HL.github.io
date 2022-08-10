@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/black/pace-theme-loading-bar.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"aurora2hl.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"aurora2hl.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="1.众包模式一个公司或机构把过去由员工执行的工作任务，以自由自愿的形式外包给非特定的，而且通常是大型的大众网络的模式 2.隐私保护的目标在数据收集阶段引入隐私保护机制来降低并控制隐私泄露的风险，平衡隐私保护与数据可用性之间的关系，解决和完善针对不牺牲用户个人隐私的大数据分析问题和机制">
 <meta property="og:type" content="article">
@@ -339,7 +339,7 @@
 <p>（2）众包模式下字符串边缘频率估计和联合概率估计</p>
 <p>（3）针对智能设备的机器学习</p>
 <h1 id="6-布鲁姆过滤器（Bloom-Filter）"><a href="#6-布鲁姆过滤器（Bloom-Filter）" class="headerlink" title="6.布鲁姆过滤器（Bloom Filter）"></a>6.布鲁姆过滤器（Bloom Filter）</h1><p>（1）定义：由一个超长的二进制位数组和一系列的哈希函数组成。二进制位数组初始值全部为0，当给定一个待查询的元素时，这个元素会被一系列哈希函数计算映射出一系列的值，所有的值在位数组的偏移量处置为1</p>
-<img src="/post/b16e3800/1.png" class title="布鲁姆过滤器">
+<img data-src="/post/b16e3800/1.png" class title="布鲁姆过滤器">
 
 <p>（2）判断元素是否在集合中的方法：元素经过一系列哈希函数计算后得到所有的偏移位置，若这些位置全都为1，则判断这个元素在这个集合中，若有一个不为1，则判断这个元素不在这个集合中</p>
 <p>（3）优点：节省空间，采用位数组，2的32次方&#x3D;4294967296 可以看到42亿长度的位数组占用4294967296&#x2F;8&#x2F;1024&#x2F;1024&#x3D;512MB 只需占用512MB的内存空间</p>
@@ -350,7 +350,7 @@
 <h1 id="8-中位数机制（目前没弄懂）"><a href="#8-中位数机制（目前没弄懂）" class="headerlink" title="8.中位数机制（目前没弄懂）"></a>8.中位数机制（目前没弄懂）</h1><h1 id="9-本地差分隐私保护主要思想"><a href="#9-本地差分隐私保护主要思想" class="headerlink" title="9.本地差分隐私保护主要思想"></a>9.本地差分隐私保护主要思想</h1><p>（1）不能收集或拥有任何个人的精确信息</p>
 <p>（2）可以推断出用户群体的泛化统计信息</p>
 <h1 id="10-DP与LDP的区别"><a href="#10-DP与LDP的区别" class="headerlink" title="10.DP与LDP的区别"></a>10.DP与LDP的区别</h1><p>两者最重要的区别在于加入噪声扰动的时机不同</p>
-<img src="/post/b16e3800/2.png" class title="DP与LDP区别">
+<img data-src="/post/b16e3800/2.png" class title="DP与LDP区别">
 
 <h1 id="11-本地模型下的数据分析流程"><a href="#11-本地模型下的数据分析流程" class="headerlink" title="11.本地模型下的数据分析流程"></a>11.本地模型下的数据分析流程</h1><p>每个本地用户用随机器Q扰乱个人数据v得到Z，数据收集者将其汇总得到S，最后进行数据分析；</p>
 <p>拉普拉斯机制经常被用于本地模型中，常用于对数值型结果的隐私保护</p>
@@ -367,25 +367,25 @@
 <ol>
 <li><p>（step 1）</p>
 <p>理论上，<code>Pr[Xi=“是”]=πp+(1-π)(1-p)</code>，<code>Pr[Xi=“否”]=(1-π)p+π(1-p)</code>。直觉上，当<code>n</code>足够大时，设回答“是”的人数为<code>n1</code>，回答“否”的人数为<code>n2</code>。<code>Pr[Xi=“是”]=n1/n</code>，<code>Pr[Xi=“否”]=n2/n</code>。求解下面的二次方程即可获得<code>π</code>的值</p>
-<img src="/post/b16e3800/4.png" class title="二次方程">
+<img data-src="/post/b16e3800/4.png" class title="二次方程">
 
 <p>但是，<code>上述的结果并非真实比例的无偏估计</code>，我们用极大似然估计(<code>Max Likehood Estimation</code>)对统计结果进行校正</p>
 </li>
 <li><p>（step 2）</p>
 <p>首先构建最大似然函数：</p>
-<img src="/post/b16e3800/5.png" class title="最大似然函数">
+<img data-src="/post/b16e3800/5.png" class title="最大似然函数">
 
 <p>对数似然函数为：</p>
-<img src="/post/b16e3800/6.png" class title="对数似然函数">
+<img data-src="/post/b16e3800/6.png" class title="对数似然函数">
 
 <p>令</p>
-<img src="/post/b16e3800/7.png" class title="求解对数似然函数">
+<img data-src="/post/b16e3800/7.png" class title="求解对数似然函数">
 
 <p>求解可得<code>π</code>的极大似然估计：</p>
-<img src="/post/b16e3800/8.png" class title="最大似然估计">
+<img data-src="/post/b16e3800/8.png" class title="最大似然估计">
 
 <p>由此可得患有<code>HIV</code>的总人数为：</p>
-<img src="/post/b16e3800/9.png" class title="求总人数"></li>
+<img data-src="/post/b16e3800/9.png" class title="求总人数"></li>
 </ol>
 <h1 id="14-LDP研究方向"><a href="#14-LDP研究方向" class="headerlink" title="14.LDP研究方向"></a>14.LDP研究方向</h1><p>（1）基于随机应答与<code>Bloom Filter</code>的编解码方式研究（<code>RAPPOR</code>）</p>
 <p>（2）针对流式频繁项集挖掘<code>Heavy Hitters</code>挖掘</p>
@@ -582,6 +582,7 @@ setInterval("createtime()",250);
   <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
