@@ -6,7 +6,7 @@
   <link href="https://aurora2hl.github.io/atom.xml" rel="self"/>
   
   <link href="https://aurora2hl.github.io/"/>
-  <updated>2022-08-10T07:19:31.517Z</updated>
+  <updated>2022-08-10T08:16:18.098Z</updated>
   <id>https://aurora2hl.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://aurora2hl.github.io/post/a9e145d2.html"/>
     <id>https://aurora2hl.github.io/post/a9e145d2.html</id>
     <published>2022-08-05T09:02:41.000Z</published>
-    <updated>2022-08-10T07:19:31.517Z</updated>
+    <updated>2022-08-10T08:16:18.098Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h1&gt;&lt;p&gt;该文献主要研究&lt;code&gt;LDP&lt;/code&gt;下回答多维分析查询的问题（&lt;code&gt;MDA&lt;/code&gt;），并提出了几种&lt;code&gt;LDP&lt;/code&gt;编码器和&lt;code&gt;LDP&lt;/code&gt;算法去处理具有不同类型谓语和聚合函数的&lt;code&gt;MDA查询&lt;/code&gt;。该文献提出的技术能够在严格的误差范围内回答&lt;code&gt;MDA查询&lt;/code&gt;，并在真实数据集和合成数据集上进行了相关实验进一步验证了理论分析结果。&lt;/p&gt;</summary>
@@ -36,7 +36,7 @@
     <link href="https://aurora2hl.github.io/post/c1df81ba.html"/>
     <id>https://aurora2hl.github.io/post/c1df81ba.html</id>
     <published>2022-08-03T04:25:42.000Z</published>
-    <updated>2022-08-05T08:28:33.826Z</updated>
+    <updated>2022-08-10T08:16:18.095Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h1&gt;&lt;p&gt;在本地差分隐私的保证下回答多维范围查询主要会遇到以下三个关键技术挑战：&lt;/p&gt;
