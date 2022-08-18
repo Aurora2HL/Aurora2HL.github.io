@@ -23,18 +23,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"aurora2hl.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="摘要在本地差分隐私的保证下回答多维范围查询主要会遇到以下三个关键技术挑战： （1）捕获属性之间的关联； （2）避免维度的诅咒 （3）处理取值范围大的属性 为了解决以上三个挑战，该文献首先提出了TDG算法（只采用二维网格）。然而这种算法丢失了单个属性的分布信息，因此为了解决该问题，进一步提出了HDG算法（一维网格与二维网格相结合）。而且大量的实验表明HDG算法的性能较于现有的算法有了较大的提升。">
+    <meta name="description" content="摘要在LDP的保证下回答多维范围查询主要会遇到以下三个关键技术挑战： （1）捕获属性之间的关联； （2）处理维度多的范围查询； （3）处理取值范围大的属性； 为了解决以上三个挑战，该文献首先提出了TDG算法（只采用二维网格）。然而这种算法丢失了单个属性的分布信息，因此为了解决该问题，进一步提出了HDG算法（一维网格与二维网格相结合），且大量的实验表明HDG算法的性能较于现有的算法有了较大的提升。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Answering Multi-Dimensional Range Queries under Local Differential Privacy">
 <meta property="og:url" content="https://aurora2hl.github.io/post/c1df81ba.html">
 <meta property="og:site_name" content="Aurora2HL">
-<meta property="og:description" content="摘要在本地差分隐私的保证下回答多维范围查询主要会遇到以下三个关键技术挑战： （1）捕获属性之间的关联； （2）避免维度的诅咒 （3）处理取值范围大的属性 为了解决以上三个挑战，该文献首先提出了TDG算法（只采用二维网格）。然而这种算法丢失了单个属性的分布信息，因此为了解决该问题，进一步提出了HDG算法（一维网格与二维网格相结合）。而且大量的实验表明HDG算法的性能较于现有的算法有了较大的提升。">
+<meta property="og:description" content="摘要在LDP的保证下回答多维范围查询主要会遇到以下三个关键技术挑战： （1）捕获属性之间的关联； （2）处理维度多的范围查询； （3）处理取值范围大的属性； 为了解决以上三个挑战，该文献首先提出了TDG算法（只采用二维网格）。然而这种算法丢失了单个属性的分布信息，因此为了解决该问题，进一步提出了HDG算法（一维网格与二维网格相结合），且大量的实验表明HDG算法的性能较于现有的算法有了较大的提升。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://aurora2hl.github.io/post/c1df81ba/1.png">
 <meta property="og:image" content="https://aurora2hl.github.io/post/c1df81ba/2.png">
 <meta property="og:image" content="https://aurora2hl.github.io/post/c1df81ba/3.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/c1df81ba/4.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/c1df81ba/11.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/c1df81ba/12.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/c1df81ba/13.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/c1df81ba/14.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/c1df81ba/5.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/c1df81ba/6.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/c1df81ba/7.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/c1df81ba/8.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/c1df81ba/9.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/c1df81ba/7.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/c1df81ba/10.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/c1df81ba/8.png">
 <meta property="article:published_time" content="2022-08-03T04:25:42.000Z">
-<meta property="article:modified_time" content="2022-08-10T08:16:18.095Z">
+<meta property="article:modified_time" content="2022-08-18T14:01:58.521Z">
 <meta property="article:author" content="HL">
 <meta property="article:tag" content="差分隐私">
 <meta property="article:tag" content="Range Query">
@@ -166,7 +179,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%BB%8B%E7%BB%8D"><span class="nav-text">1.介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%88%9D%E6%AD%A5"><span class="nav-text">2.初步</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1%E6%9C%80%E4%BC%98%E6%9C%AC%E5%9C%B0%E5%93%88%E5%B8%8C%E6%B3%95%EF%BC%88Optimized-Local-Hashing%EF%BC%89"><span class="nav-text">2.1最优本地哈希法（Optimized Local Hashing）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%8E%B0%E6%9C%89%E7%AE%97%E6%B3%95"><span class="nav-text">3.现有算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1LHIO"><span class="nav-text">3.1LHIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2MSW"><span class="nav-text">3.2MSW</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%BB%8B%E7%BB%8D"><span class="nav-text">1.介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%88%9D%E6%AD%A5%E2%80%94%E2%80%94%E7%94%A8%E6%88%B7%E5%88%92%E5%88%86%E5%8E%9F%E5%88%99"><span class="nav-text">2.初步——用户划分原则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%A4%9A%E7%BB%B4%E8%8C%83%E5%9B%B4%E6%9F%A5%E8%AF%A2%E5%92%8C%E5%9F%BA%E7%BA%BF%E7%AE%97%E6%B3%95"><span class="nav-text">3.多维范围查询和基线算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1%E5%A4%9A%E7%BB%B4%E8%8C%83%E5%9B%B4%E6%9F%A5%E8%AF%A2"><span class="nav-text">3.1多维范围查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2%E5%9F%BA%E7%BA%BF%E7%AE%97%E6%B3%95"><span class="nav-text">3.2基线算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1%E8%BE%B9%E7%BC%98%E5%88%97%E8%81%94%E8%A1%A8%E5%8F%91%E5%B8%83%E7%AE%97%E6%B3%95"><span class="nav-text">3.2.1边缘列联表发布算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1-1%E5%85%A8%E5%88%97%E8%81%94%E8%A1%A8%E6%B3%95%EF%BC%88Full-Contingency-Table-Method%EF%BC%8CFC%EF%BC%89"><span class="nav-text">3.2.1.1全列联表法（Full Contingency Table Method，FC）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1-2%E5%85%A8%E8%BE%B9%E7%BC%98%E5%88%97%E8%81%94%E8%A1%A8%E6%B3%95%EF%BC%88All-Marginal-Method%EF%BC%8CAM%EF%BC%89"><span class="nav-text">3.2.1.2全边缘列联表法（All Marginal Method，AM）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1-3CALM"><span class="nav-text">3.2.1.3CALM</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2HIO"><span class="nav-text">3.2.2HIO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2LHIO%EF%BC%88%E5%BE%85%E7%BB%AD%EF%BC%89"><span class="nav-text">3.2.2LHIO（待续）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3MSW%EF%BC%88%E5%BE%85%E7%BB%AD%EF%BC%89"><span class="nav-text">3.2.3MSW（待续）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E7%BD%91%E6%A0%BC%E6%96%B9%E6%B3%95"><span class="nav-text">4.网格方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1%E6%A6%82%E8%BF%B0"><span class="nav-text">4.1概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2%E7%BD%91%E6%A0%BC%E5%90%8E%E5%A4%84%E7%90%86"><span class="nav-text">4.2网格后处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-1%E9%9D%9E%E8%B4%9F%E6%80%A7"><span class="nav-text">4.2.1非负性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-2%E4%B8%80%E8%87%B4%E6%80%A7"><span class="nav-text">4.2.2一致性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3%E5%BB%BA%E7%AB%8B%E5%93%8D%E5%BA%94%E7%9F%A9%E9%98%B5"><span class="nav-text">4.3建立响应矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4%CE%BB%E7%BB%B4%E8%8C%83%E5%9B%B4%E6%9F%A5%E8%AF%A2"><span class="nav-text">4.4λ维范围查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5%E9%9A%90%E7%A7%81%E5%92%8C%E6%95%88%E7%94%A8%E5%88%86%E6%9E%90"><span class="nav-text">4.5隐私和效用分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-1%E9%9A%90%E7%A7%81%E4%BF%9D%E8%AF%81"><span class="nav-text">4.5.1隐私保证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-2%E8%AF%AF%E5%B7%AE%E5%88%86%E6%9E%90"><span class="nav-text">4.5.2误差分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6%E9%80%89%E6%8B%A9%E7%B2%92%E5%BA%A6"><span class="nav-text">4.6选择粒度</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -285,7 +298,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-10 16:16:18" itemprop="dateModified" datetime="2022-08-10T16:16:18+08:00">2022-08-10</time>
+      <time title="修改时间：2022-08-18 22:01:58" itemprop="dateModified" datetime="2022-08-18T22:01:58+08:00">2022-08-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -311,14 +324,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>956</span>
+      <span>4.9k</span>
     </span>
     <span class="post-meta-item" title="预计阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">预计阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>8 分钟</span>
     </span>
 </div>
 
@@ -329,34 +342,98 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>在本地差分隐私的保证下回答多维范围查询主要会遇到以下三个关键技术挑战：</p>
+        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>在<code>LDP</code>的保证下回答多维范围查询主要会遇到以下三个关键技术挑战：</p>
 <p>（1）捕获属性之间的关联；</p>
-<p>（2）避免维度的诅咒</p>
-<p>（3）处理取值范围大的属性</p>
-<p>为了解决以上三个挑战，该文献首先提出了<code>TDG</code>算法（只采用二维网格）。然而这种算法丢失了单个属性的分布信息，因此为了解决该问题，进一步提出了<code>HDG</code>算法（一维网格与二维网格相结合）。而且大量的实验表明<code>HDG</code>算法的性能较于现有的算法有了较大的提升。</p>
+<p>（2）处理维度多的范围查询；</p>
+<p>（3）处理取值范围大的属性；</p>
+<p>为了解决以上三个挑战，该文献首先提出了<code>TDG</code>算法（只采用二维网格）。然而这种算法丢失了单个属性的分布信息，因此为了解决该问题，进一步提出了<code>HDG</code>算法（一维网格与二维网格相结合），且大量的实验表明<code>HDG</code>算法的性能较于现有的算法有了较大的提升。</p>
 <span id="more"></span>
 
-<h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h1><p><code>多维范围查询</code>：获取同时满足多个属性的限制条件的用户比例</p>
-<p>现有的解决范围查询的算法大部分受限于对单个属性的一维查询，并且不能很好地拓展到处理高维范围查询。该文献首先提出了<code>TDG</code>算法，其主要思想为将所有可能出现的属性对构成的二维域划分为可以回答所有二维查询的二维网格，然后根据这些相关的二维查询去回答更高维度的范围查询。</p>
-<p>该文献提出了一个升级版的方法<code>HDG</code>算法，其主要思想为组合混合维度（一维网格和二维网格）的信息去进行更好的估计。</p>
-<p>在这两个算法中，用户都被分成组，每个组向一个网格报告其信息。在满足LDP的前提下将每个网格的频率都收集完后，聚合器使用技术去除网格的非负性和不一致性，并且最终采用这下网格去回答范围查询。</p>
-<p>然而，因为一维和二维网格的粒度可以直接影响到<code>HDG</code>算法的性能，所以要使得<code>HDG</code>算法始终有效的非平凡的。所以有必要开发一种确定网格粒度的算法。（偏差和方差的权衡）</p>
-<p>本文的贡献：</p>
-<p>（1）提出了TDG算法和HDG算法用于在LDP环境下回到多维范围查询，并且提供了基于不同来源的误差分析去选择网格粒度的基本准则</p>
-<p>（2）开展了大量的实验通过比较不同的算法去评估算法的性能，实验结果表明HDG算法比现有的算法高出一个数量级</p>
-<h1 id="2-初步"><a href="#2-初步" class="headerlink" title="2.初步"></a>2.初步</h1><h2 id="2-1最优本地哈希法（Optimized-Local-Hashing）"><a href="#2-1最优本地哈希法（Optimized-Local-Hashing）" class="headerlink" title="2.1最优本地哈希法（Optimized Local Hashing）"></a>2.1最优本地哈希法（Optimized Local Hashing）</h2><p>核心思想：使用哈希函数将原始的巨大取值空间映射到一个较小的取值空间从而降低通信代价</p>
-<p>算法流程：首先使用哈希函数将输入域[c]压缩为一个更小的域g（一般g&lt;&lt;[c’]），然后利用广义随机响应（GRR）扰动哈希值并最终上传至服务器。</p>
-<p>该算法中的哈希操作和扰动操作都会导致信息丢失，因此在选择g时需要权衡两者之间的信息损失。文献之处，g的最优取值为e+1</p>
-<p>扰动机制为：</p>
-<img data-src="/post/c1df81ba/1.png" class title="扰动机制">
+<h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h1><p><code>多维范围查询</code>：获取同时满足多个属性的限制条件的用户频率；</p>
+<p>现有的解决范围查询的算法大部分受限于对单个属性的一维查询，并且不能很好地拓展到处理高维范围查询。该文献首先提出了<code>TDG</code>算法，其主要思想为将所有可能出现的属性对构成的二维域划分为可以回答所有二维查询的二维网格，然后根据这些相关的二维查询去回答更高维度的范围查询。然后提出了一个升级版的方法<code>HDG</code>算法，其主要思想为组合混合维度（一维网格和二维网格）的信息去进行更好的估计。在这两个算法中，用户都被分成组，每个组向一个网格报告其信息。在满足<code>LDP</code>的前提下将每个网格的频率都收集完后，融合中心使用技术实现网格的非负性和一致性，并且最终采用这些网格去回答范围查询。</p>
+<p>总的来说，该文献的贡献如下：</p>
+<p>（1）提出了<code>TDG</code>算法和<code>HDG</code>算法用于在<code>LDP</code>环境下回答多维范围查询，并且提供了基于不同来源的误差分析去选择网格粒度的基本准则；</p>
+<p>（2）开展了大量的实验通过比较不同的算法去评估算法的性能，实验结果表明<code>HDG</code>算法比现有的算法高出一个数量级。</p>
+<h2 id="2-初步——用户划分原则"><a href="#2-初步——用户划分原则" class="headerlink" title="2.初步——用户划分原则"></a>2.初步——用户划分原则</h2><p>用户分组在现有的<code>LDP</code>算法很常见。也就是说，当需要多个信息时，首先需要将所有用户进行分组，然后再从每个用户组中收集信息来获得最佳结果。</p>
+<h1 id="3-多维范围查询和基线算法"><a href="#3-多维范围查询和基线算法" class="headerlink" title="3.多维范围查询和基线算法"></a>3.多维范围查询和基线算法</h1><h2 id="3-1多维范围查询"><a href="#3-1多维范围查询" class="headerlink" title="3.1多维范围查询"></a>3.1多维范围查询</h2><p>假设有<b>d</b>个有序属性<b>{a<sub>1</sub>, a<sub>2</sub>, … , a<sub>d</sub>}</b>，不失一般性，假设每个属性有相同的取值范围<b>[c] &#x3D; {1, 2, … , c}</b>，其中<b>c</b>是<b>2</b>的指数幂。用户总数量用<b>n</b>表示，第<b>i</b>个用户的隐私值是一个<b>d</b>维向量<b>vi &#x3D; &lt;v<sup>1</sup><sub>i</sub>, v<sup>2</sup><sub>i</sub>, … , v<sup>d</sup><sub>i</sub>, &gt;</b>。正式地，一个<b>λ</b>维范围查询<b>q</b>定义如下图所示：</p>
+<img data-src="/post/c1df81ba/1.png" class title="λ维查询">
 
-<p>无偏估计值：</p>
-<img data-src="/post/c1df81ba/2.png" class title="无偏估计值">
+<p>定义<b>A<sub>q</sub></b>代表范围查询<b>q</b>所涉及到的所有属性，那么<b>q</b>的真实结果如下图所示：</p>
+<img data-src="/post/c1df81ba/2.png" class title="范围查询真实结果">
 
-<p>估计方差：</p>
-<img data-src="/post/c1df81ba/3.png" class title="估计方差">
+<h2 id="3-2基线算法"><a href="#3-2基线算法" class="headerlink" title="3.2基线算法"></a>3.2基线算法</h2><h3 id="3-2-1边缘列联表发布算法"><a href="#3-2-1边缘列联表发布算法" class="headerlink" title="3.2.1边缘列联表发布算法"></a>3.2.1边缘列联表发布算法</h3><h4 id="3-2-1-1全列联表法（Full-Contingency-Table-Method，FC）"><a href="#3-2-1-1全列联表法（Full-Contingency-Table-Method，FC）" class="headerlink" title="3.2.1.1全列联表法（Full Contingency Table Method，FC）"></a>3.2.1.1全列联表法（Full Contingency Table Method，FC）</h4><p><code>算法思想</code>：根据所有用户在通过<code>LDP</code>扰动后上传的数据构建一个全列联表<b>F</b>，然后再通过<b>F</b>构建所有的边缘列联表；</p>
+<p><code>算法缺点</code>：时间复杂度和空间复杂度都随着属性数量<b>d</b>的增加而指数级增加，当<b>d</b>很大时，实际的时空开销是不可接受的。一般来说，假设<b>Var<sub>0</sub></b>表示全列联表中每个单元的方差，那么计算<code>k-路边缘列联表</code>的方差如下图所示：</p>
+<img data-src="/post/c1df81ba/3.png" class title="k-路边缘列联表的方差">
 
-<h1 id="3-现有算法"><a href="#3-现有算法" class="headerlink" title="3.现有算法"></a>3.现有算法</h1><h2 id="3-1LHIO"><a href="#3-1LHIO" class="headerlink" title="3.1LHIO"></a>3.1LHIO</h2><h2 id="3-2MSW"><a href="#3-2MSW" class="headerlink" title="3.2MSW"></a>3.2MSW</h2>
+<h4 id="3-2-1-2全边缘列联表法（All-Marginal-Method，AM）"><a href="#3-2-1-2全边缘列联表法（All-Marginal-Method，AM）" class="headerlink" title="3.2.1.2全边缘列联表法（All Marginal Method，AM）"></a>3.2.1.2全边缘列联表法（All Marginal Method，AM）</h4><p><code>算法思想</code>：因为<code>FC</code>算法构建的<code>k-路边缘列联表</code>的方差与属性数量<b>d</b>呈指数级增长，因此考虑使用融合中心直接构建所有的<code>k-路边缘列联表</code>；</p>
+<p><code>实现途径</code>：第一种途径是用户将其隐私预算分成<b>C<sup>k</sup><sub>d</sub></b>份，然后上传<b>C<sup>k</sup><sub>d</sub></b>次数据，即每次上传一个<code>k-路边缘列联表</code>；第二种途径是将所有用户划分成<b>C<sup>k</sup><sub>d</sub></b>个不同的用户组，每个用户只需上传一个<code>k-路边缘列联表</code>（一般来说，<code>LDP</code>场景下划分用户比划分隐私预算能获得更好的精度，因为划分隐私意味着每个<code>k-路边缘列联表</code>的隐私预算更小，那么就会被注入更大的噪声）。其中，因为将用户划分为<b>C<sup>k</sup><sub>d</sub></b>个组会给构建<code>k-路边缘列联表</code>带来<b>C<sup>k</sup><sub>d</sub></b>倍的影响，所以第二种算法的方差为：</p>
+<img data-src="/post/c1df81ba/4.png" class title="k-路边缘列联表的方差">
+
+<p><code>算法不足</code>：当<b>k</b>很大时，<code>AM</code>算法的精度会受到很大的影响；该算法的另外一个局限性在于<b>k</b>需要事先指定，且当融合中心完成所有<code>k-路边缘列联表</code>的构建时，无法再获取<code>t-路边缘列联表</code>（<b>t&gt;k</b>）。</p>
+<h4 id="3-2-1-3CALM"><a href="#3-2-1-3CALM" class="headerlink" title="3.2.1.3CALM"></a>3.2.1.3CALM</h4><p><code>算法思想</code>：收集低纬度的边缘列联表并据此构建一个高维列联表；</p>
+<p><code>算法评价</code>：CALM算法捕获了必要的属性之间的联系且解决了多维范围查询问题，但是没能处理取值范围大的属性。因为当属性的取值范围很大时，会在查询结果中引入大量的噪声。</p>
+<h3 id="3-2-2HIO"><a href="#3-2-2HIO" class="headerlink" title="3.2.2HIO"></a>3.2.2HIO</h3><p><code>算法不足</code>：HIO算法捕获了所有属性之间的联系，但是其他两个问题没有解决。因为HIO算法需要将用户分成<b>(h+1)<sup>d</sup></b>组，其中<b>h&#x3D;log<sub>b</sub>c</b>，而当属性数量<b>d</b>和属性取值范围<b>c</b>很大时，每个用户组的用户数量会很少，这样就会引入大量的噪声并进一步导致更大的误差。</p>
+<h3 id="3-2-2LHIO（待续）"><a href="#3-2-2LHIO（待续）" class="headerlink" title="3.2.2LHIO（待续）"></a>3.2.2LHIO（待续）</h3><h3 id="3-2-3MSW（待续）"><a href="#3-2-3MSW（待续）" class="headerlink" title="3.2.3MSW（待续）"></a>3.2.3MSW（待续）</h3><h1 id="4-网格方法"><a href="#4-网格方法" class="headerlink" title="4.网格方法"></a>4.网格方法</h1><h2 id="4-1概述"><a href="#4-1概述" class="headerlink" title="4.1概述"></a>4.1概述</h2><p>为了同时解决前文提到的三个挑战，该文献首先提出了二维网格算法<code>TDG</code>，其主要思想为将所有属性对的二维取值范围划分成可以回答所有二维范围查询的二维网格，并结合相关的二维网格去回答高维的范围查询；但是由于只采用了二维网格，当采用<code>TDG</code>算法去进行一维范围查询时就需要借助均匀分布假设，而这就会引入大量的误差，为了解决这一问题，进一步提出了混合维度网格算法<code>HDG</code>，其在二维网格的基础上进一步引入了一维网格，然后结合一维网格和二维网格一起去回答范围查询。</p>
+<p><code>TDG</code>和<code>HDG</code>算法由来：一般来说，如果为了捕获属性之间的关联，那么当维度过大时范围查询将难以解决；如果只关注单个属性，那么就无法捕获属性之间的关联。受到<code>CALM</code>算法的启发，<code>TDG</code>和<code>HDG</code>算法都采用二维网格去权衡以上两点。</p>
+<p><code>TDG</code>和<code>HDG</code>算法均由以下三步组成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1.构建网格</span><br><span class="line">TDG算法：</span><br><span class="line">首先，融合中心根据d个属性得到m = (d,2)个属性对，并将所有用户随机分成m个用户组，每个用户组对应一个属性对；然后，对于每个属性对，融合中心通过将二维域[c]x[c]划分成同样粒度大小的二维单元构建一个二维网格；最后，为了获得每个二维网格中的二维单元中的加噪之后的频率值，融合中心指示对应二维网格中的用户组中的用户使用OLH算法报告其隐私数据所在的二维单元；</span><br><span class="line">HDG算法：</span><br><span class="line">除了构建上述二维网格之外，融合中心还要为d个属性分别构建一个一维网格。因此在HDG算法中，d + (d,2)个，并且用户被划分为同样数量的用户组，且每个用户组对应一个网格（ps：一维网格和二维网格的粒度大小可能不同）；</span><br><span class="line">2.去除负值和不一致性</span><br><span class="line">因为使用了OLH算法保证差分隐私，因此二维单元加噪之后的频率值可能为负值，这就违背了先验知识的非负性；而且，因为一个属性和多个网格相关，因此不同网格中注入在该属性上的噪声频率可能不同，从而导致网格之间的不一致。因此需要在这个阶段去除负值和不一致这两个问题；</span><br><span class="line">3.回答范围查询</span><br><span class="line">TDG算法：</span><br><span class="line">对于一个二维查询Q，融合中心首先找出与Q相关的二维网格G，然后再检查G里的每个二维单元：如果二维单元完全被包含在Q中，那么融合中心就将其加噪后的频率加到查询结果f(Q)中；如果二维单元部分被包含在Q中，那么融合中心就会采用均匀分布假设估计二维单元和查询Q中共同的二维值的频率值总和，并将其添加到f(Q)中；</span><br><span class="line">HDG算法：</span><br><span class="line">对于一个二维查询Q，融合中心首先找出与Q相关的二维网格G，然后再检查G里的每个二维单元：如果二维单元完全被包含在Q中，那么融合中心就将其加噪后的频率加到查询结果f(Q)中；如果二维单元部分被包含在Q中，那么融合中心先确定二维单元和查询Q中共同的二维值，然后再将响应矩阵中对应元素的总和添加到f(Q)中。</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-2网格后处理"><a href="#4-2网格后处理" class="headerlink" title="4.2网格后处理"></a>4.2网格后处理</h2><h3 id="4-2-1非负性"><a href="#4-2-1非负性" class="headerlink" title="4.2.1非负性"></a>4.2.1非负性</h3><p>这一步采用<code>Norm-Sub</code>方法，其可以使得所有估计值非负，并且所有估计值的总和为<b>1</b>；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Norm-Sub：</span><br><span class="line">1.所有负估计值转换为0；</span><br><span class="line">2.计算所有正估计值的总和与1之间的总差值；</span><br><span class="line">3.通过将总差值除以正估计值个数获得平均差；</span><br><span class="line">4.通过减去平均差更新每个正估计值；</span><br><span class="line">5.重复以上步骤直到所有的估计值都非负。</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-2一致性"><a href="#4-2-2一致性" class="headerlink" title="4.2.2一致性"></a>4.2.2一致性</h3><p>对于某个属性<b>a</b>，其总共与<b>d</b>个网格相关（<b>1</b>一个一维网格和<b>d-1</b>个二维网格），假设这些网格为<b>{G<sub>1</sub>, G<sub>2</sub>, … , G<sub>d</sub>}</b>，对于整数<b>j ∈ [1, g<sub>2</sub>]</b>，定义<b>P<sub>G<sub>i</sub></sub>(a, j)</b>为第<b>G<sub>i</sub></b>个网格中第<b>j</b>个单元的频率总和。为了实现<b>P<sub>G<sub>i</sub></sub>(a, j)</b>的一致性，需要如下图所示计算加权平均，其中<b>θ<sub>i</sub></b>为<b>P<sub>G<sub>i</sub></sub>(a, j)</b>的权重：</p>
+<img data-src="/post/c1df81ba/11.png" class title="加权平均计算">
+
+<p>依据其他文献，得知当<b>θ<sub>i</sub></b>进行如下设置时，可以得到最优加权平均为：</p>
+<img data-src="/post/c1df81ba/12.png" class title="权重设置">
+
+<img data-src="/post/c1df81ba/13.png" class title="最优加权平均">
+
+<p>得到<b>P(a, j)</b>之后需要让每个<b>P<sub>G<sub>i</sub></sub>(a, j)</b>都相等，可以通过以下方式实现： 对于<b>S<sub>i</sub></b>中的每个单元，通过下图所示的添加变化量来更新其频率：</p>
+<img data-src="/post/c1df81ba/14.png" class title="变化量">
+
+<blockquote>
+<p>ps：可以发现一致性步骤可能会引入负值，反之亦然。因此在整个网格后处理过程中，需要多次交换执行这两个步骤，而因为响应矩阵的每个元素必须非负，因此以非负性步骤结束网格的后处理。尽管最后一步可能会再次引入不一致性，但其往往很小。</p>
+</blockquote>
+<h2 id="4-3建立响应矩阵"><a href="#4-3建立响应矩阵" class="headerlink" title="4.3建立响应矩阵"></a>4.3建立响应矩阵</h2><p>每一个属性对都对应一个大小为<b>[c]x[c]</b>的响应矩阵，其中矩阵中的每个元素代表对应二维值在该二维域中的频率，响应矩阵的建立如下图所示：</p>
+<img data-src="/post/c1df81ba/5.png" class title="建立响应矩阵">
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">算法描述：</span><br><span class="line">1.将响应矩阵中的[c]x[c]个元素都初始化为1/c^2；</span><br><span class="line">2.对于每个二维单元S，将S中所有二维值的频率求和得到总频率Y；</span><br><span class="line">3.将单个二维值的频率除以Y得到该二维值的频率；</span><br><span class="line">4.重复2-3步直到收敛（收敛的标准为：每次更新过程之后响应矩阵中所有元素的改变总和低于一个给定的阈值）</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-4λ维范围查询"><a href="#4-4λ维范围查询" class="headerlink" title="4.4λ维范围查询"></a>4.4λ维范围查询</h2><p>为了估计λ维范围查询Q的结果，融合中心首先将Q分成（λ，2）个相关的二维查询，并获取所有二位查询的结果，最后融合中心使用这些二位查询结果去估计f(Q)，下图给出了λ维范围查询结果的估计算法：</p>
+<img data-src="/post/c1df81ba/6.png" class title="λ维范围查询">
+
+<h2 id="4-5隐私和效用分析"><a href="#4-5隐私和效用分析" class="headerlink" title="4.5隐私和效用分析"></a>4.5隐私和效用分析</h2><h3 id="4-5-1隐私保证"><a href="#4-5-1隐私保证" class="headerlink" title="4.5.1隐私保证"></a>4.5.1隐私保证</h3><p>TDG和HDG算法都满足LDP，因为用户通过OLH算法上传其数据至融合中心，且没有泄露其他信息。</p>
+<h3 id="4-5-2误差分析"><a href="#4-5-2误差分析" class="headerlink" title="4.5.2误差分析"></a>4.5.2误差分析</h3><p><code>噪声和采样误差</code>：</p>
+<p>一方面，为了满足LDP隐私保证，需要对每一个单元注入一定的噪声，这便引入了<code>噪声误差</code>。而因为对每个单元的噪声注入都是唯一的，因此这些噪声就相当于一些独立随机变量，那么这些噪声总和的方差等于所有噪声方差的总和，所以单元分的越精细，注入噪声的方差就会越大；另一方面，需要使用某个用户组中单元的频率去代表整个人口的频率，但可能当前选择的用户组与全局的的分布不同，这就会引入<code>采样误差</code>；</p>
+<p><code>不均匀误差</code>：</p>
+<p><code>不均匀误差</code>是由与查询矩形相交但不完全包含在其中的单元引起的。 对于这些单元一般需要假设数据点是均匀分布的，而这会在数据点不均匀分布时导致非均匀误差。 通常，任何相交单元格中此误差的大小取决于该单元格中数据点的数量，并受其限制。 因此，分区粒度越细，<code>不均匀误差</code>越小。 计算精确的非均匀性误差需要真实数据分布的可用性，这在我们的设置中并非如此。 因此选择计算近似的<code>不均匀误差</code>；</p>
+<p><code>估计误差</code>：</p>
+<p>由于<code>估计误差</code>取决于数据集，因此没有用于估计它的公式。 一般来说，二维范围查询的更准确的答案可以导致更小的<code>估计误差</code>。 但是，其大小取决于数据集的特点会引入不确定性，这意味着在少数情况下可能会出现相反的结果。</p>
+<h2 id="4-6选择粒度"><a href="#4-6选择粒度" class="headerlink" title="4.6选择粒度"></a>4.6选择粒度</h2><p><code>基本准则</code>：</p>
+<p>为了最小化误差，一维网格的粒度如下图所示：</p>
+<img data-src="/post/c1df81ba/7.png" class title="一维网格粒度">
+
+<p>二维网格的粒度如下图所示：</p>
+<img data-src="/post/c1df81ba/8.png" class title="二维网格粒度">
+
+<p>其中<b>n<sub>i</sub></b>是<b>i</b>维网格的用户数，<b>m<sub>i</sub></b>是<b>i</b>维网格的用户组数，<b>α<sub>1</sub></b>、<b>α<sub>2</sub></b>为依赖数据集的常数。</p>
+<p><code>对于g1的分析</code>：</p>
+<p>对于一维查询，当粒度为<b>g<sub>1</sub></b>时，平均情况下大概有<b>g<sub>1</sub>&#x2F;2</b>个单元被包含在查询中，那么<code>噪声和采样误差</code>为：</p>
+<img data-src="/post/c1df81ba/9.png" class title="噪声和采样误差">
+
+<p><code>不均匀误差</code>与与查询区间两侧相交的单元中值的频率之和成正比。 假设对于某个常数<b>α<sub>1</sub></b>，<code>不均匀误差</code>为<b>α<sub>1</sub>&#x2F;g<sub>1</sub></b>，那么它的平方误差为<b>(α<sub>1</sub>&#x2F;g<sub>1</sub>)<sup>2</sup></b>；</p>
+<p>综上，为了最小化误差总和和，因此<b>g<sub>1</sub></b>根据如下表达式进行设置：</p>
+<img data-src="/post/c1df81ba/7.png" class title="一维网格粒度">
+
+<p><code>对于g2的分析</code>：</p>
+<p>从一维拓展到二维，当二维粒度为<b>g<sub>2</sub></b>时，平均情况下大概有<b>(g<sub>2</sub>&#x2F;2)<sup>2</sup></b>个单元被包含在查询中，那么<code>噪声和采样误差</code>为：</p>
+<img data-src="/post/c1df81ba/10.png" class title="噪声和采样误差">
+
+<p><code>不均匀误差</code>与落在查询矩形四个边缘上的单元中值的频率之和成正比。查询矩形的边包含<b>4 x (g<sub>2</sub>&#x2F;2) &#x3D; 2g<sub>2</sub></b>个单元； 并且这些单元中包含的值的预期频率总和为<b>2g<sub>2</sub> x (1&#x2F;(g<sub>2</sub> x g<sub>2</sub>)) &#x3D; 2 &#x2F; g<sub>2</sub></b>。 与一维网格设置类似，假设平均情况下<code>不均匀误差</code>是其中的一部分。 那么对于某个常数 <b>α<sub>2</sub></b>，不均匀的平方误差为<b>(2α<sub>2</sub> &#x2F; g<sub>2</sub>)<sup>2</sup></b>；</p>
+<p>综上，为了最小化误差总和和，因此<b>g<sub>2</sub></b>根据如下表达式进行设置：</p>
+<img data-src="/post/c1df81ba/8.png" class title="一维网格粒度">
+
     </div>
 
     
@@ -490,7 +567,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span>总阅读时长 &asymp;</span>
-    <span title="总阅读时长">58 分钟</span>
+    <span title="总阅读时长">1:05</span>
   </span>
 </div>
 <div class="busuanzi-count">

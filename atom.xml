@@ -48,14 +48,14 @@
     <link href="https://aurora2hl.github.io/post/c1df81ba.html"/>
     <id>https://aurora2hl.github.io/post/c1df81ba.html</id>
     <published>2022-08-03T04:25:42.000Z</published>
-    <updated>2022-08-10T08:16:18.095Z</updated>
+    <updated>2022-08-18T14:01:58.521Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h1&gt;&lt;p&gt;在本地差分隐私的保证下回答多维范围查询主要会遇到以下三个关键技术挑战：&lt;/p&gt;
+    <summary type="html">&lt;h1 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h1&gt;&lt;p&gt;在&lt;code&gt;LDP&lt;/code&gt;的保证下回答多维范围查询主要会遇到以下三个关键技术挑战：&lt;/p&gt;
 &lt;p&gt;（1）捕获属性之间的关联；&lt;/p&gt;
-&lt;p&gt;（2）避免维度的诅咒&lt;/p&gt;
-&lt;p&gt;（3）处理取值范围大的属性&lt;/p&gt;
-&lt;p&gt;为了解决以上三个挑战，该文献首先提出了&lt;code&gt;TDG&lt;/code&gt;算法（只采用二维网格）。然而这种算法丢失了单个属性的分布信息，因此为了解决该问题，进一步提出了&lt;code&gt;HDG&lt;/code&gt;算法（一维网格与二维网格相结合）。而且大量的实验表明&lt;code&gt;HDG&lt;/code&gt;算法的性能较于现有的算法有了较大的提升。&lt;/p&gt;</summary>
+&lt;p&gt;（2）处理维度多的范围查询；&lt;/p&gt;
+&lt;p&gt;（3）处理取值范围大的属性；&lt;/p&gt;
+&lt;p&gt;为了解决以上三个挑战，该文献首先提出了&lt;code&gt;TDG&lt;/code&gt;算法（只采用二维网格）。然而这种算法丢失了单个属性的分布信息，因此为了解决该问题，进一步提出了&lt;code&gt;HDG&lt;/code&gt;算法（一维网格与二维网格相结合），且大量的实验表明&lt;code&gt;HDG&lt;/code&gt;算法的性能较于现有的算法有了较大的提升。&lt;/p&gt;</summary>
     
     
     
