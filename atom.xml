@@ -6,7 +6,7 @@
   <link href="https://aurora2hl.github.io/atom.xml" rel="self"/>
   
   <link href="https://aurora2hl.github.io/"/>
-  <updated>2022-10-03T01:39:28.962Z</updated>
+  <updated>2022-10-03T01:39:55.520Z</updated>
   <id>https://aurora2hl.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://aurora2hl.github.io/post/876b2f6a.html"/>
     <id>https://aurora2hl.github.io/post/876b2f6a.html</id>
     <published>2022-10-03T01:24:35.000Z</published>
-    <updated>2022-10-03T01:39:28.962Z</updated>
+    <updated>2022-10-03T01:39:55.520Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h1&gt;&lt;p&gt;图的差分隐私分析广泛用于从敏感图中发布数据并同时能保护用户隐私，但是大部分现有算法采用的是集中式的隐私模型，而这种模型由于服务器的可信赖性和数据泄露的可能性引起了大量的隐私和安全问题。本文提出了一种在本地差分隐私模型下计算子图个数的算法：&lt;/p&gt;
