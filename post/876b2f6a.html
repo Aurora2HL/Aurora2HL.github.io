@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/black/pace-theme-loading-bar.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"aurora2hl.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="摘要图的差分隐私分析广泛用于从敏感图中发布数据并同时能保护用户隐私，但是大部分现有算法采用的是集中式的隐私模型，而这种模型由于服务器的可信赖性和数据泄露的可能性引起了大量的隐私和安全问题。本文提出了一种在本地差分隐私模型下计算子图个数的算法：  对于三角形计数：提出了使用一轮交互和两轮交互的算法，结果表明两轮交互的算法可以提升效用；  对于k-star计数：提出了在非交互式环境下实现最优估计误差的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Locally Differentially Private Analysis of Graph Statistics">
+<meta property="og:url" content="https://aurora2hl.github.io/post/876b2f6a.html">
+<meta property="og:site_name" content="Aurora2HL">
+<meta property="og:description" content="摘要图的差分隐私分析广泛用于从敏感图中发布数据并同时能保护用户隐私，但是大部分现有算法采用的是集中式的隐私模型，而这种模型由于服务器的可信赖性和数据泄露的可能性引起了大量的隐私和安全问题。本文提出了一种在本地差分隐私模型下计算子图个数的算法：  对于三角形计数：提出了使用一轮交互和两轮交互的算法，结果表明两轮交互的算法可以提升效用；  对于k-star计数：提出了在非交互式环境下实现最优估计误差的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/1.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/2.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/3.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/4.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/5.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/6.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/7.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/8.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/9.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/10.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/11.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/12.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/13.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/14.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/15.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/16.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/17.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/18.png">
+<meta property="og:image" content="https://aurora2hl.github.io/post/undefined/19.png">
+<meta property="article:published_time" content="2022-10-03T01:24:35.000Z">
+<meta property="article:modified_time" content="2022-10-03T01:39:28.962Z">
+<meta property="article:author" content="HL">
+<meta property="article:tag" content="差分隐私">
+<meta property="article:tag" content="图差分隐私">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://aurora2hl.github.io/post/undefined/1.png">
+
+
+<link rel="canonical" href="https://aurora2hl.github.io/post/876b2f6a.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://aurora2hl.github.io/post/876b2f6a.html","path":"post/876b2f6a.html","title":"Locally Differentially Private Analysis of Graph Statistics"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Locally Differentially Private Analysis of Graph Statistics | Aurora2HL</title>
+  
+
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-postbottom {
+  cursor: pointer;
+  height: 26px;
+  margin-top: 10px;
+  position: relative;
+}
+#needsharebutton-postbottom .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 3px;
+  display: initial;
+  padding: 1px 4px;
+}
+</style><script src="/lib/fireworks.js"></script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Aurora2HL" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Aurora2HL</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">路漫漫兮其修远兮，吾将上下而求索</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">8</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%BB%8B%E7%BB%8D"><span class="nav-text">1. 介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E5%9B%BE"><span class="nav-text">1.1 社交网络图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E4%B8%BB%E8%A6%81%E6%8C%91%E6%88%98"><span class="nav-text">1.2 主要挑战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E6%9C%AC%E6%96%87%E8%B4%A1%E7%8C%AE"><span class="nav-text">1.3 本文贡献</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="nav-text">2. 相关工作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%88%9D%E6%AD%A5"><span class="nav-text">3. 初步</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E5%9B%BE%E5%92%8CDP"><span class="nav-text">3.1 图和DP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-LDP"><span class="nav-text">3.2 LDP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-Edge-LDP"><span class="nav-text">3.2.1 Edge LDP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-Relationship-DP"><span class="nav-text">3.2.2 Relationship DP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3-%E5%90%84%E7%A7%8DDP%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">3.2.3 各种DP间的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-4-Edge-LDP%E4%B8%8ERelationship-DP%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">3.2.4 Edge LDP与Relationship DP的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E5%85%A8%E5%B1%80%E6%95%8F%E6%84%9F%E5%BA%A6"><span class="nav-text">3.3 全局敏感度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%92%8C%E6%95%88%E7%94%A8%E8%A1%A1%E9%87%8F"><span class="nav-text">3.4 图数据和效用衡量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E7%AE%97%E6%B3%95"><span class="nav-text">4. 算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-%E6%A8%A1%E5%9E%8B%E6%9E%84%E5%BB%BA"><span class="nav-text">4.1 模型构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-k-star%E7%9A%84%E4%B8%80%E8%BD%AE%E4%BA%A4%E4%BA%92%E7%AE%97%E6%B3%95-LocalLapk"><span class="nav-text">4.2 k-star的一轮交互算法(LocalLapk*)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-1-%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0"><span class="nav-text">4.2.1 算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-2-%E7%AE%97%E6%B3%95%E7%90%86%E8%AE%BA%E8%AF%81%E6%98%8E"><span class="nav-text">4.2.2 算法理论证明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-3-%E5%85%B3%E4%BA%8En%E7%9A%84%E6%8E%A8%E8%AE%BA"><span class="nav-text">4.2.3 关于n的推论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-4-dmax%E7%9A%84%E4%BC%B0%E8%AE%A1"><span class="nav-text">4.2.4 dmax的估计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-%E4%B8%89%E8%A7%92%E5%BD%A2%E7%9A%84%E4%B8%80%E8%BD%AE%E4%BA%A4%E4%BA%92%E7%AE%97%E6%B3%95-LocalRR-triangle"><span class="nav-text">4.3 三角形的一轮交互算法(LocalRR$\triangle$)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-1-%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3"><span class="nav-text">4.3.1 算法思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-2-%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0"><span class="nav-text">4.3.2 算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-3-%E7%AE%97%E6%B3%95%E7%90%86%E8%AE%BA%E8%AF%81%E6%98%8E"><span class="nav-text">4.3.3 算法理论证明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-4-%E8%AF%AF%E5%B7%AE%E5%88%86%E6%9E%90"><span class="nav-text">4.3.4 误差分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-%E4%B8%89%E8%A7%92%E5%BD%A2%E7%9A%84%E4%B8%A4%E8%BD%AE%E4%BA%A4%E4%BA%92%E7%AE%97%E6%B3%95-Local2Rounds-triangle"><span class="nav-text">4.4 三角形的两轮交互算法(Local2Rounds$\triangle$)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-1-%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3"><span class="nav-text">4.4.1 算法思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-2-%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0"><span class="nav-text">4.4.2 算法描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-3-%E7%AE%97%E6%B3%95%E7%90%86%E8%AE%BA%E8%AF%81%E6%98%8E"><span class="nav-text">4.4.3 算法理论证明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-4-dmax%E7%9A%84%E4%BC%B0%E8%AE%A1"><span class="nav-text">4.4.4 dmax的估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-5-%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%92%8C%E9%80%9A%E4%BF%A1%E5%BC%80%E9%94%80"><span class="nav-text">4.4.5 时间复杂度和通信开销</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-%E4%B8%8B%E7%95%8C"><span class="nav-text">4.5 下界</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E6%80%BB%E7%BB%93"><span class="nav-text">5. 总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="HL"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">HL</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Aurora2HL" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Aurora2HL" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/weixin_44227192?type=blog" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_44227192?type&#x3D;blog" rel="noopener" target="_blank"><i class="fa custom csdn fa-fw"></i>CSDN</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ohh_hl@163.com" title="E-Mail → mailto:ohh_hl@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/nan-zai-bei-fang-hl" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;nan-zai-bei-fang-hl" rel="noopener" target="_blank"><i class="fa custom zhihu fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/together-9f/" title="力扣 → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;together-9f&#x2F;" rel="noopener" target="_blank"><i class="fa custom leetcode fa-fw"></i>力扣</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aurora2hl.github.io/post/876b2f6a.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="HL">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aurora2HL">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Locally Differentially Private Analysis of Graph Statistics | Aurora2HL">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Locally Differentially Private Analysis of Graph Statistics
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-10-03 09:24:35 / 修改时间：09:39:28" itemprop="dateCreated datePublished" datetime="2022-10-03T09:24:35+08:00">2022-10-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%EF%BC%88%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%EF%BC%89/" itemprop="url" rel="index"><span itemprop="name">差分隐私（英文文献）</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.1k</span>
+    </span>
+    <span class="post-meta-item" title="预计阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">预计阅读时长 &asymp;</span>
+      <span>12 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>图的差分隐私分析广泛用于从敏感图中发布数据并同时能保护用户隐私，但是大部分现有算法采用的是集中式的隐私模型，而这种模型由于服务器的可信赖性和数据泄露的可能性引起了大量的隐私和安全问题。本文提出了一种在本地差分隐私模型下计算子图个数的算法：</p>
+<ul>
+<li><p>对于三角形计数：提出了使用一轮交互和两轮交互的算法，结果表明两轮交互的算法可以提升效用；</p>
+</li>
+<li><p>对于<code>k-star</code>计数：提出了在非交互式环境下实现<strong>最优估计误差</strong>的算法；</p>
+</li>
+</ul>
+<p>同时，本文对三角形个数和k星型个数等一般的图数据的估计误差提出了新的下界。最后，在两个真实数据集上进行了大量的实验，最终结果表明，在本地差分隐私模型中准确估计子图个数确实是有可能的。</p>
+<span id="more"></span>
+
+<h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h1><h2 id="1-1-社交网络图"><a href="#1-1-社交网络图" class="headerlink" title="1.1 社交网络图"></a>1.1 社交网络图</h2><p>从社交网路图中可以分析得出一些图的性质，以下是社交网络图的几个基本性质：</p>
+<ul>
+<li><p><code>average degree</code>：即连接到某节点的边的个数，可以用来揭示平均连接性；</p>
+</li>
+<li><p><code>subgraph counts</code>：如三角形、星形、团的个数，可以用来衡量聚类系数等中心属性；</p>
+</li>
+<li><p><code>clustering coefficient</code>：表示一个人的两个朋友也会成为朋友的概率，其大小影响网络上的传播动力学，当其他参数不变时，平均节点聚类系数越大， 传播越慢。</p>
+</li>
+</ul>
+<h2 id="1-2-主要挑战"><a href="#1-2-主要挑战" class="headerlink" title="1.2 主要挑战"></a>1.2 主要挑战</h2><p>本文主要考虑两种最基本的连接属性：子图计数和聚类系数：</p>
+<ul>
+<li><p>三角形：计数时不考虑<strong>自同构</strong>的情况；</p>
+</li>
+<li><p><code>k-star</code>形：一个中心节点连接着k个其他的节点；</p>
+</li>
+<li><p>聚类系数：<br>$$<br>3 * triangles&#x2F;2-stars<br>$$</p>
+</li>
+</ul>
+<p><code>主要挑战</code>：</p>
+<ul>
+<li>在本地差分隐私模型中计算子图个数不能直接采用现有的对于表格式数据的算法和分析。现今本地差分隐私的研究内容主要集中于表格式数据，而缺乏对图这样复杂数据的研究；</li>
+<li>表格式数据假定每个用户的数据是独立的，而在图数据中每个子图都是相互存在联系的。用户的这种相互依赖性成为了作者的算法思想来源：用户和服务器之间的额外交互可能会有所帮助。</li>
+</ul>
+<h2 id="1-3-本文贡献"><a href="#1-3-本文贡献" class="headerlink" title="1.3 本文贡献"></a>1.3 本文贡献</h2><ul>
+<li>对于三角形计数，给出了两个算法：算法一基于随机相应和经验估计；算法二基于用户和服务器额外的一轮交互，同时为每个算法给出了估计误差的上界，结果表明算法二可以有效减小估计误差；</li>
+<li>对于<code>k-star</code>形计数，基于拉普拉斯机制给出了一个简单的算法，并分析了该算法的估计误差的上界，结果表明在所有只采用一轮交互的<code>LDP</code>机制中，该算法在用户数量上是<strong>顺序最优</strong>的；</li>
+<li>对本地模型中一般的图函数给出了估计误差的下界，这比集中式差分隐私中已知的上界更强，然后阐述了局部模型相对于集中式模型的一些限制；</li>
+<li>在两个真实数据集上估计了本文提出的算法，结果表明在本地模型中准确估计子图个数确实是可能的，而且本文提出的算法当用户数量很大时估计误差也很小。</li>
+</ul>
+<h1 id="2-相关工作"><a href="#2-相关工作" class="headerlink" title="2. 相关工作"></a>2. 相关工作</h1><ul>
+<li><p>图<code>DP</code></p>
+<ul>
+<li><p>集中式模型：这种模型中已经提出了很多算法，如子图计数，度分布，特征值和特征向量，合成图等；</p>
+</li>
+<li><p>本地模型：这种模型中算法提出了很多算法，但是很少有关注子图计数的工作；</p>
+<ul>
+<li><code>Haipei Sun</code>等人基于一个假定提出了一个在本地模型中计算子图个数的算法，即每个用户允许他的朋友知道其整个好友列表。但这种假定在许多实际场景中是不可能成立的；</li>
+<li><code>Qingqing Ye</code>等人基于对邻接矩阵采用随机响应机制提出了估计聚类系数的一轮交互算法。但是该算法在三角形计数中引入了很大的偏差，该团队之后发的一篇文章减小了该偏差，但是他们提出的新方法引入了一些近似值，而这些近似值不能确定是否是无偏的。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>LDP</code></p>
+<ul>
+<li>如上所述，现今<code>LDP</code>的研究主要针对表格式的数据进行数据分析和频繁项集挖掘，这些研究内容基本不考虑图数据中用户之间复杂的依赖关系；</li>
+</ul>
+</li>
+<li><p>上界&#x2F;下界</p>
+<ul>
+<li>同样由于现有的<code>LDP</code>研究主要针对于表格式的数据，其假定每个原始的数据值都是从一个隐含的分布中独立采样得出的，因此这些研究中提出的上下界不适用于本文的图场景（在图中每个三角形和<code>k-star</code>都不是独立的，其与很多边都存在关联）。</li>
+</ul>
+</li>
+</ul>
+<h1 id="3-初步"><a href="#3-初步" class="headerlink" title="3. 初步"></a>3. 初步</h1><h2 id="3-1-图和DP"><a href="#3-1-图和DP" class="headerlink" title="3.1 图和DP"></a>3.1 图和DP</h2><ul>
+<li><p>图</p>
+<ul>
+<li><b>n</b>：用户（节点）数量</li>
+<li><b>d<sub>max</sub></b>：最大度</li>
+</ul>
+</li>
+<li><p><code>DP</code>分类</p>
+<ul>
+<li>根据隐含结构：<ul>
+<li>集中式<code>DP</code></li>
+<li><code>LDP</code></li>
+</ul>
+</li>
+<li>根据研究数据（如果是图数据）：<ul>
+<li><code>edge DP</code>：两个邻居图只有一条边不同；</li>
+<li><code>node DP</code>：两个邻居图相差一个节点（从图<b>G</b>中去除一个节点及其邻接边就得到了邻居图）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>ε-edge centralized DP</code></p>
+<img data-src="/post/undefined/1.png" class title="ε-edge centralized DP定义">
+
+<blockquote>
+<p><code>Note</code>:</p>
+<ul>
+<li>如果两个邻居图中有<b>k</b>条边不同，那么隐私预算就为<b>kε</b></li>
+<li>集中式模型中的<code>edge DP</code>是两个邻居图，注意与下面的本地模型中的<code>edge DP</code>相区分</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="3-2-LDP"><a href="#3-2-LDP" class="headerlink" title="3.2 LDP"></a>3.2 LDP</h2><p>采用差分隐私保护用户数据一个首要原则就是需要先想清楚我们具体要保护用户的什么数据。对于图数据来说，本文考虑以下两种本地模型下的<code>edge DP</code>：<code>edge LDP</code>和<code>relationship DP</code>。</p>
+<h3 id="3-2-1-Edge-LDP"><a href="#3-2-1-Edge-LDP" class="headerlink" title="3.2.1 Edge LDP"></a>3.2.1 Edge LDP</h3><p><code>edge LDP</code>的定义基于用户的邻居列表。图G可以用邻居列表表示为<b>a<sub>1</sub>, … , a<sub>n</sub></b>，其中<b>a<sub>i</sub></b>是邻接矩阵的第<b>i</b>行，且<b>a<sub>i</sub>&#x3D;(a<sub>i, 1</sub>, … ,a<sub>i, n</sub>) ∈ {0, 1}<sup>n</sup></b>，其具体定义如下：</p>
+<img data-src="/post/undefined/2.png" class title="edge LDP定义">
+
+<h3 id="3-2-2-Relationship-DP"><a href="#3-2-2-Relationship-DP" class="headerlink" title="3.2.2 Relationship DP"></a>3.2.2 Relationship DP</h3><p>在社交网络图中，通常两个用户会共享他们之间边的存在性信息，为了隐藏这条相互边，必须考虑两个用户的数出都可能泄露信息，因此本文提出了<code>relationship DP</code>。<code>relationship DP</code>定义如下：</p>
+<img data-src="/post/undefined/3.png" class title="relationship DP定义">
+
+<h3 id="3-2-3-各种DP间的区别"><a href="#3-2-3-各种DP间的区别" class="headerlink" title="3.2.3 各种DP间的区别"></a>3.2.3 各种DP间的区别</h3><ul>
+<li><code>egde LDP</code>与<code>relationship DP</code>：<code>egde LDP</code>将同一条边<b>v<sub>i</sub>&lt;-&gt;v<sub>j</sub></b>在节点<b>v<sub>i</sub></b>和在节点<b>v<sub>j</sub></b>中看作是不同的信息，而在<code>relationship DP</code>中则认为两者相同；</li>
+<li><code>LDP</code>与<code>relationship DP</code>：因为<code>LDP</code>中的每条用户数据都与其他数据相互独立，因此用户可以相信其他用户不会泄露自己的任何信息，而<code>relationship DP</code>研究的彼此存在相互依赖的图数据，因此只有花费隐私预算才能保证这一点，所以<code>relationship DP</code>的隐私保证比<code>LDP</code>更强；</li>
+<li><strong><code>DP</code>与<code>relationship DP</code>：从两者的定义可以看出，<code>DP</code>是对真实值进行扰动，而<code>relationship DP</code>的隐私保证比<code>DP</code>更弱，因为在<code>DP</code>中服务器需要花费更多的隐私预算来保护用户的隐私数据。</strong></li>
+</ul>
+<h3 id="3-2-4-Edge-LDP与Relationship-DP的关系"><a href="#3-2-4-Edge-LDP与Relationship-DP的关系" class="headerlink" title="3.2.4 Edge LDP与Relationship DP的关系"></a>3.2.4 Edge LDP与Relationship DP的关系</h3><p><code>edge LDP</code>与<code>relationship DP</code>的关系如下图所示：</p>
+<img data-src="/post/undefined/4.png" class title="edge LDP和relationship DP的关系">
+
+<p>该定理说明，当我们需要将一条边作为一个整体进行保护时，隐私预算的开销需要加倍。考虑到该问题，本文提出了一些没有隐私开销加倍问题的随机算法：</p>
+<ul>
+<li><p>主要思想</p>
+<ul>
+<li>因为社交网络图可以用对称的邻接矩阵表示，因此考虑只对下三角矩阵进行扰动，从而去除了开销加倍的问题；</li>
+</ul>
+</li>
+<li><p>具体做法</p>
+<ul>
+<li>使用随机响应算法对用户<b>i</b>的邻居列表<b>a<sub>i</sub></b>进行扰动时，只对<b>v<sub>1</sub>, … , v<sub>i-1</sub></b>进行扰动，因此随机算法<b>(R<sub>1</sub>, … , R<sub>n</sub>)</b>可以完成下三角矩阵的扰动过程，进而保护整个图数据，同时随机算法<b>(R<sub>1</sub>, … , R<sub>n</sub>)</b>的整个开销预算为<b>ε</b>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-3-全局敏感度"><a href="#3-3-全局敏感度" class="headerlink" title="3.3 全局敏感度"></a>3.3 全局敏感度</h2><p>因为采用拉普拉斯机制去实现<code>edge centralized DP</code>和<code>edge DP</code>，所以需要考虑全局敏感度，其定义如下：</p>
+<img data-src="/post/undefined/5.png" class title="全局敏感度">
+
+<p>图中的全局敏感度可能会特别大，例如，在图中增加一条边可能会导致三角形的个数增加<b>n-2</b>（将新增的边作为新产生的三角形的一条边，那么再从剩下的<b>n-2</b>个节点中任意选出一个节点就可以构建一个三角形），<code>k-star</code>的个数增加<b>2C<sub>n</sub><sup>k-1</sup></b>（分别以新增的边的两个节点为<code>k-star</code>的中心，那么还需要从剩下的<b>n-2</b>个节点中选出<b>k-1</b>个节点就可以构建一个<code>k-star</code>）。一种降低全局敏感度的有效方法是采用<code>graph projection</code>，即从邻居列表中去除一些邻居从而使得最大度<b>d<sub>max</sub></b>可以以一个预定值<b>$\widetilde{d_{max}}$&lt;&lt;n</b>作为其上界，这种方法使得当在图中增加一条边时三角形的个数最多增加<b>$\widetilde{d_{max}}$</b>，<code>k-star</code>的个数最多增加<b>C<sub>$\widetilde{d_{max}}$</sub><sup>k-1</sup></b>。</p>
+<p>一般选取最大度<b>d<sub>max</sub></b>作为<b>$\widetilde{d_{max}}$</b>的值，这样可以避免从邻居列表中去除邻居。然而最大度<b>d<sub>max</sub></b>可能会泄露原始图的隐私信息。因此在本文中采用了一种差分隐私随机梯度下降的自适应裁剪算法：先通过<code>edge LDP</code>估计出<b>d<sub>max</sub></b>的值，然后再将该值设置为<b>$\widetilde{d_{max}}$</b>的值。</p>
+<h2 id="3-4-图数据和效用衡量"><a href="#3-4-图数据和效用衡量" class="headerlink" title="3.4 图数据和效用衡量"></a>3.4 图数据和效用衡量</h2><ul>
+<li>图数据<ul>
+<li>本文考虑一类图函数：以图<b>G</b>作为输入，输出三角形，<code>k-star</code>的个数和聚类系数等图数据；</li>
+</ul>
+</li>
+<li>效用衡量<ul>
+<li>本文使用均方误差（<b>l<sub>2</sub> loss</b>）和相对误差进行效用衡量。</li>
+</ul>
+</li>
+</ul>
+<h1 id="4-算法"><a href="#4-算法" class="headerlink" title="4. 算法"></a>4. 算法</h1><h2 id="4-1-模型构建"><a href="#4-1-模型构建" class="headerlink" title="4.1 模型构建"></a>4.1 模型构建</h2><ul>
+<li><p>一轮交互模型</p>
+<ul>
+<li>服务器给用户<b>v<sub>i</sub></b>发送一次查询<b>R<sub>i</sub></b>，然后用户<b>v<sub>i</sub></b>单独发送其回答<b>R<sub>i</sub>(a<sub>i</sub>)</b>给服务器；</li>
+</ul>
+</li>
+<li><p>多轮交互模型</p>
+<ul>
+<li>服务器给用户<b>v<sub>i</sub></b>发送多次查询<b>R<sub>i</sub></b>，然后用户<b>v<sub>i</sub></b>单独发送其回答<b>R<sub>i</sub>(a<sub>i</sub>)</b>给服务器，这种模型可能使得可能查询得到更准确的图统计数据；</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-2-k-star的一轮交互算法-LocalLapk"><a href="#4-2-k-star的一轮交互算法-LocalLapk" class="headerlink" title="4.2 k-star的一轮交互算法(LocalLapk*)"></a>4.2 k-star的一轮交互算法(LocalLap<sub>k*</sub>)</h2><h3 id="4-2-1-算法描述"><a href="#4-2-1-算法描述" class="headerlink" title="4.2.1 算法描述"></a>4.2.1 算法描述</h3><p><code>k-star</code>的一轮交互算法(<b>LocalLap<sub>k*</sub></b>)具体如下图所示：</p>
+<img data-src="/post/undefined/6.png" class title="k-star一轮交互算法">
+
+<blockquote>
+<p><code>k-star</code>的一轮交互算法(<b>LocalLap<sub>k*</sub></b>)<br>输入：用邻居列表<b>(a<sub>1</sub>, … , a<sub>n</sub>)</b>表示的图<b>G</b>，隐私预算<b>ε</b>，<b>$\widetilde{d_{max}}$</b>；</p>
+<p>输出：<code>k-star</code>图形个数的估计值；</p>
+<p>算法流程：</p>
+<ul>
+<li>初始化$\triangle$</li>
+<li>对每一个邻居列表进行如下操作：<ul>
+<li>将邻居列表进行映射，即限定节点的邻居数量必须 <b>&lt;&#x3D;</b> <b>$\widetilde{d_{max}}$</b>；</li>
+<li>映射完毕后计算节点的度数；</li>
+<li>计算以当前节点为中心的<code>k-star</code>图形的个数<b>r<sub>i</sub></b>；</li>
+<li>将<b>r<sub>i</sub></b>添加拉普拉斯噪声然后发布；</li>
+</ul>
+</li>
+<li>将所有<b>r<sub>i</sub></b>值进行求和并返回总和。</li>
+</ul>
+</blockquote>
+<h3 id="4-2-2-算法理论证明"><a href="#4-2-2-算法理论证明" class="headerlink" title="4.2.2 算法理论证明"></a>4.2.2 算法理论证明</h3><p><b>LocalLap<sub>k*</sub></b>算法满足以下两个理论：</p>
+<img data-src="/post/undefined/7.png" class title="理论">
+
+<p>由于<b>LocalLap<sub>k*</sub></b>对邻居列表添加拉普拉斯噪声的总次数为<b>n</b>，所以复杂度中存在<b>n</b>；而在集中式模型中因为是对<code>k-star</code>总和进行加噪，所以复杂度中没有<b>n</b>。</p>
+<p>在<code>edge centralized DP</code>模型中<b>f<sub>k*</sub></b>的敏感度为<b>2C<sub>$\widetilde{d_{max}}$</sub><sup>k-1</sup></b>，因此本文在实验过程中增加了一个<b>CentralLap<sub>k</sub></b>算法，其对<code>k-star</code>的真实值<b>f<sub>k</sub>(G)</b>添加一个拉普拉斯噪声，即<b>CentralLap<sub>k</sub></b>算法的输出值为：<b>f<sub>k</sub>(G)+Lap(2(C<sub>$\widetilde{d_{max}}$</sub><sup>k-1</sup>)&#x2F;ε)</b>。</p>
+<h3 id="4-2-3-关于n的推论"><a href="#4-2-3-关于n的推论" class="headerlink" title="4.2.3 关于n的推论"></a>4.2.3 关于<b>n</b>的推论</h3><p>一轮交互算法中<b>n</b>存在以下推论：</p>
+<img data-src="/post/undefined/8.png" class title="推论">
+
+<p>本文在实验中发现当<b>n</b>很大时<b>LocalLap<sub>k*</sub></b>算法仍然能准确的估计<b>f<sub>k</sub>(G)</b>。而且，随着<b>n</b>的增大相对误差也逐渐减小。</p>
+<h3 id="4-2-4-dmax的估计"><a href="#4-2-4-dmax的估计" class="headerlink" title="4.2.4 dmax的估计"></a>4.2.4 <b>d<sub>max</sub></b>的估计</h3><p>考虑到真实的<b>d<sub>max</sub></b>值可能会泄露隐私信息，因此需要增加一轮交互过程，具体算法过程描述如下：</p>
+<blockquote>
+<p>将隐私预算<b>ε</b>分解为两部分，<b>ε &#x3D; ε<sub>0</sub> + ε<sub>1</sub></b>，<b>ε<sub>0</sub></b>用于获取<b>d<sub>max</sub></b>，<b>ε<sub>0</sub></b>用于对<code>k-star</code>的个数值进行加噪；</p>
+<p>然后服务器向每个用户发出询问，得到每个用户节点的度数，并据此得到最大度<b>d<sub>max</sub></b>，然后对其利用隐私预算<b>ε<sub>0</sub></b>对其进行加噪，并发布给所用用户节点；</p>
+<p>最后再利用隐私预算<b>ε<sub>1</sub></b>执行<b>LocalLap<sub>k*</sub></b>算法并发布最终的<code>k-star</code>个数。</p>
+</blockquote>
+<p>可以看到两轮交互的算法同样提供<code>ε-edge LDP</code>的隐私保证。</p>
+<h2 id="4-3-三角形的一轮交互算法-LocalRR-triangle"><a href="#4-3-三角形的一轮交互算法-LocalRR-triangle" class="headerlink" title="4.3 三角形的一轮交互算法(LocalRR$\triangle$)"></a>4.3 三角形的一轮交互算法(LocalRR<sub>$\triangle$</sub>)</h2><h3 id="4-3-1-算法思想"><a href="#4-3-1-算法思想" class="headerlink" title="4.3.1 算法思想"></a>4.3.1 算法思想</h3><p>该算法的思想就是随机响应<b>RR</b>和经验估计。值得注意的地方是服务器在拿到扰动后的用户数据时，此时如果直接计算三角形的个数，那么得到的结果将会是一个有偏的估计值。所以需要采用以下引理获取<b>f<sub>$\triangle$</sub>G</b>的无偏估计值：</p>
+<img data-src="/post/undefined/9.png" class title="无偏估计值">
+
+<h3 id="4-3-2-算法描述"><a href="#4-3-2-算法描述" class="headerlink" title="4.3.2 算法描述"></a>4.3.2 算法描述</h3><p>三角形的一轮交互算法（<b>LocalRR<sub>$\triangle$</sub></b>)算法具体如下图所示：</p>
+<img data-src="/post/undefined/10.png" class title="三角形的一轮交互算法">
+
+<blockquote>
+<p>三角形的一轮交互算法(<b>LocalRR<sub>$\triangle$</sub></b>)</p>
+<p>输入：用邻居列表<b>(a<sub>1</sub>, … , a<sub>n</sub>)</b>表示的图<b>G</b>，隐私预算<b>ε</b>；</p>
+<p>输出：<b>f<sub>$\triangle$</sub>G</b>的估计值；</p>
+<p>算法流程：</p>
+<ul>
+<li>每个用户<b>v<sub>i</sub></b>使用隐私预算<b>ε</b>对其邻居列表(<b>a<sub>i, 1</sub>, … , a<sub>i, i-1</sub></b>)进行扰动，然后发布其扰动之后的邻居列表(<b>RR<sub>ε</sub>(a<sub>i, 1</sub>), … , RR<sub>ε</sub>(a<sub>i, i-1</sub>)</b>)；</li>
+<li>服务器根据所有用户上传的扰动之后的邻居列表及无向图的对称性去构建一个无向图<b>G’</b>；</li>
+<li>服务器从无向图<b>G’</b>中数出<b>m<sub>0</sub></b>, <b>m<sub>1</sub></b>, <b>m<sub>2</sub></b>, <b>m<sub>3</sub></b>的个数，并使用公式<b>(4)</b>计算<b>f<sub>$\triangle$</sub>G</b>的无偏估计值，最后返回该无偏估计值。</li>
+</ul>
+</blockquote>
+<h3 id="4-3-3-算法理论证明"><a href="#4-3-3-算法理论证明" class="headerlink" title="4.3.3 算法理论证明"></a>4.3.3 算法理论证明</h3><p><b>LocalRR<sub>$\triangle$</sub></b>算法满足以下两个理论：</p>
+<img data-src="/post/undefined/11.png" class title="理论">
+
+<img data-src="/post/undefined/12.png" class title="理论">
+
+<p>本文在实验过程中增加了一个<b>CentralLap<sub>$\triangle$</sub></b>算法，其对三角形个数的真实值<b>f<sub>$\triangle$</sub>G</b>添加一个拉普拉斯噪声，即输出值为：<b>f<sub>$\triangle$</sub>G + Lap($\widetilde{d_{max}}$&#x2F;ε)</b>。</p>
+<h3 id="4-3-4-误差分析"><a href="#4-3-4-误差分析" class="headerlink" title="4.3.4 误差分析"></a>4.3.4 误差分析</h3><p><b>LocalRR<sub>$\triangle$</sub></b>算法的误差来源于三角形的每条边都是以某种被翻转的概率独立上传，即三条边相当于图<b>G’</b>中的三个随机变量。</p>
+<h2 id="4-4-三角形的两轮交互算法-Local2Rounds-triangle"><a href="#4-4-三角形的两轮交互算法-Local2Rounds-triangle" class="headerlink" title="4.4 三角形的两轮交互算法(Local2Rounds$\triangle$)"></a>4.4 三角形的两轮交互算法(Local2Rounds<sub>$\triangle$</sub>)</h2><h3 id="4-4-1-算法思想"><a href="#4-4-1-算法思想" class="headerlink" title="4.4.1 算法思想"></a>4.4.1 算法思想</h3><p>显然，如果只采用一轮交互，那么每个用户不可能知道是否存在三角形，但是如果增加一轮交互，即在第一轮交互之后，服务器发布加噪之后得到的无向图<b>G’</b>，用户可以根据无向图<b>G’</b>去判断第三条边的存在性。这样每个用户就可以数出三角形的个数。同样值得注意的是，计算得出的无向图<b>G’</b>中三角形的个数肯定是无偏的，因此需要根据以下引理进行计算，从而得到一个<b>f<sub>$\triangle$</sub>G</b>的无偏估计值：</p>
+<img data-src="/post/undefined/13.png" class title="引理">
+
+<img data-src="/post/undefined/14.png" class title="引理">
+
+<h3 id="4-4-2-算法描述"><a href="#4-4-2-算法描述" class="headerlink" title="4.4.2 算法描述"></a>4.4.2 算法描述</h3><p>三角形的两轮交互算法(<b>Local2Rounds<sub>$\triangle$</sub></b>)具体如下图所示：</p>
+<img data-src="/post/undefined/15.png" class title="三角形的两轮交互算法">
+
+<blockquote>
+<p>三角形的两轮交互算法(<b>Local2Rounds<sub>$\triangle$</sub></b>)</p>
+<p>输入：用邻居列表<b>(a<sub>1</sub>, … , a<sub>n</sub>)</b>表示的图<b>G</b>，两个隐私预算<b>ε<sub>1</sub></b>, <b>ε<sub>2</sub></b>，$\widetilde{d_{max}}$；</p>
+<p>输出：<b>f<sub>$\triangle$</sub>G</b>的估计值；</p>
+<p>算法流程：</p>
+<ul>
+<li>每个用户<b>v<sub>i</sub></b>使用隐私预算<b>ε</b>对其邻居列表(<b>a<sub>i, 1</sub>, … , a<sub>i, i-1</sub></b>)进行扰动，然后发布其扰动之后的邻居列表(<b>RR<sub>ε</sub>(a<sub>i, 1</sub>), … , RR<sub>ε</sub>(a<sub>i, i-1</sub>)</b>)；</li>
+<li>服务器根据所有用户上传的扰动之后的邻居列表及无向图的对称性去构建一个无向图<b>G’</b>，同时将无向图<b>G’</b>发布；</li>
+<li>每个用户收到无向图<b>G’</b>之后，首先将邻居列表进行映射，即限定节点的邻居数量必须 <b>&lt;&#x3D;</b> $\widetilde{d_{max}}$，然后数出<b>t<sub>i</sub></b>和<b>s<sub>i</sub></b>的个数，并根据上述引理得到<b>w<sub>i</sub></b>，然后再使用拉普拉斯机制对<b>w<sub>i</sub></b>进行加噪处理，最后将其发送给服务器；</li>
+<li>服务器收到每个用户的<b>w<sub>i</sub></b>后，采用上述引理得到<b>f<sub>$\triangle$</sub>G</b>的估计值，最后返回该无偏估计值。</li>
+</ul>
+</blockquote>
+<h3 id="4-4-3-算法理论证明"><a href="#4-4-3-算法理论证明" class="headerlink" title="4.4.3 算法理论证明"></a>4.4.3 算法理论证明</h3><p><b>Local2Rounds<sub>$\triangle$</sub></b>算法满足以下两个理论：</p>
+<img data-src="/post/undefined/16.png" class title="理论一">
+
+<img data-src="/post/undefined/17.png" class title="理论二">
+
+<p>从第二个理论中可以看出，通过增加一轮交互，均方误差从<b>O(n<sup>4</sup>)</b>减小到了<b>O($\widetilde{d_{max}^3}$n)</b>。</p>
+<h3 id="4-4-4-dmax的估计"><a href="#4-4-4-dmax的估计" class="headerlink" title="4.4.4 dmax的估计"></a>4.4.4 d<sub>max</sub>的估计</h3><p>上面的<b>Local2Rounds<sub>$\triangle$</sub></b>算法将<b>d<sub>max</sub></b>作为其输入，但是并没有提及其获取方式。实际上，在<b>Local2Rounds<sub>$\triangle$</sub></b>算法中采用与<b>LocalLap<sub>k*</sub></b>同样的获取方式。具体来说，可以将隐私预算<b>ε</b>分成三份，即<b>ε &#x3D; ε<sub>0</sub> + ε<sub>1</sub> + ε<sub>2</sub></b>。在第一轮交互过程中，每个用户使用<b>ε<sub>0</sub></b>上传加噪之后的度<b>d<sub>i</sub></b>，同时需要使用<b>ε<sub>1</sub></b>上传其加噪之后的邻居列表；在第二轮交互过程中，服务器首先根据每个<b>d<sub>i</sub></b>获取最大度<b>d<sub>max</sub></b>，然后再进行之后的操作。</p>
+<p>总体来说，整个算法提供<code>(ε0 + ε1 + ε2)-edge LDP</code>和<code>(2ε0 + ε1 + ε2)-relationship LDP</code>。</p>
+<h3 id="4-4-5-时间复杂度和通信开销"><a href="#4-4-5-时间复杂度和通信开销" class="headerlink" title="4.4.5 时间复杂度和通信开销"></a>4.4.5 时间复杂度和通信开销</h3><ul>
+<li>时间复杂度<ul>
+<li><b>LocalRR<sub>$\triangle$</sub></b>算法是低效的，因为该算法需要从<b>G’</b>中数出三角形的个数<b>m<sub>3</sub></b>，而在图中总共有<b>C<sup>3</sup><sub>n</sub></b>个包含三个节点的子图，因此该过程的时间复杂度为<b>O(n<sup>3</sup>)</b>；</li>
+<li>相反，<b>Local2Rounds<sub>$\triangle$</sub></b>算法的时间复杂度为<b>O(n<sup>2</sup> + nd<sup>2</sup><sub>max</sub>)</b>。其中<b>n<sup>2</sup></b>是由于无向图<b>G’</b>的大小为<b>n<sup>2</sup></b>。</li>
+</ul>
+</li>
+<li>通信开销<ul>
+<li>每个用户需要根据无向图<b>G’</b>去数出<b>t<sub>i</sub></b>和<b>s<sub>i</sub></b>的个数，这肯定会导致<b>O(n<sup>2</sup>)</b>的通信开销。但本文没有在实验中估计该算法的通信开销。</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-5-下界"><a href="#4-5-下界" class="headerlink" title="4.5 下界"></a>4.5 下界</h2><p>本小节主要探讨在一轮交互模型的所有算法中，复杂度是否中一定包含<b>n</b>，推导结果表明回答是肯定的。</p>
+<p>输入图的具体结构定义如下图所示：</p>
+<img data-src="/post/undefined/18.png" class title="输入图结构定义">
+
+<p>根据上述结构定义，本文给出了下界的证明，如下图所示：</p>
+<img data-src="/post/undefined/19.png" class title="下界证明">
+
+<h1 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h1><p>本文提出了在本地差分隐私模型中计算子图个数的算法：具体来说，对于三角形计数，给出了一轮交互算法和两轮交互算法；对于<code>k-star</code>计数，给出了一轮交互算法。同时，本文证明了所有一轮交互算法的时间复杂度一定会包含用户节点个数<b>n</b>。</p>
+<p><code>思考</code>：</p>
+<blockquote>
+<ul>
+<li>两轮交互的三角形计算算法中，每个用户都能获取加躁之后的社交网络图，那么实际上攻击者是可以直接从这个图数出三角形的个数的，如果第二轮加躁之后再把个数上传给服务器，之后服务器再求和，那么这个求和结果与直接从加躁之后的图中数出的结果会不会相差很大？而这个差别会不会带来什么影响？如果存在影响那应该怎么解决？</li>
+<li>‌同样是上述算法，在第二轮给三角形个数加躁的过程中，噪声完全覆盖真实值的情况感觉完全有可能发生，那这种情况下会不会导致发布的三角形计数结果误差过大？所以是否可以采用动态调节的思想，当计数小于某个阈值时就不加躁？如果可以的话阈值应该怎么确定？</li>
+<li>‌图中的度分布求解发布等问题感觉可以采用边缘列联表发布的方法去解决，是不是可以沿着这个思路尝试一下</li>
+</ul>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+      <div id="needsharebutton-postbottom">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div><div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px; padding-top: 10px;">--------------------------------------- <i class="fa fa-heart"></i> 本文结束，感谢您的阅读 <i class="fa fa-heart"></i> ---------------------------------------  </div>
+    
+</div>
+<script src="//sdk.jinrishici.com/v2/browser/jinrishici.js"></script>
+<script>
+  jinrishici.load((result) => {
+    let jrsc = document.getElementById('jrsc');
+    const data = result.data;
+    let author = data.origin.author;
+    let title = '《' + data.origin.title + '》';
+    let content = data.content.substr(0, data.content.length - 1);
+    let dynasty = data.origin.dynasty.substr(0, data.origin.dynasty.length - 1);
+    jrsc.innerText = content + ' ' + '[' + dynasty + ']' + author + title;
+  });
+</script>
+<div style="text-align: center"><span id="jrsc" >正在加载今日诗词....</span></div>
+
+          <div class="reward-container">
+  <div></div>
+  <button>
+    赏个鸡腿🍗
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="HL 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="HL 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>HL
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://aurora2hl.github.io/post/876b2f6a.html" title="Locally Differentially Private Analysis of Graph Statistics">https://aurora2hl.github.io/post/876b2f6a.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处，侵权必究！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" rel="tag"><i class="fa fa-tag"></i> 差分隐私</a>
+              <a href="/tags/%E5%9B%BE%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" rel="tag"><i class="fa fa-tag"></i> 图差分隐私</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/a9e145d2.html" rel="prev" title="Answering Multi-Dimensional Analytical Queries under Local Differential Privacy">
+                  <i class="fa fa-chevron-left"></i> Answering Multi-Dimensional Analytical Queries under Local Differential Privacy
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HL</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>总阅读时长 &asymp;</span>
+    <span title="总阅读时长">1:16</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<div>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("07/17/2022 00:00:00");
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+</div><script color="0,0,0" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "default";
+        pbOptions.boxForm = "vertical";
+        pbOptions.position = "bottomRight";
+        pbOptions.networks = "Weibo,Wechat,QQZone,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Aurora2HL","repo":"Aurora2HL.github.io","client_id":"5d3f9fe2f1f3e55b5775","client_secret":"69dac81763a2c26a7ce05e632c038fa56088a421","admin_user":"Aurora2HL","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"c178be1f2a0927da4330091d7dd10345"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

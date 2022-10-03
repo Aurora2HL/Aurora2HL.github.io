@@ -6,7 +6,7 @@
   <link href="https://aurora2hl.github.io/atom.xml" rel="self"/>
   
   <link href="https://aurora2hl.github.io/"/>
-  <updated>2022-08-11T14:51:27.215Z</updated>
+  <updated>2022-10-03T01:39:28.962Z</updated>
   <id>https://aurora2hl.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Locally Differentially Private Analysis of Graph Statistics</title>
+    <link href="https://aurora2hl.github.io/post/876b2f6a.html"/>
+    <id>https://aurora2hl.github.io/post/876b2f6a.html</id>
+    <published>2022-10-03T01:24:35.000Z</published>
+    <updated>2022-10-03T01:39:28.962Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h1&gt;&lt;p&gt;图的差分隐私分析广泛用于从敏感图中发布数据并同时能保护用户隐私，但是大部分现有算法采用的是集中式的隐私模型，而这种模型由于服务器的可信赖性和数据泄露的可能性引起了大量的隐私和安全问题。本文提出了一种在本地差分隐私模型下计算子图个数的算法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;对于三角形计数：提出了使用一轮交互和两轮交互的算法，结果表明两轮交互的算法可以提升效用；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;对于&lt;code&gt;k-star&lt;/code&gt;计数：提出了在非交互式环境下实现&lt;strong&gt;最优估计误差&lt;/strong&gt;的算法；&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;同时，本文对三角形个数和k星型个数等一般的图数据的估计误差提出了新的下界。最后，在两个真实数据集上进行了大量的实验，最终结果表明，在本地差分隐私模型中准确估计子图个数确实是有可能的。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="差分隐私（英文文献）" scheme="https://aurora2hl.github.io/categories/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81%EF%BC%88%E8%8B%B1%E6%96%87%E6%96%87%E7%8C%AE%EF%BC%89/"/>
+    
+    
+    <category term="差分隐私" scheme="https://aurora2hl.github.io/tags/%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/"/>
+    
+    <category term="图差分隐私" scheme="https://aurora2hl.github.io/tags/%E5%9B%BE%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/"/>
+    
+  </entry>
   
   <entry>
     <title>Answering Multi-Dimensional Analytical Queries under Local Differential Privacy</title>

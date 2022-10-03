@@ -727,4 +727,281 @@
         <tag>Base-2指数机制</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Locally Differentially Private Analysis of Graph Statistics</title>
+    <url>/post/876b2f6a.html</url>
+    <content><![CDATA[<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>图的差分隐私分析广泛用于从敏感图中发布数据并同时能保护用户隐私，但是大部分现有算法采用的是集中式的隐私模型，而这种模型由于服务器的可信赖性和数据泄露的可能性引起了大量的隐私和安全问题。本文提出了一种在本地差分隐私模型下计算子图个数的算法：</p>
+<ul>
+<li><p>对于三角形计数：提出了使用一轮交互和两轮交互的算法，结果表明两轮交互的算法可以提升效用；</p>
+</li>
+<li><p>对于<code>k-star</code>计数：提出了在非交互式环境下实现<strong>最优估计误差</strong>的算法；</p>
+</li>
+</ul>
+<p>同时，本文对三角形个数和k星型个数等一般的图数据的估计误差提出了新的下界。最后，在两个真实数据集上进行了大量的实验，最终结果表明，在本地差分隐私模型中准确估计子图个数确实是有可能的。</p>
+<span id="more"></span>
+
+<h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h1><h2 id="1-1-社交网络图"><a href="#1-1-社交网络图" class="headerlink" title="1.1 社交网络图"></a>1.1 社交网络图</h2><p>从社交网路图中可以分析得出一些图的性质，以下是社交网络图的几个基本性质：</p>
+<ul>
+<li><p><code>average degree</code>：即连接到某节点的边的个数，可以用来揭示平均连接性；</p>
+</li>
+<li><p><code>subgraph counts</code>：如三角形、星形、团的个数，可以用来衡量聚类系数等中心属性；</p>
+</li>
+<li><p><code>clustering coefficient</code>：表示一个人的两个朋友也会成为朋友的概率，其大小影响网络上的传播动力学，当其他参数不变时，平均节点聚类系数越大， 传播越慢。</p>
+</li>
+</ul>
+<h2 id="1-2-主要挑战"><a href="#1-2-主要挑战" class="headerlink" title="1.2 主要挑战"></a>1.2 主要挑战</h2><p>本文主要考虑两种最基本的连接属性：子图计数和聚类系数：</p>
+<ul>
+<li><p>三角形：计数时不考虑<strong>自同构</strong>的情况；</p>
+</li>
+<li><p><code>k-star</code>形：一个中心节点连接着k个其他的节点；</p>
+</li>
+<li><p>聚类系数：<br>$$<br>3 * triangles&#x2F;2-stars<br>$$</p>
+</li>
+</ul>
+<p><code>主要挑战</code>：</p>
+<ul>
+<li>在本地差分隐私模型中计算子图个数不能直接采用现有的对于表格式数据的算法和分析。现今本地差分隐私的研究内容主要集中于表格式数据，而缺乏对图这样复杂数据的研究；</li>
+<li>表格式数据假定每个用户的数据是独立的，而在图数据中每个子图都是相互存在联系的。用户的这种相互依赖性成为了作者的算法思想来源：用户和服务器之间的额外交互可能会有所帮助。</li>
+</ul>
+<h2 id="1-3-本文贡献"><a href="#1-3-本文贡献" class="headerlink" title="1.3 本文贡献"></a>1.3 本文贡献</h2><ul>
+<li>对于三角形计数，给出了两个算法：算法一基于随机相应和经验估计；算法二基于用户和服务器额外的一轮交互，同时为每个算法给出了估计误差的上界，结果表明算法二可以有效减小估计误差；</li>
+<li>对于<code>k-star</code>形计数，基于拉普拉斯机制给出了一个简单的算法，并分析了该算法的估计误差的上界，结果表明在所有只采用一轮交互的<code>LDP</code>机制中，该算法在用户数量上是<strong>顺序最优</strong>的；</li>
+<li>对本地模型中一般的图函数给出了估计误差的下界，这比集中式差分隐私中已知的上界更强，然后阐述了局部模型相对于集中式模型的一些限制；</li>
+<li>在两个真实数据集上估计了本文提出的算法，结果表明在本地模型中准确估计子图个数确实是可能的，而且本文提出的算法当用户数量很大时估计误差也很小。</li>
+</ul>
+<h1 id="2-相关工作"><a href="#2-相关工作" class="headerlink" title="2. 相关工作"></a>2. 相关工作</h1><ul>
+<li><p>图<code>DP</code></p>
+<ul>
+<li><p>集中式模型：这种模型中已经提出了很多算法，如子图计数，度分布，特征值和特征向量，合成图等；</p>
+</li>
+<li><p>本地模型：这种模型中算法提出了很多算法，但是很少有关注子图计数的工作；</p>
+<ul>
+<li><code>Haipei Sun</code>等人基于一个假定提出了一个在本地模型中计算子图个数的算法，即每个用户允许他的朋友知道其整个好友列表。但这种假定在许多实际场景中是不可能成立的；</li>
+<li><code>Qingqing Ye</code>等人基于对邻接矩阵采用随机响应机制提出了估计聚类系数的一轮交互算法。但是该算法在三角形计数中引入了很大的偏差，该团队之后发的一篇文章减小了该偏差，但是他们提出的新方法引入了一些近似值，而这些近似值不能确定是否是无偏的。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>LDP</code></p>
+<ul>
+<li>如上所述，现今<code>LDP</code>的研究主要针对表格式的数据进行数据分析和频繁项集挖掘，这些研究内容基本不考虑图数据中用户之间复杂的依赖关系；</li>
+</ul>
+</li>
+<li><p>上界&#x2F;下界</p>
+<ul>
+<li>同样由于现有的<code>LDP</code>研究主要针对于表格式的数据，其假定每个原始的数据值都是从一个隐含的分布中独立采样得出的，因此这些研究中提出的上下界不适用于本文的图场景（在图中每个三角形和<code>k-star</code>都不是独立的，其与很多边都存在关联）。</li>
+</ul>
+</li>
+</ul>
+<h1 id="3-初步"><a href="#3-初步" class="headerlink" title="3. 初步"></a>3. 初步</h1><h2 id="3-1-图和DP"><a href="#3-1-图和DP" class="headerlink" title="3.1 图和DP"></a>3.1 图和DP</h2><ul>
+<li><p>图</p>
+<ul>
+<li><b>n</b>：用户（节点）数量</li>
+<li><b>d<sub>max</sub></b>：最大度</li>
+</ul>
+</li>
+<li><p><code>DP</code>分类</p>
+<ul>
+<li>根据隐含结构：<ul>
+<li>集中式<code>DP</code></li>
+<li><code>LDP</code></li>
+</ul>
+</li>
+<li>根据研究数据（如果是图数据）：<ul>
+<li><code>edge DP</code>：两个邻居图只有一条边不同；</li>
+<li><code>node DP</code>：两个邻居图相差一个节点（从图<b>G</b>中去除一个节点及其邻接边就得到了邻居图）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>ε-edge centralized DP</code></p>
+<img data-src="/post/undefined/1.png" class title="ε-edge centralized DP定义">
+
+<blockquote>
+<p><code>Note</code>:</p>
+<ul>
+<li>如果两个邻居图中有<b>k</b>条边不同，那么隐私预算就为<b>kε</b></li>
+<li>集中式模型中的<code>edge DP</code>是两个邻居图，注意与下面的本地模型中的<code>edge DP</code>相区分</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="3-2-LDP"><a href="#3-2-LDP" class="headerlink" title="3.2 LDP"></a>3.2 LDP</h2><p>采用差分隐私保护用户数据一个首要原则就是需要先想清楚我们具体要保护用户的什么数据。对于图数据来说，本文考虑以下两种本地模型下的<code>edge DP</code>：<code>edge LDP</code>和<code>relationship DP</code>。</p>
+<h3 id="3-2-1-Edge-LDP"><a href="#3-2-1-Edge-LDP" class="headerlink" title="3.2.1 Edge LDP"></a>3.2.1 Edge LDP</h3><p><code>edge LDP</code>的定义基于用户的邻居列表。图G可以用邻居列表表示为<b>a<sub>1</sub>, … , a<sub>n</sub></b>，其中<b>a<sub>i</sub></b>是邻接矩阵的第<b>i</b>行，且<b>a<sub>i</sub>&#x3D;(a<sub>i, 1</sub>, … ,a<sub>i, n</sub>) ∈ {0, 1}<sup>n</sup></b>，其具体定义如下：</p>
+<img data-src="/post/undefined/2.png" class title="edge LDP定义">
+
+<h3 id="3-2-2-Relationship-DP"><a href="#3-2-2-Relationship-DP" class="headerlink" title="3.2.2 Relationship DP"></a>3.2.2 Relationship DP</h3><p>在社交网络图中，通常两个用户会共享他们之间边的存在性信息，为了隐藏这条相互边，必须考虑两个用户的数出都可能泄露信息，因此本文提出了<code>relationship DP</code>。<code>relationship DP</code>定义如下：</p>
+<img data-src="/post/undefined/3.png" class title="relationship DP定义">
+
+<h3 id="3-2-3-各种DP间的区别"><a href="#3-2-3-各种DP间的区别" class="headerlink" title="3.2.3 各种DP间的区别"></a>3.2.3 各种DP间的区别</h3><ul>
+<li><code>egde LDP</code>与<code>relationship DP</code>：<code>egde LDP</code>将同一条边<b>v<sub>i</sub>&lt;-&gt;v<sub>j</sub></b>在节点<b>v<sub>i</sub></b>和在节点<b>v<sub>j</sub></b>中看作是不同的信息，而在<code>relationship DP</code>中则认为两者相同；</li>
+<li><code>LDP</code>与<code>relationship DP</code>：因为<code>LDP</code>中的每条用户数据都与其他数据相互独立，因此用户可以相信其他用户不会泄露自己的任何信息，而<code>relationship DP</code>研究的彼此存在相互依赖的图数据，因此只有花费隐私预算才能保证这一点，所以<code>relationship DP</code>的隐私保证比<code>LDP</code>更强；</li>
+<li><strong><code>DP</code>与<code>relationship DP</code>：从两者的定义可以看出，<code>DP</code>是对真实值进行扰动，而<code>relationship DP</code>的隐私保证比<code>DP</code>更弱，因为在<code>DP</code>中服务器需要花费更多的隐私预算来保护用户的隐私数据。</strong></li>
+</ul>
+<h3 id="3-2-4-Edge-LDP与Relationship-DP的关系"><a href="#3-2-4-Edge-LDP与Relationship-DP的关系" class="headerlink" title="3.2.4 Edge LDP与Relationship DP的关系"></a>3.2.4 Edge LDP与Relationship DP的关系</h3><p><code>edge LDP</code>与<code>relationship DP</code>的关系如下图所示：</p>
+<img data-src="/post/undefined/4.png" class title="edge LDP和relationship DP的关系">
+
+<p>该定理说明，当我们需要将一条边作为一个整体进行保护时，隐私预算的开销需要加倍。考虑到该问题，本文提出了一些没有隐私开销加倍问题的随机算法：</p>
+<ul>
+<li><p>主要思想</p>
+<ul>
+<li>因为社交网络图可以用对称的邻接矩阵表示，因此考虑只对下三角矩阵进行扰动，从而去除了开销加倍的问题；</li>
+</ul>
+</li>
+<li><p>具体做法</p>
+<ul>
+<li>使用随机响应算法对用户<b>i</b>的邻居列表<b>a<sub>i</sub></b>进行扰动时，只对<b>v<sub>1</sub>, … , v<sub>i-1</sub></b>进行扰动，因此随机算法<b>(R<sub>1</sub>, … , R<sub>n</sub>)</b>可以完成下三角矩阵的扰动过程，进而保护整个图数据，同时随机算法<b>(R<sub>1</sub>, … , R<sub>n</sub>)</b>的整个开销预算为<b>ε</b>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-3-全局敏感度"><a href="#3-3-全局敏感度" class="headerlink" title="3.3 全局敏感度"></a>3.3 全局敏感度</h2><p>因为采用拉普拉斯机制去实现<code>edge centralized DP</code>和<code>edge DP</code>，所以需要考虑全局敏感度，其定义如下：</p>
+<img data-src="/post/undefined/5.png" class title="全局敏感度">
+
+<p>图中的全局敏感度可能会特别大，例如，在图中增加一条边可能会导致三角形的个数增加<b>n-2</b>（将新增的边作为新产生的三角形的一条边，那么再从剩下的<b>n-2</b>个节点中任意选出一个节点就可以构建一个三角形），<code>k-star</code>的个数增加<b>2C<sub>n</sub><sup>k-1</sup></b>（分别以新增的边的两个节点为<code>k-star</code>的中心，那么还需要从剩下的<b>n-2</b>个节点中选出<b>k-1</b>个节点就可以构建一个<code>k-star</code>）。一种降低全局敏感度的有效方法是采用<code>graph projection</code>，即从邻居列表中去除一些邻居从而使得最大度<b>d<sub>max</sub></b>可以以一个预定值<b>$\widetilde{d_{max}}$&lt;&lt;n</b>作为其上界，这种方法使得当在图中增加一条边时三角形的个数最多增加<b>$\widetilde{d_{max}}$</b>，<code>k-star</code>的个数最多增加<b>C<sub>$\widetilde{d_{max}}$</sub><sup>k-1</sup></b>。</p>
+<p>一般选取最大度<b>d<sub>max</sub></b>作为<b>$\widetilde{d_{max}}$</b>的值，这样可以避免从邻居列表中去除邻居。然而最大度<b>d<sub>max</sub></b>可能会泄露原始图的隐私信息。因此在本文中采用了一种差分隐私随机梯度下降的自适应裁剪算法：先通过<code>edge LDP</code>估计出<b>d<sub>max</sub></b>的值，然后再将该值设置为<b>$\widetilde{d_{max}}$</b>的值。</p>
+<h2 id="3-4-图数据和效用衡量"><a href="#3-4-图数据和效用衡量" class="headerlink" title="3.4 图数据和效用衡量"></a>3.4 图数据和效用衡量</h2><ul>
+<li>图数据<ul>
+<li>本文考虑一类图函数：以图<b>G</b>作为输入，输出三角形，<code>k-star</code>的个数和聚类系数等图数据；</li>
+</ul>
+</li>
+<li>效用衡量<ul>
+<li>本文使用均方误差（<b>l<sub>2</sub> loss</b>）和相对误差进行效用衡量。</li>
+</ul>
+</li>
+</ul>
+<h1 id="4-算法"><a href="#4-算法" class="headerlink" title="4. 算法"></a>4. 算法</h1><h2 id="4-1-模型构建"><a href="#4-1-模型构建" class="headerlink" title="4.1 模型构建"></a>4.1 模型构建</h2><ul>
+<li><p>一轮交互模型</p>
+<ul>
+<li>服务器给用户<b>v<sub>i</sub></b>发送一次查询<b>R<sub>i</sub></b>，然后用户<b>v<sub>i</sub></b>单独发送其回答<b>R<sub>i</sub>(a<sub>i</sub>)</b>给服务器；</li>
+</ul>
+</li>
+<li><p>多轮交互模型</p>
+<ul>
+<li>服务器给用户<b>v<sub>i</sub></b>发送多次查询<b>R<sub>i</sub></b>，然后用户<b>v<sub>i</sub></b>单独发送其回答<b>R<sub>i</sub>(a<sub>i</sub>)</b>给服务器，这种模型可能使得可能查询得到更准确的图统计数据；</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-2-k-star的一轮交互算法-LocalLapk"><a href="#4-2-k-star的一轮交互算法-LocalLapk" class="headerlink" title="4.2 k-star的一轮交互算法(LocalLapk*)"></a>4.2 k-star的一轮交互算法(LocalLap<sub>k*</sub>)</h2><h3 id="4-2-1-算法描述"><a href="#4-2-1-算法描述" class="headerlink" title="4.2.1 算法描述"></a>4.2.1 算法描述</h3><p><code>k-star</code>的一轮交互算法(<b>LocalLap<sub>k*</sub></b>)具体如下图所示：</p>
+<img data-src="/post/undefined/6.png" class title="k-star一轮交互算法">
+
+<blockquote>
+<p><code>k-star</code>的一轮交互算法(<b>LocalLap<sub>k*</sub></b>)<br>输入：用邻居列表<b>(a<sub>1</sub>, … , a<sub>n</sub>)</b>表示的图<b>G</b>，隐私预算<b>ε</b>，<b>$\widetilde{d_{max}}$</b>；</p>
+<p>输出：<code>k-star</code>图形个数的估计值；</p>
+<p>算法流程：</p>
+<ul>
+<li>初始化$\triangle$</li>
+<li>对每一个邻居列表进行如下操作：<ul>
+<li>将邻居列表进行映射，即限定节点的邻居数量必须 <b>&lt;&#x3D;</b> <b>$\widetilde{d_{max}}$</b>；</li>
+<li>映射完毕后计算节点的度数；</li>
+<li>计算以当前节点为中心的<code>k-star</code>图形的个数<b>r<sub>i</sub></b>；</li>
+<li>将<b>r<sub>i</sub></b>添加拉普拉斯噪声然后发布；</li>
+</ul>
+</li>
+<li>将所有<b>r<sub>i</sub></b>值进行求和并返回总和。</li>
+</ul>
+</blockquote>
+<h3 id="4-2-2-算法理论证明"><a href="#4-2-2-算法理论证明" class="headerlink" title="4.2.2 算法理论证明"></a>4.2.2 算法理论证明</h3><p><b>LocalLap<sub>k*</sub></b>算法满足以下两个理论：</p>
+<img data-src="/post/undefined/7.png" class title="理论">
+
+<p>由于<b>LocalLap<sub>k*</sub></b>对邻居列表添加拉普拉斯噪声的总次数为<b>n</b>，所以复杂度中存在<b>n</b>；而在集中式模型中因为是对<code>k-star</code>总和进行加噪，所以复杂度中没有<b>n</b>。</p>
+<p>在<code>edge centralized DP</code>模型中<b>f<sub>k*</sub></b>的敏感度为<b>2C<sub>$\widetilde{d_{max}}$</sub><sup>k-1</sup></b>，因此本文在实验过程中增加了一个<b>CentralLap<sub>k</sub></b>算法，其对<code>k-star</code>的真实值<b>f<sub>k</sub>(G)</b>添加一个拉普拉斯噪声，即<b>CentralLap<sub>k</sub></b>算法的输出值为：<b>f<sub>k</sub>(G)+Lap(2(C<sub>$\widetilde{d_{max}}$</sub><sup>k-1</sup>)&#x2F;ε)</b>。</p>
+<h3 id="4-2-3-关于n的推论"><a href="#4-2-3-关于n的推论" class="headerlink" title="4.2.3 关于n的推论"></a>4.2.3 关于<b>n</b>的推论</h3><p>一轮交互算法中<b>n</b>存在以下推论：</p>
+<img data-src="/post/undefined/8.png" class title="推论">
+
+<p>本文在实验中发现当<b>n</b>很大时<b>LocalLap<sub>k*</sub></b>算法仍然能准确的估计<b>f<sub>k</sub>(G)</b>。而且，随着<b>n</b>的增大相对误差也逐渐减小。</p>
+<h3 id="4-2-4-dmax的估计"><a href="#4-2-4-dmax的估计" class="headerlink" title="4.2.4 dmax的估计"></a>4.2.4 <b>d<sub>max</sub></b>的估计</h3><p>考虑到真实的<b>d<sub>max</sub></b>值可能会泄露隐私信息，因此需要增加一轮交互过程，具体算法过程描述如下：</p>
+<blockquote>
+<p>将隐私预算<b>ε</b>分解为两部分，<b>ε &#x3D; ε<sub>0</sub> + ε<sub>1</sub></b>，<b>ε<sub>0</sub></b>用于获取<b>d<sub>max</sub></b>，<b>ε<sub>0</sub></b>用于对<code>k-star</code>的个数值进行加噪；</p>
+<p>然后服务器向每个用户发出询问，得到每个用户节点的度数，并据此得到最大度<b>d<sub>max</sub></b>，然后对其利用隐私预算<b>ε<sub>0</sub></b>对其进行加噪，并发布给所用用户节点；</p>
+<p>最后再利用隐私预算<b>ε<sub>1</sub></b>执行<b>LocalLap<sub>k*</sub></b>算法并发布最终的<code>k-star</code>个数。</p>
+</blockquote>
+<p>可以看到两轮交互的算法同样提供<code>ε-edge LDP</code>的隐私保证。</p>
+<h2 id="4-3-三角形的一轮交互算法-LocalRR-triangle"><a href="#4-3-三角形的一轮交互算法-LocalRR-triangle" class="headerlink" title="4.3 三角形的一轮交互算法(LocalRR$\triangle$)"></a>4.3 三角形的一轮交互算法(LocalRR<sub>$\triangle$</sub>)</h2><h3 id="4-3-1-算法思想"><a href="#4-3-1-算法思想" class="headerlink" title="4.3.1 算法思想"></a>4.3.1 算法思想</h3><p>该算法的思想就是随机响应<b>RR</b>和经验估计。值得注意的地方是服务器在拿到扰动后的用户数据时，此时如果直接计算三角形的个数，那么得到的结果将会是一个有偏的估计值。所以需要采用以下引理获取<b>f<sub>$\triangle$</sub>G</b>的无偏估计值：</p>
+<img data-src="/post/undefined/9.png" class title="无偏估计值">
+
+<h3 id="4-3-2-算法描述"><a href="#4-3-2-算法描述" class="headerlink" title="4.3.2 算法描述"></a>4.3.2 算法描述</h3><p>三角形的一轮交互算法（<b>LocalRR<sub>$\triangle$</sub></b>)算法具体如下图所示：</p>
+<img data-src="/post/undefined/10.png" class title="三角形的一轮交互算法">
+
+<blockquote>
+<p>三角形的一轮交互算法(<b>LocalRR<sub>$\triangle$</sub></b>)</p>
+<p>输入：用邻居列表<b>(a<sub>1</sub>, … , a<sub>n</sub>)</b>表示的图<b>G</b>，隐私预算<b>ε</b>；</p>
+<p>输出：<b>f<sub>$\triangle$</sub>G</b>的估计值；</p>
+<p>算法流程：</p>
+<ul>
+<li>每个用户<b>v<sub>i</sub></b>使用隐私预算<b>ε</b>对其邻居列表(<b>a<sub>i, 1</sub>, … , a<sub>i, i-1</sub></b>)进行扰动，然后发布其扰动之后的邻居列表(<b>RR<sub>ε</sub>(a<sub>i, 1</sub>), … , RR<sub>ε</sub>(a<sub>i, i-1</sub>)</b>)；</li>
+<li>服务器根据所有用户上传的扰动之后的邻居列表及无向图的对称性去构建一个无向图<b>G’</b>；</li>
+<li>服务器从无向图<b>G’</b>中数出<b>m<sub>0</sub></b>, <b>m<sub>1</sub></b>, <b>m<sub>2</sub></b>, <b>m<sub>3</sub></b>的个数，并使用公式<b>(4)</b>计算<b>f<sub>$\triangle$</sub>G</b>的无偏估计值，最后返回该无偏估计值。</li>
+</ul>
+</blockquote>
+<h3 id="4-3-3-算法理论证明"><a href="#4-3-3-算法理论证明" class="headerlink" title="4.3.3 算法理论证明"></a>4.3.3 算法理论证明</h3><p><b>LocalRR<sub>$\triangle$</sub></b>算法满足以下两个理论：</p>
+<img data-src="/post/undefined/11.png" class title="理论">
+
+<img data-src="/post/undefined/12.png" class title="理论">
+
+<p>本文在实验过程中增加了一个<b>CentralLap<sub>$\triangle$</sub></b>算法，其对三角形个数的真实值<b>f<sub>$\triangle$</sub>G</b>添加一个拉普拉斯噪声，即输出值为：<b>f<sub>$\triangle$</sub>G + Lap($\widetilde{d_{max}}$&#x2F;ε)</b>。</p>
+<h3 id="4-3-4-误差分析"><a href="#4-3-4-误差分析" class="headerlink" title="4.3.4 误差分析"></a>4.3.4 误差分析</h3><p><b>LocalRR<sub>$\triangle$</sub></b>算法的误差来源于三角形的每条边都是以某种被翻转的概率独立上传，即三条边相当于图<b>G’</b>中的三个随机变量。</p>
+<h2 id="4-4-三角形的两轮交互算法-Local2Rounds-triangle"><a href="#4-4-三角形的两轮交互算法-Local2Rounds-triangle" class="headerlink" title="4.4 三角形的两轮交互算法(Local2Rounds$\triangle$)"></a>4.4 三角形的两轮交互算法(Local2Rounds<sub>$\triangle$</sub>)</h2><h3 id="4-4-1-算法思想"><a href="#4-4-1-算法思想" class="headerlink" title="4.4.1 算法思想"></a>4.4.1 算法思想</h3><p>显然，如果只采用一轮交互，那么每个用户不可能知道是否存在三角形，但是如果增加一轮交互，即在第一轮交互之后，服务器发布加噪之后得到的无向图<b>G’</b>，用户可以根据无向图<b>G’</b>去判断第三条边的存在性。这样每个用户就可以数出三角形的个数。同样值得注意的是，计算得出的无向图<b>G’</b>中三角形的个数肯定是无偏的，因此需要根据以下引理进行计算，从而得到一个<b>f<sub>$\triangle$</sub>G</b>的无偏估计值：</p>
+<img data-src="/post/undefined/13.png" class title="引理">
+
+<img data-src="/post/undefined/14.png" class title="引理">
+
+<h3 id="4-4-2-算法描述"><a href="#4-4-2-算法描述" class="headerlink" title="4.4.2 算法描述"></a>4.4.2 算法描述</h3><p>三角形的两轮交互算法(<b>Local2Rounds<sub>$\triangle$</sub></b>)具体如下图所示：</p>
+<img data-src="/post/undefined/15.png" class title="三角形的两轮交互算法">
+
+<blockquote>
+<p>三角形的两轮交互算法(<b>Local2Rounds<sub>$\triangle$</sub></b>)</p>
+<p>输入：用邻居列表<b>(a<sub>1</sub>, … , a<sub>n</sub>)</b>表示的图<b>G</b>，两个隐私预算<b>ε<sub>1</sub></b>, <b>ε<sub>2</sub></b>，$\widetilde{d_{max}}$；</p>
+<p>输出：<b>f<sub>$\triangle$</sub>G</b>的估计值；</p>
+<p>算法流程：</p>
+<ul>
+<li>每个用户<b>v<sub>i</sub></b>使用隐私预算<b>ε</b>对其邻居列表(<b>a<sub>i, 1</sub>, … , a<sub>i, i-1</sub></b>)进行扰动，然后发布其扰动之后的邻居列表(<b>RR<sub>ε</sub>(a<sub>i, 1</sub>), … , RR<sub>ε</sub>(a<sub>i, i-1</sub>)</b>)；</li>
+<li>服务器根据所有用户上传的扰动之后的邻居列表及无向图的对称性去构建一个无向图<b>G’</b>，同时将无向图<b>G’</b>发布；</li>
+<li>每个用户收到无向图<b>G’</b>之后，首先将邻居列表进行映射，即限定节点的邻居数量必须 <b>&lt;&#x3D;</b> $\widetilde{d_{max}}$，然后数出<b>t<sub>i</sub></b>和<b>s<sub>i</sub></b>的个数，并根据上述引理得到<b>w<sub>i</sub></b>，然后再使用拉普拉斯机制对<b>w<sub>i</sub></b>进行加噪处理，最后将其发送给服务器；</li>
+<li>服务器收到每个用户的<b>w<sub>i</sub></b>后，采用上述引理得到<b>f<sub>$\triangle$</sub>G</b>的估计值，最后返回该无偏估计值。</li>
+</ul>
+</blockquote>
+<h3 id="4-4-3-算法理论证明"><a href="#4-4-3-算法理论证明" class="headerlink" title="4.4.3 算法理论证明"></a>4.4.3 算法理论证明</h3><p><b>Local2Rounds<sub>$\triangle$</sub></b>算法满足以下两个理论：</p>
+<img data-src="/post/undefined/16.png" class title="理论一">
+
+<img data-src="/post/undefined/17.png" class title="理论二">
+
+<p>从第二个理论中可以看出，通过增加一轮交互，均方误差从<b>O(n<sup>4</sup>)</b>减小到了<b>O($\widetilde{d_{max}^3}$n)</b>。</p>
+<h3 id="4-4-4-dmax的估计"><a href="#4-4-4-dmax的估计" class="headerlink" title="4.4.4 dmax的估计"></a>4.4.4 d<sub>max</sub>的估计</h3><p>上面的<b>Local2Rounds<sub>$\triangle$</sub></b>算法将<b>d<sub>max</sub></b>作为其输入，但是并没有提及其获取方式。实际上，在<b>Local2Rounds<sub>$\triangle$</sub></b>算法中采用与<b>LocalLap<sub>k*</sub></b>同样的获取方式。具体来说，可以将隐私预算<b>ε</b>分成三份，即<b>ε &#x3D; ε<sub>0</sub> + ε<sub>1</sub> + ε<sub>2</sub></b>。在第一轮交互过程中，每个用户使用<b>ε<sub>0</sub></b>上传加噪之后的度<b>d<sub>i</sub></b>，同时需要使用<b>ε<sub>1</sub></b>上传其加噪之后的邻居列表；在第二轮交互过程中，服务器首先根据每个<b>d<sub>i</sub></b>获取最大度<b>d<sub>max</sub></b>，然后再进行之后的操作。</p>
+<p>总体来说，整个算法提供<code>(ε0 + ε1 + ε2)-edge LDP</code>和<code>(2ε0 + ε1 + ε2)-relationship LDP</code>。</p>
+<h3 id="4-4-5-时间复杂度和通信开销"><a href="#4-4-5-时间复杂度和通信开销" class="headerlink" title="4.4.5 时间复杂度和通信开销"></a>4.4.5 时间复杂度和通信开销</h3><ul>
+<li>时间复杂度<ul>
+<li><b>LocalRR<sub>$\triangle$</sub></b>算法是低效的，因为该算法需要从<b>G’</b>中数出三角形的个数<b>m<sub>3</sub></b>，而在图中总共有<b>C<sup>3</sup><sub>n</sub></b>个包含三个节点的子图，因此该过程的时间复杂度为<b>O(n<sup>3</sup>)</b>；</li>
+<li>相反，<b>Local2Rounds<sub>$\triangle$</sub></b>算法的时间复杂度为<b>O(n<sup>2</sup> + nd<sup>2</sup><sub>max</sub>)</b>。其中<b>n<sup>2</sup></b>是由于无向图<b>G’</b>的大小为<b>n<sup>2</sup></b>。</li>
+</ul>
+</li>
+<li>通信开销<ul>
+<li>每个用户需要根据无向图<b>G’</b>去数出<b>t<sub>i</sub></b>和<b>s<sub>i</sub></b>的个数，这肯定会导致<b>O(n<sup>2</sup>)</b>的通信开销。但本文没有在实验中估计该算法的通信开销。</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-5-下界"><a href="#4-5-下界" class="headerlink" title="4.5 下界"></a>4.5 下界</h2><p>本小节主要探讨在一轮交互模型的所有算法中，复杂度是否中一定包含<b>n</b>，推导结果表明回答是肯定的。</p>
+<p>输入图的具体结构定义如下图所示：</p>
+<img data-src="/post/undefined/18.png" class title="输入图结构定义">
+
+<p>根据上述结构定义，本文给出了下界的证明，如下图所示：</p>
+<img data-src="/post/undefined/19.png" class title="下界证明">
+
+<h1 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h1><p>本文提出了在本地差分隐私模型中计算子图个数的算法：具体来说，对于三角形计数，给出了一轮交互算法和两轮交互算法；对于<code>k-star</code>计数，给出了一轮交互算法。同时，本文证明了所有一轮交互算法的时间复杂度一定会包含用户节点个数<b>n</b>。</p>
+<p><code>思考</code>：</p>
+<blockquote>
+<ul>
+<li>两轮交互的三角形计算算法中，每个用户都能获取加躁之后的社交网络图，那么实际上攻击者是可以直接从这个图数出三角形的个数的，如果第二轮加躁之后再把个数上传给服务器，之后服务器再求和，那么这个求和结果与直接从加躁之后的图中数出的结果会不会相差很大？而这个差别会不会带来什么影响？如果存在影响那应该怎么解决？</li>
+<li>‌同样是上述算法，在第二轮给三角形个数加躁的过程中，噪声完全覆盖真实值的情况感觉完全有可能发生，那这种情况下会不会导致发布的三角形计数结果误差过大？所以是否可以采用动态调节的思想，当计数小于某个阈值时就不加躁？如果可以的话阈值应该怎么确定？</li>
+<li>‌图中的度分布求解发布等问题感觉可以采用边缘列联表发布的方法去解决，是不是可以沿着这个思路尝试一下</li>
+</ul>
+</blockquote>
+]]></content>
+      <categories>
+        <category>差分隐私（英文文献）</category>
+      </categories>
+      <tags>
+        <tag>差分隐私</tag>
+        <tag>图差分隐私</tag>
+      </tags>
+  </entry>
 </search>
